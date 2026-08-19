@@ -2,7 +2,8 @@
 @import "@nuxt/ui";
 
 @theme static {
-  --font-sans: 'Inter', 'Segoe UI', sans-serif;
+  --font-sans: 'JetBrains Mono', 'Segoe UI', monospace;
+  --font-heading: 'Space Mono', 'JetBrains Mono', monospace;
 
   --color-primary-50: #ffe5eb;
   --color-primary-100: #ffc9d3;
@@ -21,6 +22,15 @@
 
 html {
   scroll-behavior: smooth;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
 }
 
 body {
