@@ -3,7 +3,17 @@
 
 @theme static {
   --font-sans: 'JetBrains Mono', 'Segoe UI', monospace;
-  --font-heading: 'Space Mono', 'JetBrains Mono', monospace;
+  --font-heading: 'IBM Plex Mono', 'Space Mono', 'JetBrains Mono', monospace;
+  --font-display: 'IBM Plex Mono', 'Space Mono', 'JetBrains Mono', monospace;
+
+  --color-bg: #120d0f;
+  --color-bg-deep: #0a0708;
+  --color-panel: #1d1417;
+  --color-crimson: #dc143c;
+  --color-crimson-light: #ef476d;
+  --color-gold: #c9a227;
+  --color-slate: #94a3b8;
+  --color-slate-dim: #64748b;
 
   --color-primary-50: #ffe5eb;
   --color-primary-100: #ffc9d3;
@@ -34,11 +44,70 @@ h6 {
 }
 
 body {
-  background: #0f172b;
+  background: var(--color-bg);
   color: #ffffff;
+}
+
+a {
+  color: var(--color-crimson-light);
+  text-decoration: none;
+}
+a:hover {
+  color: var(--color-crimson);
+}
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--color-crimson-light);
+  outline-offset: 3px;
 }
 
 ::selection {
   background: rgba(220, 20, 60, 0.35);
   color: #fff;
+}
+
+@layer components {
+  /* corner-bracket frame, like an RPG stat-block card */
+  .bracket-frame {
+    position: relative;
+    border: 1px solid rgb(255 255 255 / 0.08);
+  }
+  .bracket-frame::before,
+  .bracket-frame::after,
+  .bracket-frame > .bl,
+  .bracket-frame > .br {
+    content: '';
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    border-color: var(--color-gold);
+    border-style: solid;
+    border-width: 0;
+  }
+  .bracket-frame::before { top: -1px; left: -1px; border-top-width: 2px; border-left-width: 2px; }
+  .bracket-frame::after { top: -1px; right: -1px; border-top-width: 2px; border-right-width: 2px; }
+  .bracket-frame > .bl { bottom: -1px; left: -1px; border-bottom-width: 2px; border-left-width: 2px; }
+  .bracket-frame > .br { bottom: -1px; right: -1px; border-bottom-width: 2px; border-right-width: 2px; }
+
+  .statbar {
+    height: 4px;
+    border-radius: 2px;
+    background: rgb(255 255 255 / 0.08);
+    overflow: hidden;
+  }
+  .statbar > span {
+    display: block;
+    height: 100%;
+    background: linear-gradient(90deg, var(--color-crimson), var(--color-crimson-light));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
 }

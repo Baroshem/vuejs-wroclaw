@@ -1,43 +1,56 @@
 <script setup lang="ts">
-const agenda = [
-  { time: '18:30', title: 'Powitanie i networking', description: 'Rozgrzewka, pierwsze rozmowy i integracja społeczności.' },
-  { time: '19:00', title: 'Prezentacje', description: 'Cztery krótkie, praktyczne wystąpienia ekspertów.' },
-  { time: '20:15', title: 'Q&A i dyskusja', description: 'Pytania od społeczności oraz live conversation.' },
-  { time: '20:45', title: 'Afterparty', description: 'Kontynuacja rozmów i nawiązywanie nowych relacji.' }
+const nodes = [
+  { time: '18:30', title: 'Powitanie i networking', desc: 'Rozgrzewka, pierwsze rozmowy i integracja społeczności.' },
+  { time: '19:00', title: 'Prezentacje', desc: 'Cztery krótkie, praktyczne wystąpienia ekspertów.' },
+  { time: '20:15', title: 'Q&A i dyskusja', desc: 'Pytania od społeczności oraz live conversation.' },
+  { time: '20:45', title: 'Afterparty', desc: 'Kontynuacja rozmów i nawiązywanie nowych relacji.' }
 ]
 </script>
 
 <template>
-  <section id="event-details" class="scroll-mt-24 pb-20 md:pb-24">
-    <UContainer>
-      <div class="mb-10 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+  <SectionBand id="agenda">
+    <div class="max-w-[680px]">
+      <div class="mb-10 flex flex-wrap items-end justify-between gap-4">
         <div>
-          <UBadge color="primary" variant="soft" class="mb-3 border border-primary/40 bg-primary/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-primary">
-            Event
-          </UBadge>
-          <h2 class="text-3xl font-black tracking-[-0.05em] text-white md:text-5xl">
+          <UiBadge class="mb-4.5">
+            Event &bull; Quest Log
+          </UiBadge>
+          <h2 class="font-display text-[26px] font-bold md:text-[34px]">
             Co czeka na uczestników?
           </h2>
         </div>
-        <UButton
-          label="Zobacz event na LinkedIn"
-          to="https://www.linkedin.com/events/7287746621629587456/"
-          target="_blank"
-          color="primary"
-          variant="outline"
-          size="lg"
-          trailing-icon="i-lucide-arrow-up-right"
-          class="transition-transform duration-200 hover:-translate-y-0.5"
-        />
+        <UiButton
+          variant="ghost"
+          href="https://www.linkedin.com/events/7287746621629587456/"
+          external
+        >
+          Zobacz na LinkedIn
+        </UiButton>
       </div>
 
-      <div class="grid gap-4 lg:grid-cols-4">
-        <div v-for="item in agenda" :key="item.time" class="rounded-[1.5rem] border border-white/10 bg-slate-900/60 p-5 transition hover:border-primary/40 hover:bg-primary/5 hover:shadow-[0_18px_50px_rgba(220,20,60,0.08)]">
-          <p class="text-xs uppercase tracking-[0.25em] text-primary">{{ item.time }}</p>
-          <h3 class="mt-4 text-xl font-bold text-white">{{ item.title }}</h3>
-          <p class="mt-3 text-sm leading-relaxed text-slate-300">{{ item.description }}</p>
-        </div>
-      </div>
-    </UContainer>
-  </section>
+      <ol class="relative m-0 list-none p-0 md:pl-13">
+        <li
+          v-for="(n, i) in nodes"
+          :key="n.time"
+          class="relative pb-9 last:pb-0 md:before:absolute md:before:-left-[29px] md:before:top-12 md:before:bottom-1 md:before:w-px md:before:bg-[repeating-linear-gradient(to_bottom,rgba(201,162,39,0.35)_0_6px,transparent_6px_12px)] md:before:content-[''] md:last:before:hidden"
+        >
+          <D20Badge
+            :value="i + 1"
+            class="mb-2 md:absolute md:-left-13 md:top-3 md:mb-0"
+          />
+          <div class="border-l-2 border-crimson bg-panel px-4.5 py-3.5">
+            <p class="font-display text-[11px] tracking-[0.1em] text-slate-dim">
+              {{ n.time }}
+            </p>
+            <p class="mt-1 mb-1.5 font-display text-base font-bold">
+              {{ n.title }}
+            </p>
+            <p class="m-0 text-xs leading-relaxed text-slate">
+              {{ n.desc }}
+            </p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </SectionBand>
 </template>

@@ -1,97 +1,77 @@
 <script setup lang="ts">
-const primaryActions = [
-  {
-    label: 'Zarezerwuj miejsce',
-    to: 'https://www.linkedin.com/events/7287746621629587456/',
-    target: '_blank',
-    color: 'primary' as const,
-    size: 'lg' as const
-  },
-  {
-    label: 'CFP',
-    to: 'https://forms.gle/7z8xx8L2F5JKxv3M6',
-    target: '_blank',
-    color: 'neutral' as const,
-    variant: 'outline' as const,
-    size: 'lg' as const
-  }
-]
+import { RESERVE_URL } from '~/utils/links'
 
+const audience = ['Dla developerów Vue i Nuxt', 'Case study i networking', 'Po polsku']
 const stats = [
-  { value: '4', label: 'speakerów' },
-  { value: '1', label: 'wieczór' },
-  { value: '150+', label: 'uczestników' }
+  { num: '4', label: 'Speakerów' },
+  { num: '1', label: 'Wieczór' },
+  { num: '150+', label: 'Uczestników' }
 ]
 </script>
 
 <template>
-  <section
-    id="event"
-    class="relative overflow-hidden border-b border-white/10 bg-[#0F172B]"
-  >
-    <div class="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(220,20,60,0.2),_transparent_42%)]" />
+  <section class="grid items-center gap-10 px-5 pt-10 pb-14 md:min-h-screen md:grid-cols-[1.1fr_1fr] md:gap-16 md:px-16 md:py-24">
+    <div>
+      <UiBadge class="mb-7 before:content-['\2726']">
+        18 października &bull; Wrocław
+      </UiBadge>
 
-    <UContainer class="relative py-16 md:py-24">
-      <div class="grid items-center gap-12 lg:grid-cols-[1.1fr_0.9fr]">
-        <div class="space-y-8">
-          <UBadge
-            class="border border-primary/40 bg-primary/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-primary"
-            color="primary"
-            variant="soft"
-          >
-            18 października • Wrocław
-          </UBadge>
+      <h1 class="mb-6 font-display text-[44px] leading-none font-bold tracking-tight md:text-[76px]">
+        <span class="block text-white">Vue.js</span>
+        <span class="block bg-linear-to-r from-crimson to-crimson-light bg-clip-text text-transparent">Wrocław</span>
+      </h1>
 
-          <div class="space-y-5">
-            <h1 class="text-5xl font-black tracking-[-0.06em] text-white md:text-6xl xl:text-7xl">
-              Vue.js<br>
-              <span class="bg-gradient-to-r from-primary-400 to-red-200 bg-clip-text text-transparent">Wrocław</span>
-            </h1>
+      <p class="mb-6 max-w-[520px] leading-relaxed text-slate">
+        Lokalny meetup dla frontend developerów, architektów aplikacji i osób, które chcą budować
+        lepszy web z Vue.js. Wieczór pełen praktycznych case study, świeżych pomysłów i networkingu.
+      </p>
 
-            <p class="max-w-xl text-lg leading-relaxed text-slate-300 md:text-xl">
-              Lokalny meetup dla frontend developerów, architektów aplikacji i osób, które chcą budować lepszy web z Vue.js.
-              Wieczór pełen praktycznych case study, świeżych pomysłów i networkingu.
-            </p>
+      <div class="mb-6.5 flex flex-wrap gap-2.5">
+        <span
+          v-for="a in audience"
+          :key="a"
+          class="inline-flex items-center gap-2 border border-white/12 px-3 py-1.5 text-[11px] uppercase tracking-[0.12em] text-slate before:size-[5px] before:bg-crimson before:content-['']"
+        >
+          {{ a }}
+        </span>
+      </div>
+
+      <div class="mb-12 flex flex-wrap gap-4">
+        <UiButton
+          :href="RESERVE_URL"
+          external
+          class="max-md:flex-1 max-md:text-center"
+        >
+          Zarezerwuj miejsce
+        </UiButton>
+        <UiButton
+          variant="ghost"
+          href="#cfp"
+          class="max-md:flex-1 max-md:text-center"
+        >
+          Zgłoś prelekcję
+        </UiButton>
+      </div>
+
+      <div class="flex gap-8">
+        <div
+          v-for="s in stats"
+          :key="s.label"
+          class="min-w-[92px]"
+        >
+          <div class="font-display text-3xl font-bold">
+            {{ s.num }}
           </div>
-
-          <div class="flex flex-wrap items-center gap-4">
-            <UButton
-              v-for="action in primaryActions"
-              :key="action.label"
-              :label="action.label"
-              :to="action.to"
-              :target="action.target"
-              :color="action.color"
-              :variant="action.variant"
-              :size="action.size"
-            />
+          <div class="my-1 mb-2 text-[10px] uppercase tracking-[0.2em] text-slate">
+            {{ s.label }}
           </div>
-
-          <div class="grid max-w-xl grid-cols-3 gap-4 pt-2">
-            <div
-              v-for="stat in stats"
-              :key="stat.label"
-              class="rounded-2xl border border-white/10 bg-white/5 p-4 backdrop-blur-sm transition hover:border-primary/50 hover:bg-primary/5"
-            >
-              <div class="text-2xl font-black text-white">
-                {{ stat.value }}
-              </div>
-              <div class="mt-1 text-xs uppercase tracking-[0.2em] text-slate-400">
-                {{ stat.label }}
-              </div>
-            </div>
+          <div class="statbar">
+            <span style="width: 100%" />
           </div>
-        </div>
-
-        <div class="relative">
-          <!-- <div class="absolute -inset-4 rounded-[2rem] bg-gradient-to-br from-primary-500/25 via-primary-500/5 to-transparent blur-2xl" /> -->
-          <img
-            src="/vuejs-wroclaw.svg"
-            alt="Vue.js Wrocław event illustration"
-            class="h-full w-full object-cover"
-          >
         </div>
       </div>
-    </UContainer>
+    </div>
+
+    <HeroSigil />
   </section>
 </template>
