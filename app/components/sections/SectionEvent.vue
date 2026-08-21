@@ -28,16 +28,13 @@ const nodes = [
         </UiButton>
       </div>
 
-      <ol class="relative m-0 list-none p-0 md:pl-13">
+      <ol class="relative m-0 list-none p-0 before:absolute before:left-[23px] before:top-6 before:bottom-6 before:w-px before:bg-[repeating-linear-gradient(to_bottom,rgba(201,162,39,0.35)_0_6px,transparent_6px_12px)] before:content-['']">
         <li
           v-for="(n, i) in nodes"
           :key="n.time"
-          class="relative pb-9 last:pb-0 md:before:absolute md:before:-left-[29px] md:before:top-12 md:before:bottom-1 md:before:w-px md:before:bg-[repeating-linear-gradient(to_bottom,rgba(201,162,39,0.35)_0_6px,transparent_6px_12px)] md:before:content-[''] md:last:before:hidden"
+          class="grid grid-cols-[46px_1fr] items-center gap-4 pb-6 last:pb-0"
         >
-          <D20Badge
-            :value="i + 1"
-            class="mb-2 md:absolute md:-left-13 md:top-3 md:mb-0"
-          />
+          <D20Badge :value="i + 1" />
           <div class="border-l-2 border-crimson bg-panel px-4.5 py-3.5">
             <p class="font-display text-[11px] tracking-[0.1em] text-slate-dim">
               {{ n.time }}
