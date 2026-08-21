@@ -1,16 +1,10 @@
 <script setup lang="ts">
-import { MAP_URL } from '~/utils/links'
-
-const highlights = [
-  'Nowoczesna przestrzeń coworkingowa',
-  'Wysokiej jakości audio i projektor',
-  'Networking i rozmowy po evencie',
-  'Dostęp do Wi-Fi i strefy chillout'
-]
-
 const facts = [
-  { k: 'Start', v: '18:30' },
-  { k: 'Rozmowy', v: 'po sesji' }
+  { k: 'Sala', v: 'Audytorium, poziom 1', sub: '180 miejsc, pełne nagłośnienie i streaming' },
+  { k: 'Dojazd', v: 'Tram 1, 4, 10 — przystanek Uniwersytecka', sub: '8 minut pieszo od Rynku, przez most Słodowy' },
+  { k: 'Parking', v: 'Parking podziemny Nowy Targ', sub: '~6 zł/h, 400 m od wejścia' },
+  { k: 'Dostępność', v: 'Winda i wejście bez progów', sub: 'Napisz do nas, jeśli potrzebujesz wsparcia na miejscu' },
+  { k: 'Po meetupie', v: 'Afterparty w Barbarze', sub: '10 minut spacerem, stolik od 21:00' }
 ]
 </script>
 
@@ -26,32 +20,34 @@ const facts = [
       Gdzie się spotykamy
     </h2>
 
-    <div class="grid items-start gap-7 lg:grid-cols-[1.05fr_1fr] lg:gap-10">
+    <div class="grid items-start gap-10 lg:grid-cols-[1.05fr_1fr]">
       <div>
         <p class="mb-1.5 text-[22px] font-bold">
-          Hub Wrocław
+          Concordia Design
         </p>
         <p class="mb-7 font-display text-[13px] tracking-[0.04em] text-slate">
-          ul. Market Square 18, 50-101 Wrocław
+          Wyspa Słodowa 7, 50-266 Wrocław
         </p>
 
-        <ul class="mb-7.5 space-y-3">
-          <li
-            v-for="item in highlights"
-            :key="item"
-            class="flex items-center gap-3 text-[13px] text-white"
+        <dl class="mb-7.5">
+          <div
+            v-for="fact in facts"
+            :key="fact.k"
+            class="grid grid-cols-[118px_1fr] gap-4 border-t border-dashed border-white/9 py-3 last:border-b"
           >
-            <span class="size-[5px] shrink-0 bg-crimson" />
-            {{ item }}
-          </li>
-        </ul>
+            <dt class="pt-0.5 text-[10px] uppercase tracking-[0.18em] text-slate-dim">
+              {{ fact.k }}
+            </dt>
+            <dd class="m-0 text-[13px] leading-[1.55] text-white">
+              {{ fact.v }}
+              <small class="mt-0.5 block text-xs text-slate">{{ fact.sub }}</small>
+            </dd>
+          </div>
+        </dl>
 
         <div class="flex flex-wrap gap-3">
-          <UiButton
-            :href="MAP_URL"
-            external
-          >
-            Pokaż na mapie
+          <UiButton href="#">
+            Nawiguj
           </UiButton>
           <UiButton
             variant="ghost"
@@ -62,28 +58,17 @@ const facts = [
         </div>
       </div>
 
-      <div class="bracket-frame relative bg-panel p-3.5">
-        <span class="bl" /><span class="br" />
+      <div class="border-l-2 border-crimson bg-panel p-3.5">
         <div class="overflow-hidden">
           <img
             src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1200&q=80"
-            alt="Nowoczesna przestrzeń eventowa"
-            class="h-[280px] w-full object-cover"
+            alt="Zrzut mapy okolicy Wyspy Słodowej"
+            class="h-[320px] w-full object-cover"
           >
         </div>
-        <div class="mt-4 grid grid-cols-2 gap-3">
-          <div
-            v-for="fact in facts"
-            :key="fact.k"
-            class="border-t border-dashed border-white/9 pt-3"
-          >
-            <p class="text-[10px] uppercase tracking-[0.18em] text-slate-dim">
-              {{ fact.k }}
-            </p>
-            <p class="mt-1 font-display text-xl font-bold text-white">
-              {{ fact.v }}
-            </p>
-          </div>
+        <div class="mt-3 flex justify-between gap-3 font-display text-[10px] tracking-[0.16em] text-slate-dim uppercase">
+          <span>51.1128 N &bull; 17.0345 E</span>
+          <span>Wyspa Słodowa</span>
         </div>
       </div>
     </div>
