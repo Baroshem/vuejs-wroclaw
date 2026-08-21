@@ -25,7 +25,7 @@ const stats = [
         <span class="block bg-linear-to-r from-crimson to-crimson-light bg-clip-text text-transparent">Wrocław</span>
       </h1>
 
-      <p class="mb-6 max-w-[520px] leading-relaxed text-slate">
+      <p class="mb-6 max-w-130 leading-relaxed text-slate">
         Lokalny meetup dla frontend developerów, architektów aplikacji i osób, które chcą budować
         lepszy web z Vue.js. Wieczór pełen praktycznych case study, świeżych pomysłów i networkingu.
       </p>
@@ -65,7 +65,7 @@ const stats = [
         <div
           v-for="s in stats"
           :key="s.label"
-          class="min-w-[92px]"
+          class="min-w-23"
         >
           <div class="font-display text-3xl font-bold">
             {{ s.num }}

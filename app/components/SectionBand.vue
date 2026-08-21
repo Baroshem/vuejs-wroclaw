@@ -8,7 +8,7 @@ withDefaults(defineProps<{ id: string, deep?: boolean }>(), { deep: false })
     class="px-5 py-16 md:px-16 md:py-24"
     :class="deep ? 'bg-bg-deep' : 'bg-bg'"
   >
-    <div class="mx-auto max-w-[1120px]">
+    <div class="mx-auto max-w-280">
       <slot />
     </div>
   </section>

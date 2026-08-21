@@ -20,7 +20,7 @@ const links = [
       <img
         src="/vuejs-wroclaw.svg"
         alt=""
-        class="block w-[26px]"
+        class="block w-6.5"
       >
       Vue.js Wrocław
     </a>
@@ -30,7 +30,7 @@ const links = [
           v-for="l in links"
           :key="l.id"
           :href="`#${l.id}`"
-          class="relative pb-[3px] transition-colors"
+          class="relative pb-0.75 transition-colors"
           :class="active === l.id
             ? 'text-crimson-light after:absolute after:inset-x-0 after:-bottom-px after:h-0.5 after:bg-crimson after:content-[\'\']'
             : 'text-slate hover:text-crimson-light'"
@@ -42,7 +42,7 @@ const links = [
         :href="RESERVE_URL"
         target="_blank"
         rel="noopener"
-        class="whitespace-nowrap bg-crimson px-5 py-2.5 text-xs font-bold uppercase tracking-[0.1em] text-white hover:bg-crimson-light hover:text-white"
+        class="whitespace-nowrap bg-crimson px-5 py-2.5 text-xs font-bold uppercase tracking-widest text-white hover:bg-crimson-light hover:text-white"
       >
         Rezerwuj miejsce
       </a>

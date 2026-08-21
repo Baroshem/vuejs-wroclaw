@@ -23,7 +23,7 @@ const steps = [
       <h2 class="mb-3.5 font-display text-[28px] font-bold md:text-[40px]">
         Zgłoś swój temat
       </h2>
-      <p class="mb-8 max-w-[480px] leading-[1.7] text-slate">
+      <p class="mb-8 max-w-120 leading-[1.7] text-slate">
         Szukamy praktycznych historii, pomysłów i doświadczeń, które realnie wspierają ludzi
         tworzących aplikacje w Vue.js.
       </p>
@@ -41,7 +41,7 @@ const steps = [
           :key="s.title"
           class="relative z-1 px-0 py-4 md:px-4 md:py-0"
           :class="i < steps.length - 1
-            ? 'md:after:absolute md:after:top-[22px] md:after:left-[calc(50%+29px)] md:after:right-[calc(-50%+29px)] md:after:h-px md:after:bg-[repeating-linear-gradient(to_right,rgba(201,162,39,0.35)_0_8px,transparent_8px_16px)] md:after:content-[\'\']'
+            ? 'md:after:absolute md:after:top-5.5 md:after:left-[calc(50%+29px)] md:after:right-[calc(-50%+29px)] md:after:h-px md:after:bg-[repeating-linear-gradient(to_right,rgba(201,162,39,0.35)_0_8px,transparent_8px_16px)] md:after:content-[\'\']'
             : ''"
         >
           <D20Badge

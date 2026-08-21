@@ -9,7 +9,7 @@ const nodes = [
 
 <template>
   <SectionBand id="agenda">
-    <div class="max-w-[680px]">
+    <div class="max-w-170">
       <div class="mb-10 flex flex-wrap items-end justify-between gap-4">
         <div>
           <UiBadge class="mb-4.5">
@@ -28,7 +28,7 @@ const nodes = [
         </UiButton>
       </div>
 
-      <ol class="relative m-0 list-none p-0 before:absolute before:left-[23px] before:top-6 before:bottom-6 before:w-px before:bg-[repeating-linear-gradient(to_bottom,rgba(201,162,39,0.35)_0_6px,transparent_6px_12px)] before:content-['']">
+      <ol class="relative m-0 list-none p-0 before:absolute before:left-5.75 before:top-6 before:bottom-6 before:w-px before:bg-[repeating-linear-gradient(to_bottom,rgba(201,162,39,0.35)_0_6px,transparent_6px_12px)] before:content-['']">
         <li
           v-for="(n, i) in nodes"
           :key="n.time"
@@ -36,7 +36,7 @@ const nodes = [
         >
           <D20Badge :value="i + 1" />
           <div class="border-l-2 border-crimson bg-panel px-4.5 py-3.5">
-            <p class="font-display text-[11px] tracking-[0.1em] text-slate-dim">
+            <p class="font-display text-[11px] tracking-widest text-slate-dim">
               {{ n.time }}
             </p>
             <p class="mt-1 mb-1.5 font-display text-base font-bold">

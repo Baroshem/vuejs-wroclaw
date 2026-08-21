@@ -63,7 +63,7 @@ const facts = [
           <img
             src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1200&q=80"
             alt="Zrzut mapy okolicy Wyspy Słodowej"
-            class="h-[320px] w-full object-cover"
+            class="h-80 w-full object-cover"
           >
         </div>
         <div class="mt-3 flex justify-between gap-3 font-display text-[10px] tracking-[0.16em] text-slate-dim uppercase">

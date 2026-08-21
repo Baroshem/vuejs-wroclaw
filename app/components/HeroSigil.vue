@@ -1,10 +1,10 @@
 <template>
   <div class="flex flex-col items-center gap-4">
-    <div class="relative size-[240px] md:size-[380px]">
+    <div class="relative size-60 md:size-95">
       <div class="absolute inset-[14%] rounded-full bg-[radial-gradient(circle,rgba(220,20,60,0.22),transparent_70%)] blur-[10px]" />
 
       <div class="absolute inset-0 animate-[spin_26s_linear_infinite] rounded-full border border-crimson/28">
-        <div class="absolute -top-[14px] left-1/2 -ml-[14px] size-7 animate-[spin_26s_linear_infinite_reverse] rounded-full bg-bg-deep p-1.5 shadow-[0_0_10px_var(--color-crimson)]">
+        <div class="absolute -top-3.5 left-1/2 -ml-3.5 size-7 animate-[spin_26s_linear_infinite_reverse] rounded-full bg-bg-deep p-1.5 shadow-[0_0_10px_var(--color-crimson)]">
           <svg
             viewBox="0 0 24 24"
             fill="#00DC82"
@@ -12,7 +12,7 @@
             <path d="M13.4642 19.8295h8.9218c.2834 0 .5618-.0723.8072-.2098a1.5899 1.5899 0 0 0 .5908-.5732 1.5293 1.5293 0 0 0 .216-.783 1.529 1.529 0 0 0-.2167-.7828L17.7916 7.4142a1.5904 1.5904 0 0 0-.5907-.573 1.6524 1.6524 0 0 0-.807-.2099c-.2833 0-.5616.0724-.807.2098a1.5904 1.5904 0 0 0-.5907.5731L13.4642 9.99l-2.9954-5.0366a1.5913 1.5913 0 0 0-.591-.573 1.6533 1.6533 0 0 0-.8071-.2098c-.2834 0-.5617.0723-.8072.2097a1.5913 1.5913 0 0 0-.591.573L.2168 17.4808A1.5292 1.5292 0 0 0 0 18.2635c-.0001.2749.0744.545.216.783a1.59 1.59 0 0 0 .5908.5732c.2454.1375.5238.2098.8072.2098h5.6003c2.219 0 3.8554-.9454 4.9813-2.7899l2.7337-4.5922L16.3935 9.99l4.3944 7.382h-5.8586ZM7.123 17.3694l-3.9083-.0009 5.8586-9.8421 2.9232 4.921-1.9572 3.2892c-.7478 1.1967-1.5972 1.6328-2.9163 1.6328z" />
           </svg>
         </div>
-        <div class="absolute -bottom-[14px] left-1/2 -ml-[14px] size-7 animate-[spin_26s_linear_infinite_reverse] rounded-full bg-bg-deep p-1.5 shadow-[0_0_10px_#646CFF]">
+        <div class="absolute -bottom-3.5 left-1/2 -ml-3.5 size-7 animate-[spin_26s_linear_infinite_reverse] rounded-full bg-bg-deep p-1.5 shadow-[0_0_10px_#646CFF]">
           <svg
             viewBox="0 0 24 24"
             fill="#646CFF"
@@ -21,8 +21,8 @@
           </svg>
         </div>
       </div>
-      <div class="absolute inset-[30px] animate-[spin_38s_linear_infinite_reverse] rounded-full border border-gold/35 md:inset-[46px]">
-        <div class="absolute -top-[13px] left-1/2 -ml-[13px] size-[26px] animate-[spin_38s_linear_infinite] rounded-full bg-bg-deep p-1.5 shadow-[0_0_8px_rgba(201,162,39,0.8)]">
+      <div class="absolute inset-7.5 animate-[spin_38s_linear_infinite_reverse] rounded-full border border-gold/35 md:inset-11.5">
+        <div class="absolute -top-3.25 left-1/2 -ml-3.25 size-6.5 animate-[spin_38s_linear_infinite] rounded-full bg-bg-deep p-1.5 shadow-[0_0_8px_rgba(201,162,39,0.8)]">
           <svg
             viewBox="0 0 24 24"
             fill="#FFD859"
@@ -30,7 +30,7 @@
             <path d="M13.277.002c-.079-.01-.193.024-.31.09a2.346 2.346 0 0 0-.415.311c-.301.274-.65.68-.985 1.176-.672.99-1.31 2.356-1.485 3.785-.12.977-.154 1.849-.074 2.578a5.878 5.878 0 0 1 1.956-.338c.922 0 1.804.218 2.618.613.197-.637.34-1.395.445-2.246.175-1.429-.1-2.907-.499-4.028a6.695 6.695 0 0 0-.653-1.378 2.296 2.296 0 0 0-.321-.401c-.097-.092-.199-.153-.277-.162zm-6.81 2.965a.603.603 0 0 0-.288.117l-.013.011a.863.863 0 0 0-.177.327c-.051.15-.094.344-.126.565a8.205 8.205 0 0 0-.044 1.637c.08 1.222.397 2.665 1.079 3.769.093.15.193.296.294.442.726-.776 1.567-1.385 2.488-1.768-.1-.79-.06-1.714.066-2.744.038-.31.1-.616.176-.916a6.45 6.45 0 0 0-1.692-1.08 4.575 4.575 0 0 0-1.29-.366 1.805 1.805 0 0 0-.474.006zm11.751 1.789c-.21.003-.442.022-.687.06a5.974 5.974 0 0 0-2.132.76c-.009.146-.019.291-.036.437-.11.888-.258 1.684-.475 2.364.848.468 1.614 1.13 2.267 1.94.823-.85 1.43-2.05 1.787-3.13.187-.57.304-1.1.35-1.514.022-.207.027-.38.017-.51-.01-.133-.042-.206-.04-.202a.35.35 0 0 0-.114-.072 1.516 1.516 0 0 0-.375-.1 3.42 3.42 0 0 0-.562-.033zm-6.254 3.139c-2.014 0-3.83 1.087-5.147 2.834-1.316 1.748-2.131 4.16-2.131 6.807 0 2.65.806 4.258 2.131 5.218C8.132 23.707 9.96 24 11.964 24c2.004 0 3.831-.293 5.147-1.246 1.326-.96 2.133-2.568 2.133-5.218 0-2.647-.816-5.059-2.133-6.806-1.317-1.748-3.134-2.835-5.147-2.835Zm-3.297 5.209a1.282 1.282 0 0 1 .292 2.518c.115.094.177.201.164.307-.032.265-.521.424-1.09.354-.571-.07-1.007-.342-.974-.607.024-.198.302-.336.678-.364a1.282 1.282 0 0 1 .93-2.208zm6.284.22a1.282 1.282 0 0 1 .726 2.303c.437.058.757.244.757.466 0 .267-.466.483-1.04.483-.574 0-1.04-.216-1.04-.483 0-.098.063-.189.17-.265a1.282 1.282 0 0 1 .427-2.505zm-6.318.215a.822.822 0 1 0 .028 1.645.822.822 0 0 0-.028-1.645zm6.284.22a.822.822 0 1 0 .027 1.644.822.822 0 0 0-.027-1.644zm-6.543.109a.338.338 0 1 1-.023.677.338.338 0 0 1 .023-.677zm6.284.22a.339.339 0 1 1-.018 0h.018zm-3.91 1.179c.17.252.432.404.808.447.372.043.694-.05.976-.28a.145.145 0 1 1 .183.226c-.344.28-.745.394-1.192.343-.445-.051-.79-.24-1.016-.574a.145.145 0 1 1 .24-.162z" />
           </svg>
         </div>
-        <div class="absolute -bottom-[13px] left-1/2 -ml-[13px] size-[26px] animate-[spin_38s_linear_infinite] rounded-full bg-bg-deep p-1.5 shadow-[0_0_8px_#6E9F18]">
+        <div class="absolute -bottom-3.25 left-1/2 -ml-3.25 size-6.5 animate-[spin_38s_linear_infinite] rounded-full bg-bg-deep p-1.5 shadow-[0_0_8px_#6E9F18]">
           <svg
             viewBox="0 0 24 24"
             fill="#6E9F18"
@@ -39,8 +39,8 @@
           </svg>
         </div>
       </div>
-      <div class="absolute inset-[58px] animate-[spin_60s_linear_infinite] rounded-full border border-dashed border-white/10 md:inset-[92px]">
-        <div class="absolute -top-[11px] left-1/2 -ml-[11px] size-[22px] animate-[spin_60s_linear_infinite_reverse] rounded-full bg-bg-deep p-1.5 shadow-[0_0_8px_#3178C6]">
+      <div class="absolute inset-14.5 animate-[spin_60s_linear_infinite] rounded-full border border-dashed border-white/10 md:inset-23">
+        <div class="absolute -top-2.75 left-1/2 -ml-2.75 size-5.5 animate-[spin_60s_linear_infinite_reverse] rounded-full bg-bg-deep p-1.5 shadow-[0_0_8px_#3178C6]">
           <svg
             viewBox="0 0 24 24"
             fill="#3178C6"
@@ -48,7 +48,7 @@
             <path d="M1.125 0C.502 0 0 .502 0 1.125v21.75C0 23.498.502 24 1.125 24h21.75c.623 0 1.125-.502 1.125-1.125V1.125C24 .502 23.498 0 22.875 0zm17.363 9.75c.612 0 1.154.037 1.627.111a6.38 6.38 0 0 1 1.306.34v2.458a3.95 3.95 0 0 0-.643-.361 5.093 5.093 0 0 0-.717-.26 5.453 5.453 0 0 0-1.426-.2c-.3 0-.573.028-.819.086a2.1 2.1 0 0 0-.623.242c-.17.104-.3.229-.393.374a.888.888 0 0 0-.14.49c0 .196.053.373.156.529.104.156.252.304.443.444s.423.276.696.41c.273.135.582.274.926.416.47.197.892.407 1.266.628.374.222.695.473.963.753.268.279.472.598.614.957.142.359.214.776.214 1.253 0 .657-.125 1.21-.373 1.656a3.033 3.033 0 0 1-1.012 1.085 4.38 4.38 0 0 1-1.487.596c-.566.12-1.163.18-1.79.18a9.916 9.916 0 0 1-1.84-.164 5.544 5.544 0 0 1-1.512-.493v-2.63a5.033 5.033 0 0 0 3.237 1.2c.333 0 .624-.03.872-.09.249-.06.456-.144.623-.25.166-.108.29-.234.373-.38a1.023 1.023 0 0 0-.074-1.089 2.12 2.12 0 0 0-.537-.5 5.597 5.597 0 0 0-.807-.444 27.72 27.72 0 0 0-1.007-.436c-.918-.383-1.602-.852-2.053-1.405-.45-.553-.676-1.222-.676-2.005 0-.614.123-1.141.369-1.582.246-.441.58-.804 1.004-1.089a4.494 4.494 0 0 1 1.47-.629 7.536 7.536 0 0 1 1.77-.201zm-15.113.188h9.563v2.166H9.506v9.646H6.789v-9.646H3.375z" />
           </svg>
         </div>
-        <div class="absolute -bottom-[11px] left-1/2 -ml-[11px] size-[22px] animate-[spin_60s_linear_infinite_reverse] rounded-full bg-bg-deep p-1.5 shadow-[0_0_8px_#4FC08D]">
+        <div class="absolute -bottom-2.75 left-1/2 -ml-2.75 size-5.5 animate-[spin_60s_linear_infinite_reverse] rounded-full bg-bg-deep p-1.5 shadow-[0_0_8px_#4FC08D]">
           <svg
             viewBox="0 0 24 24"
             fill="#4FC08D"
@@ -58,7 +58,7 @@
         </div>
       </div>
 
-      <div class="absolute inset-[74px] flex animate-[float_7s_ease-in-out_infinite] items-center justify-center md:inset-[118px]">
+      <div class="absolute inset-18.5 flex animate-[float_7s_ease-in-out_infinite] items-center justify-center md:inset-29.5">
         <svg
           viewBox="0 0 300 257"
           class="w-full overflow-visible"

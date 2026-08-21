@@ -23,7 +23,7 @@ const edges = [
 
 <template>
   <div
-    class="h-[53px] w-[46px] shrink-0"
+    class="h-13.25 w-11.5 shrink-0"
     :class="locked ? 'text-slate-dim' : 'text-white drop-shadow-[0_0_5px_rgba(220,20,60,0.35)]'"
   >
     <svg
