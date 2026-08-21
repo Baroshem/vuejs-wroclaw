@@ -14,7 +14,11 @@ const steps = [
       <span class="bl" /><span class="br" />
 
       <UiBadge class="mb-5">
-        &#9876; Rekrutacja do drużyny
+        <UIcon
+          name="i-lucide-swords"
+          class="size-5"
+        />
+        Rekrutacja do drużyny
       </UiBadge>
       <h2 class="mb-3.5 font-display text-[28px] font-bold md:text-[40px]">
         Zgłoś swój temat

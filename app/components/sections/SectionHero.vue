@@ -12,7 +12,11 @@ const stats = [
 <template>
   <section class="grid items-center gap-10 px-5 pt-10 pb-14 md:min-h-screen md:grid-cols-[1.1fr_1fr] md:gap-16 md:px-16 md:py-24">
     <div>
-      <UiBadge class="mb-7 before:content-['\2726']">
+      <UiBadge class="mb-7">
+        <UIcon
+          name="i-lucide-sparkle"
+          class="size-5"
+        />
         18 października &bull; Wrocław
       </UiBadge>
 
@@ -30,8 +34,12 @@ const stats = [
         <span
           v-for="a in audience"
           :key="a"
-          class="inline-flex items-center gap-2 border border-white/12 px-3 py-1.5 text-[11px] uppercase tracking-[0.12em] text-slate before:size-[5px] before:bg-crimson before:content-['']"
+          class="inline-flex items-center gap-2 border border-white/12 px-3 py-1.5 text-[11px] uppercase tracking-[0.12em] text-slate"
         >
+          <UIcon
+            name="i-lucide-dot"
+            class="size-6 text-crimson"
+          />
           {{ a }}
         </span>
       </div>
