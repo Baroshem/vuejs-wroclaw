@@ -48,22 +48,24 @@ body {
   color: #ffffff;
 }
 
-a {
-  color: var(--color-crimson-light);
-  text-decoration: none;
-}
-a:hover {
-  color: var(--color-crimson);
-}
-a:focus-visible,
-button:focus-visible {
-  outline: 2px solid var(--color-crimson-light);
-  outline-offset: 3px;
-}
-
 ::selection {
   background: rgba(220, 20, 60, 0.35);
   color: #fff;
+}
+
+@layer base {
+  a {
+    color: var(--color-crimson-light);
+    text-decoration: none;
+  }
+  a:hover {
+    color: var(--color-crimson);
+  }
+  a:focus-visible,
+  button:focus-visible {
+    outline: 2px solid var(--color-crimson-light);
+    outline-offset: 3px;
+  }
 }
 
 @layer components {
