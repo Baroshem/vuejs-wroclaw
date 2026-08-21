@@ -47,16 +47,16 @@ const speakers = [
       </h2>
     </div>
 
-    <div class="grid gap-6 md:grid-cols-[repeat(auto-fit,minmax(280px,1fr))]">
+    <div class="grid gap-7 md:grid-cols-[repeat(auto-fit,minmax(340px,1fr))]">
       <article
         v-for="s in speakers"
         :key="s.name"
-        class="bracket-frame bg-panel p-6"
+        class="bracket-frame bg-panel p-8"
       >
         <span class="bl" /><span class="br" />
 
-        <div class="mb-4 flex items-center gap-4">
-          <div class="size-14 shrink-0 border border-crimson/45 p-0.5">
+        <div class="mb-5 flex items-center gap-5">
+          <div class="size-20 shrink-0 border border-crimson/45 p-0.5">
             <img
               :src="s.photo"
               :alt="s.name"
@@ -64,22 +64,22 @@ const speakers = [
             >
           </div>
           <div>
-            <p class="font-display text-base font-bold">
+            <p class="font-display text-xl font-bold">
               {{ s.name }}
             </p>
-            <p class="text-[11px] leading-relaxed tracking-[0.05em] text-slate">
+            <p class="mt-1 text-sm leading-relaxed tracking-[0.03em] text-slate">
               Klasa: <b class="font-bold text-crimson-light">{{ s.role }}</b><br>Gildia: {{ s.guild }}
             </p>
           </div>
         </div>
 
-        <p class="text-[10px] uppercase tracking-[0.2em] text-slate-dim">
+        <p class="text-xs uppercase tracking-[0.2em] text-slate-dim">
           Quest
         </p>
-        <p class="mt-1 mb-3 font-display text-[15px] font-bold">
+        <p class="mt-1.5 mb-4 font-display text-xl font-bold">
           {{ s.talk }}
         </p>
-        <p class="m-0 border-t border-dashed border-white/8 pt-3.5 text-[13px] leading-[1.75] text-slate">
+        <p class="m-0 border-t border-dashed border-white/8 pt-4 text-[15px] leading-[1.75] text-slate">
           {{ s.desc }}
         </p>
       </article>
