@@ -4,25 +4,28 @@ import { RESERVE_URL } from '~/utils/links'
 const audience = ['Dla developerów Vue i Nuxt', 'Case study i networking', 'Po polsku']
 const stats = [
   { num: '4', label: 'Speakerów' },
-  { num: '1', label: 'Wieczór' },
-  { num: '150+', label: 'Uczestników' }
+  { num: '1', label: 'Edycja' },
+  { num: '0 zł', label: 'Wstęp' }
 ]
 </script>
 
 <template>
-  <section class="grid items-center gap-10 px-5 pt-10 pb-14 md:min-h-screen md:grid-cols-[1.1fr_1fr] md:gap-16 md:px-16 md:py-24">
+  <section
+    data-id="hero"
+    class="grid items-center gap-10 px-5 pt-10 pb-14 md:min-h-screen md:grid-cols-[1.1fr_1fr] md:gap-16 md:px-16 md:py-24"
+  >
     <div>
       <UiBadge class="mb-7">
         <UIcon
           name="i-lucide-sparkle"
           class="size-5"
         />
-        18 października &bull; Wrocław
+        23 listopada &bull; Wrocław
       </UiBadge>
 
       <h1 class="mb-6 font-display text-[44px] leading-none font-bold tracking-tight md:text-[76px]">
         <span class="block text-white">Vue.js</span>
-        <span class="block bg-linear-to-r from-crimson to-crimson-light bg-clip-text text-transparent">Wrocław</span>
+        <span class="block bg-linear-to-r from-accent to-accent-light bg-clip-text text-transparent">Wrocław</span>
       </h1>
 
       <p class="mb-6 max-w-130 leading-relaxed text-slate">
@@ -38,7 +41,7 @@ const stats = [
         >
           <UIcon
             name="i-lucide-dot"
-            class="size-6 text-crimson"
+            class="size-6 text-accent"
           />
           {{ a }}
         </span>
@@ -73,9 +76,7 @@ const stats = [
           <div class="my-1 mb-2 text-[10px] uppercase tracking-[0.2em] text-slate">
             {{ s.label }}
           </div>
-          <div class="statbar">
-            <span style="width: 100%" />
-          </div>
+          <div class="h-0.5 w-full rounded-full bg-accent/60" />
         </div>
       </div>
     </div>
