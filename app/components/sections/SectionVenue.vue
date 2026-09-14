@@ -1,9 +1,9 @@
 <script setup lang="ts">
 const facts = [
-  { k: 'Miejsce', v: 'Klimatyczny pub eventowy', sub: 'kultura, wystąpienia i spotkania w sercu Wrocławia' },
+  { k: 'Miejsce', v: 'Klimatyczny pub eventowy', sub: 'spotkania i prelekcje w sercu Wrocławia' },
   { k: 'Dojazd', v: 'Ścisłe centrum — Podwale', sub: 'ok. 10 minut pieszo od Rynku' },
   { k: 'Parking', v: 'Strefa płatnego parkowania', sub: 'w okolicy; wygodnie też komunikacją miejską' },
-  { k: 'Po meetupie', v: 'Afterparty na miejscu', sub: 'rozmowy przy piwie do ok. 22:00' }
+  { k: 'Po meetupie', v: 'Afterparty na miejscu', sub: 'rozmowy i networking do ok. 22:00' }
 ]
 </script>
 
