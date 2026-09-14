@@ -1,82 +1,83 @@
 <script setup lang="ts">
-const venueHighlights = [
-  'Nowoczesna przestrzeń coworkingowa',
-  'Wysokiej jakości audio i proyector',
-  'Networking i rozmowy po eventcie',
-  'Dostęp do Wi‑Fi i strefy chillout'
+const facts = [
+  { k: 'Miejsce', v: 'Klimatyczny pub eventowy', sub: 'spotkania i prelekcje w sercu Wrocławia' },
+  { k: 'Dojazd', v: 'Ścisłe centrum — Podwale', sub: 'ok. 10 minut pieszo od Rynku' },
+  { k: 'Parking', v: 'Strefa płatnego parkowania', sub: 'w okolicy; wygodnie też komunikacją miejską' },
+  { k: 'Po meetupie', v: 'Afterparty na miejscu', sub: 'rozmowy i networking do ok. 22:00' }
 ]
 </script>
 
 <template>
-  <section id="venue" class="scroll-mt-24 bg-slate-950/70 py-20 md:py-24">
-    <UContainer class="grid gap-8 lg:grid-cols-[0.92fr_1.08fr] lg:items-center">
-      <div class="space-y-6">
-        <div>
-          <UBadge color="primary" variant="soft" class="mb-3 border border-primary/40 bg-primary/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-primary">
-            Venue
-          </UBadge>
-          <h2 class="text-3xl font-black tracking-[-0.05em] text-white md:text-5xl">
-            Spotkamy się w sercu Wrocławia
-          </h2>
-        </div>
+  <SectionBand
+    id="venue"
+    deep
+  >
+    <UiBadge class="mb-4.5">
+      <UIcon
+        name="i-lucide-map-pin"
+        class="size-5"
+      />
+      Miejsce &bull; Venue
+    </UiBadge>
+    <h2 class="mb-10 font-display text-[26px] font-bold md:text-[34px]">
+      Gdzie się spotykamy
+    </h2>
 
-        <p class="text-base leading-relaxed text-slate-300">
-          Wspólnie zorganizujemy wieczór w przyjaznej, nowoczesnej przestrzeni, która sprzyja rozmowom i kontaktom między twórcami ekosystemu Vue.js.
+    <div class="grid items-start gap-10 lg:grid-cols-[1.05fr_1fr]">
+      <div>
+        <p class="mb-1.5 text-[22px] font-bold">
+          Klub Wędrówki
+        </p>
+        <p class="mb-7 font-display text-[13px] tracking-[0.04em] text-slate">
+          Podwale 37/38, 50-040 Wrocław
         </p>
 
-        <div class="rounded-3xl border border-white/10 bg-white/5 p-6">
-          <div class="flex items-start gap-4">
-            <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10 text-primary">
-              <UIcon name="i-lucide-map-pin" class="h-5 w-5" />
-            </div>
-            <div>
-              <p class="text-sm uppercase tracking-[0.2em] text-slate-400">Lokalizacja</p>
-              <h3 class="mt-2 text-2xl font-bold text-white">Hub Wrocław</h3>
-              <p class="mt-2 text-slate-300">ul. Market Square 18, 50-101 Wrocław</p>
-            </div>
+        <dl class="mb-7.5">
+          <div
+            v-for="fact in facts"
+            :key="fact.k"
+            class="grid grid-cols-[118px_1fr] gap-4 border-t border-dashed border-white/9 py-3 last:border-b"
+          >
+            <dt class="pt-0.5 text-[10px] uppercase tracking-[0.18em] text-slate-dim">
+              {{ fact.k }}
+            </dt>
+            <dd class="m-0 text-[13px] leading-[1.55] text-white">
+              {{ fact.v }}
+              <small class="mt-0.5 block text-xs text-slate">{{ fact.sub }}</small>
+            </dd>
           </div>
+        </dl>
+
+        <div class="flex flex-wrap gap-3">
+          <UiButton
+            href="https://www.google.com/maps/search/?api=1&query=Klub+W%C4%99dr%C3%B3wki+Podwale+37%2F38+Wroc%C5%82aw"
+            external
+          >
+            Nawiguj
+          </UiButton>
+          <UiButton
+            variant="ghost"
+            href="#agenda"
+          >
+            Zobacz agendę
+          </UiButton>
         </div>
-
-        <ul class="space-y-3">
-          <li v-for="item in venueHighlights" :key="item" class="flex items-center gap-3 text-slate-200">
-            <span class="flex h-5 w-5 items-center justify-center rounded-full bg-primary/15 text-primary">
-              <UIcon name="i-lucide-check" class="h-3.5 w-3.5" />
-            </span>
-            {{ item }}
-          </li>
-        </ul>
-
-        <UButton
-          label="Pokaż na mapie"
-          to="https://maps.google.com/?q=Market%20Square%20Wroc%C5%82aw"
-          target="_blank"
-          color="primary"
-          size="lg"
-          trailing-icon="i-lucide-arrow-up-right"
-          class="transition-transform duration-200 hover:-translate-y-0.5"
-        />
       </div>
 
-      <div class="rounded-[2rem] border border-white/10 bg-slate-900/60 p-4 shadow-[0_25px_70px_rgba(15,23,43,0.6)]">
-        <div class="overflow-hidden rounded-[1.5rem]">
-          <img
-            src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1200&q=80"
-            alt="Nowoczesna przestrzeń eventowa"
-            class="h-[420px] w-full object-cover"
+      <div class="rounded-lg border border-white/10 border-l-2 border-l-accent bg-panel p-3.5">
+        <div class="overflow-hidden">
+          <iframe
+            title="Mapa okolicy Klubu Wędrówki"
+            src="https://www.openstreetmap.org/export/embed.html?bbox=17.0249%2C51.0992%2C17.0349%2C51.1092&layer=mapnik&marker=51.10419%2C17.02990"
+            class="h-80 w-full border-0"
+            loading="lazy"
           />
         </div>
-
-        <div class="mt-5 grid gap-4 sm:grid-cols-2">
-          <div class="rounded-2xl border border-white/10 bg-white/5 p-4">
-            <p class="text-xs uppercase tracking-[0.2em] text-slate-400">Start</p>
-            <p class="mt-2 text-xl font-bold text-white">18:30</p>
-          </div>
-          <div class="rounded-2xl border border-white/10 bg-white/5 p-4">
-            <p class="text-xs uppercase tracking-[0.2em] text-slate-400">Rozmowy</p>
-            <p class="mt-2 text-xl font-bold text-white">po sesji</p>
-          </div>
+        <div class="mt-3 flex justify-between gap-3 font-display text-[10px] tracking-[0.16em] text-slate-dim uppercase">
+          <span>51.1042 N &bull; 17.0299 E</span>
+          <span>Podwale 37/38</span>
         </div>
       </div>
-    </UContainer>
-  </section>
+    </div>
+  </SectionBand>
 </template>
