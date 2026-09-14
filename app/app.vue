@@ -28,7 +28,6 @@ useSeoMeta({
 
 <template>
   <UApp>
-    <CursorGlow />
     <NuxtPage />
   </UApp>
 </template>
