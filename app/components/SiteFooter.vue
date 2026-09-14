@@ -9,7 +9,7 @@ const links = [
 
 <template>
   <footer class="flex flex-wrap items-center justify-between gap-6 border-t border-white/7 px-5 py-10 text-xs text-slate-dim md:px-16">
-    <span>&copy; {{ new Date().getFullYear() }} Vue.js Wrocław &bull; 18 października, Wrocław</span>
+    <span>&copy; {{ new Date().getFullYear() }} Vue.js Wrocław &bull; 23 listopada, Wrocław</span>
     <span class="flex gap-5">
       <a
         v-for="l in links"

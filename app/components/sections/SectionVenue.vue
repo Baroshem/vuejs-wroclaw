@@ -1,10 +1,9 @@
 <script setup lang="ts">
 const facts = [
-  { k: 'Sala', v: 'Audytorium, poziom 1', sub: '180 miejsc, pełne nagłośnienie i streaming' },
-  { k: 'Dojazd', v: 'Tram 1, 4, 10 — przystanek Uniwersytecka', sub: '8 minut pieszo od Rynku, przez most Słodowy' },
-  { k: 'Parking', v: 'Parking podziemny Nowy Targ', sub: '~6 zł/h, 400 m od wejścia' },
-  { k: 'Dostępność', v: 'Winda i wejście bez progów', sub: 'Napisz do nas, jeśli potrzebujesz wsparcia na miejscu' },
-  { k: 'Po meetupie', v: 'Afterparty w Barbarze', sub: '10 minut spacerem, stolik od 21:00' }
+  { k: 'Miejsce', v: 'Klimatyczny pub eventowy', sub: 'kultura, wystąpienia i spotkania w sercu Wrocławia' },
+  { k: 'Dojazd', v: 'Ścisłe centrum — Podwale', sub: 'ok. 10 minut pieszo od Rynku' },
+  { k: 'Parking', v: 'Strefa płatnego parkowania', sub: 'w okolicy; wygodnie też komunikacją miejską' },
+  { k: 'Po meetupie', v: 'Afterparty na miejscu', sub: 'rozmowy przy piwie do ok. 22:00' }
 ]
 </script>
 
@@ -14,7 +13,11 @@ const facts = [
     deep
   >
     <UiBadge class="mb-4.5">
-      Lokacja &bull; Quest Site
+      <UIcon
+        name="i-lucide-map-pin"
+        class="size-5"
+      />
+      Miejsce &bull; Venue
     </UiBadge>
     <h2 class="mb-10 font-display text-[26px] font-bold md:text-[34px]">
       Gdzie się spotykamy
@@ -23,10 +26,10 @@ const facts = [
     <div class="grid items-start gap-10 lg:grid-cols-[1.05fr_1fr]">
       <div>
         <p class="mb-1.5 text-[22px] font-bold">
-          Concordia Design
+          Klub Wędrówki
         </p>
         <p class="mb-7 font-display text-[13px] tracking-[0.04em] text-slate">
-          Wyspa Słodowa 7, 50-266 Wrocław
+          Podwale 37/38, 50-040 Wrocław
         </p>
 
         <dl class="mb-7.5">
@@ -46,7 +49,10 @@ const facts = [
         </dl>
 
         <div class="flex flex-wrap gap-3">
-          <UiButton href="#">
+          <UiButton
+            href="https://www.google.com/maps/search/?api=1&query=Klub+W%C4%99dr%C3%B3wki+Podwale+37%2F38+Wroc%C5%82aw"
+            external
+          >
             Nawiguj
           </UiButton>
           <UiButton
@@ -58,17 +64,18 @@ const facts = [
         </div>
       </div>
 
-      <div class="border-l-2 border-crimson bg-panel p-3.5">
+      <div class="rounded-lg border border-white/10 border-l-2 border-l-accent bg-panel p-3.5">
         <div class="overflow-hidden">
-          <img
-            src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1200&q=80"
-            alt="Zrzut mapy okolicy Wyspy Słodowej"
-            class="h-80 w-full object-cover"
-          >
+          <iframe
+            title="Mapa okolicy Klubu Wędrówki"
+            src="https://www.openstreetmap.org/export/embed.html?bbox=17.0249%2C51.0992%2C17.0349%2C51.1092&layer=mapnik&marker=51.10419%2C17.02990"
+            class="h-80 w-full border-0"
+            loading="lazy"
+          />
         </div>
         <div class="mt-3 flex justify-between gap-3 font-display text-[10px] tracking-[0.16em] text-slate-dim uppercase">
-          <span>51.1128 N &bull; 17.0345 E</span>
-          <span>Wyspa Słodowa</span>
+          <span>51.1042 N &bull; 17.0299 E</span>
+          <span>Podwale 37/38</span>
         </div>
       </div>
     </div>
