@@ -7,10 +7,10 @@ const props = withDefaults(defineProps<{
 
 const tag = computed(() => (props.href ? 'a' : 'button'))
 const classes = computed(() => [
-  'inline-block cursor-pointer px-6.5 py-3.5 text-sm uppercase tracking-[0.05em] transition-colors',
+  'inline-block cursor-pointer rounded-md px-6.5 py-3.5 text-sm transition-colors',
   props.variant === 'primary'
-    ? 'bg-crimson font-bold text-white hover:bg-crimson-light hover:text-white'
-    : 'border border-white/25 bg-transparent text-white hover:border-crimson hover:text-crimson-light'
+    ? 'bg-accent font-bold text-white hover:bg-accent-light hover:text-white'
+    : 'rounded-md border border-white/25 bg-transparent text-white hover:border-accent hover:text-accent'
 ])
 </script>
 
