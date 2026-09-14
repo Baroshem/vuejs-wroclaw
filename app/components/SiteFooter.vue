@@ -8,7 +8,7 @@ const links = [
 </script>
 
 <template>
-  <footer class="flex flex-wrap items-center justify-between gap-6 border-t border-white/7 px-5 py-10 text-xs text-slate-dim md:px-16">
+  <footer class="flex flex-wrap items-center justify-between gap-6 border-t border-white/7 px-5 pt-10 pb-[calc(5.5rem+env(safe-area-inset-bottom))] text-xs text-slate-dim md:px-16 md:pb-10">
     <span>&copy; {{ new Date().getFullYear() }} Vue.js Wrocław &bull; 23 listopada, Wrocław</span>
     <span class="flex gap-5">
       <a
