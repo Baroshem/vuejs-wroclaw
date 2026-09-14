@@ -42,7 +42,7 @@ const links = [
         :href="RESERVE_URL"
         target="_blank"
         rel="noopener"
-        class="whitespace-nowrap rounded-md bg-accent px-5 py-2.5 text-xs font-bold uppercase tracking-widest text-white hover:bg-accent-light hover:text-white"
+        class="hidden whitespace-nowrap rounded-md bg-accent px-5 py-2.5 text-xs font-bold uppercase tracking-widest text-white hover:bg-accent-light hover:text-white md:inline-block"
       >
         Rezerwuj miejsce
       </a>
