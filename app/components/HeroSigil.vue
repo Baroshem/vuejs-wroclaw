@@ -3,7 +3,7 @@
     <div class="relative size-60 md:size-95">
       <div class="absolute inset-[14%] rounded-full bg-[radial-gradient(circle,rgba(220,20,60,0.16),transparent_70%)] blur-[10px]" />
 
-      <div class="absolute inset-0 animate-[spin_26s_linear_infinite] rounded-full border border-accent/30">
+      <div class="scroll-rotate absolute inset-0 animate-[spin_26s_linear_infinite] rounded-full border border-accent/30">
         <div class="absolute -top-3.5 left-1/2 -ml-3.5 size-7 animate-[spin_26s_linear_infinite_reverse] rounded-full bg-bg-deep p-1.5 shadow-[0_0_10px_var(--color-accent)]">
           <svg
             viewBox="0 0 24 24"
@@ -21,7 +21,7 @@
           </svg>
         </div>
       </div>
-      <div class="absolute inset-7.5 animate-[spin_38s_linear_infinite_reverse] rounded-full border border-white/15 md:inset-11.5">
+      <div class="scroll-rotate-rev absolute inset-7.5 animate-[spin_38s_linear_infinite_reverse] rounded-full border border-white/15 md:inset-11.5">
         <div class="absolute -top-3.25 left-1/2 -ml-3.25 size-6.5 animate-[spin_38s_linear_infinite] rounded-full bg-bg-deep p-1.5 shadow-[0_0_8px_rgba(148,163,184,0.45)]">
           <svg
             viewBox="0 0 24 24"
@@ -39,7 +39,7 @@
           </svg>
         </div>
       </div>
-      <div class="absolute inset-14.5 animate-[spin_60s_linear_infinite] rounded-full border border-dashed border-white/10 md:inset-23">
+      <div class="scroll-rotate-slow absolute inset-14.5 animate-[spin_60s_linear_infinite] rounded-full border border-dashed border-white/10 md:inset-23">
         <div class="absolute -top-2.75 left-1/2 -ml-2.75 size-5.5 animate-[spin_60s_linear_infinite_reverse] rounded-full bg-bg-deep p-1.5 shadow-[0_0_8px_#3178C6]">
           <svg
             viewBox="0 0 24 24"
