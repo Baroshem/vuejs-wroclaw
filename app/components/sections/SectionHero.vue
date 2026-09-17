@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { RESERVE_URL } from '~/utils/links'
 
-const audience = ['Dla developerów Vue i Nuxt', 'Case study i networking', 'Po polsku']
+const audience = ['Dla developerów Vue i Nuxt', 'Pure Vue — zero AI', 'Case study i networking', 'Po polsku']
 const stats = [
   { num: '4', label: 'Speakerów' },
   { num: '1', label: 'Edycja' },
