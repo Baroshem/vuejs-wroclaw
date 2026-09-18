@@ -29,6 +29,12 @@
   --ui-primary-foreground: #ffffff;
 }
 
+:root {
+  /* SiteNav rendered height at md+ (md:py-5 + control row). The hero sizes itself
+     against it so the section ends exactly at the fold: 100vh - nav. */
+  --nav-h: 77px;
+}
+
 html {
   scroll-behavior: smooth;
 }

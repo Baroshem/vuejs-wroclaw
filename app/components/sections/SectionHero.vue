@@ -12,7 +12,7 @@ const stats = [
 <template>
   <section
     data-id="hero"
-    class="relative isolate grid items-center gap-10 px-5 pt-10 pb-14 md:min-h-screen md:grid-cols-[1.1fr_1fr] md:gap-16 md:px-16 md:py-24"
+    class="relative isolate grid items-center gap-10 px-5 pt-10 pb-14 md:min-h-[calc(100vh-var(--nav-h))] md:grid-cols-[1.1fr_1fr] md:gap-16 md:px-16 md:py-0"
   >
     <HeroCosmos />
     <div>
@@ -24,7 +24,7 @@ const stats = [
         23 listopada &bull; Wrocław
       </UiBadge>
 
-      <h1 class="mb-6 font-display text-[44px] leading-none font-bold tracking-tight md:text-[76px]">
+      <h1 class="mb-6 font-display text-[44px] leading-none font-bold tracking-tight md:text-[min(76px,9vh)]">
         <span class="block text-white">Vue.js</span>
         <span class="block bg-linear-to-r from-accent to-accent-light bg-clip-text text-transparent">Wrocław</span>
       </h1>
