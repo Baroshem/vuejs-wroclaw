@@ -12,8 +12,9 @@ const stats = [
 <template>
   <section
     data-id="hero"
-    class="grid items-center gap-10 px-5 pt-10 pb-14 md:min-h-screen md:grid-cols-[1.1fr_1fr] md:gap-16 md:px-16 md:py-24"
+    class="relative isolate grid items-center gap-10 px-5 pt-10 pb-14 md:min-h-screen md:grid-cols-[1.1fr_1fr] md:gap-16 md:px-16 md:py-24"
   >
+    <HeroCosmos />
     <div>
       <UiBadge class="mb-7">
         <UIcon
