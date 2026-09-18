@@ -11,6 +11,7 @@ import { RESERVE_URL } from '~/utils/links'
       class="flex min-h-12 w-full items-center justify-center rounded-md bg-accent text-sm font-bold text-white"
     >
       Rezerwuj miejsce
+      <span class="sr-only">(otwiera się w nowej karcie)</span>
     </a>
   </div>
 </template>

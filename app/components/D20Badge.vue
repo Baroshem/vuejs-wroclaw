@@ -29,6 +29,8 @@ const edges = [
     <svg
       viewBox="55 25 390 450"
       class="block size-full"
+      role="img"
+      :aria-label="`Krok ${value}`"
     >
       <g
         fill="none"

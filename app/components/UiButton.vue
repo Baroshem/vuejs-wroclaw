@@ -6,6 +6,7 @@ const props = withDefaults(defineProps<{
 }>(), { variant: 'primary' })
 
 const tag = computed(() => (props.href ? 'a' : 'button'))
+const type = computed(() => (props.href ? undefined : 'button'))
 const classes = computed(() => [
   'inline-block cursor-pointer rounded-md px-6.5 py-3.5 text-sm transition-colors',
   props.variant === 'primary'
@@ -19,9 +20,14 @@ const classes = computed(() => [
     :is="tag"
     :class="classes"
     :href="href"
+    :type="type"
     :target="external ? '_blank' : undefined"
     :rel="external ? 'noopener' : undefined"
   >
     <slot />
+    <span
+      v-if="external"
+      class="sr-only"
+    >(otwiera się w nowej karcie)</span>
   </component>
 </template>

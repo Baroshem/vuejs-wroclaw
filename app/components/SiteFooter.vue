@@ -20,7 +20,7 @@ const links = [
         href="https://www.linkedin.com/events/7287746621629587456/"
         target="_blank"
         rel="noopener"
-      >LinkedIn</a>
+      >LinkedIn<span class="sr-only">(otwiera się w nowej karcie)</span></a>
     </span>
   </footer>
 </template>
