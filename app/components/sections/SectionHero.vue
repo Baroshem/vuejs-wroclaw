@@ -63,6 +63,14 @@ const stats = [
         >
           Zgłoś prelekcję
         </UiButton>
+        <UiButton
+          variant="ghost"
+          href="/event.ics"
+          download
+          class="max-md:flex-1 max-md:text-center"
+        >
+          Dodaj do kalendarza
+        </UiButton>
       </div>
 
       <div class="flex gap-8">
