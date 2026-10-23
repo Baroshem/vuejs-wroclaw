@@ -13,8 +13,8 @@ withDefaults(defineProps<{ label: string, title: string, sub?: string, layered?:
       : ''"
   >
     <div
-      class="relative flex flex-col items-start gap-4 overflow-hidden rounded-xl bg-panel px-6 py-7 transition-[border-color,box-shadow] duration-300 before:pointer-events-none before:absolute before:-bottom-[70px] before:-left-5 before:z-0 before:size-[230px] before:rounded-full before:bg-[radial-gradient(circle,rgba(220,20,60,0.09),transparent_66%)] hover:border-accent/30 hover:shadow-[0_18px_48px_-26px_rgba(220,20,60,0.5)] md:flex-row md:items-center md:gap-7 md:px-8 motion-reduce:transition-none"
-      :class="layered ? 'border border-white/10' : 'border border-dashed border-white/15'"
+      class="relative flex flex-col items-start gap-4 overflow-hidden rounded-xl bg-panel px-6 py-7 before:pointer-events-none before:absolute before:-bottom-[70px] before:-left-5 before:z-0 before:size-[230px] before:rounded-full before:bg-[radial-gradient(circle,rgba(220,20,60,0.09),transparent_66%)] md:flex-row md:items-center md:gap-7 md:px-8"
+      :class="layered ? 'border-white/10' : 'border border-dashed border-white/15'"
     >
       <div class="pointer-events-none absolute right-0 top-0 size-[124px] overflow-hidden max-md:size-[100px]">
         <span class="absolute right-[-44px] top-[30px] w-[180px] rotate-45 border-y border-accent/45 bg-accent/15 py-[5px] text-center font-display text-[10px] uppercase tracking-[0.2em] text-primary-300 indent-[0.2em] max-md:top-[24px] max-md:w-[160px]">
