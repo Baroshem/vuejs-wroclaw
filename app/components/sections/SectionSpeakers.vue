@@ -1,42 +1,20 @@
-<script setup lang="ts">
-const speakers = [
-  {
-    name: 'Prelegent',
-    meta: '',
-    talk: 'Temat wkrótce',
-    desc: 'Szczegóły prelekcji ogłosimy wkrótce — obserwuj nasze kanały.',
-    photo: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=200&q=80'
-  },
-  {
-    name: 'Prelegent',
-    meta: '',
-    talk: 'Temat wkrótce',
-    desc: 'Szczegóły prelekcji ogłosimy wkrótce — obserwuj nasze kanały.',
-    photo: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=200&q=80'
-  },
-  {
-    name: 'Prelegent',
-    meta: '',
-    talk: 'Temat wkrótce',
-    desc: 'Szczegóły prelekcji ogłosimy wkrótce — obserwuj nasze kanały.',
-    photo: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=200&q=80'
-  },
-  {
-    name: 'Prelegent',
-    meta: '',
-    talk: 'Temat wkrótce',
-    desc: 'Szczegóły prelekcji ogłosimy wkrótce — obserwuj nasze kanały.',
-    photo: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=200&q=80'
-  }
-]
-</script>
-
 <template>
   <SectionBand
     id="speakers"
     deep
     wide
   >
+    <!-- NOTE (placeholder reveal, implement when speakers are confirmed):
+         These dashed cards are temporary. For each confirmed speaker, swap the
+         placeholder content for the real speaker card (original layout lives at
+         commit 07881cf) keeping the same card footprint. The swap must be a 3D
+         flip animation: the ? placeholder card flips over to reveal the speaker
+         card, triggered when this section first enters the viewport (so visitors
+         notice newly added speakers). Constraints:
+         - client-side only; the page is prerendered, cards must render fully
+           without JS (flip is an enhancement, not a gate)
+         - honor prefers-reduced-motion: show the speaker card directly, no flip
+         - the BONUS strip below follows the same reveal pattern -->
     <div class="mb-11">
       <UiBadge>
         <UIcon
@@ -49,43 +27,24 @@ const speakers = [
         Kto wystąpi
       </h2>
     </div>
-    <div class="grid gap-7 md:grid-cols-2 xl:grid-cols-4">
-      <article
-        v-for="s in speakers"
-        :key="s.name"
-        class="flex h-full flex-col rounded-xl border border-white/10 bg-panel p-8"
+    <div class="grid grid-cols-2 gap-3 md:gap-7 xl:grid-cols-4">
+      <div
+        v-for="i in 4"
+        :key="i"
+        class="flex flex-col items-center justify-center gap-5 rounded-xl border border-dashed border-white/15 bg-panel px-6 py-10"
       >
-        <div class="mb-5 flex h-20 items-center gap-5">
-          <div class="size-20 shrink-0 rounded-full border border-white/15 p-0.5">
-            <img
-              :src="s.photo"
-              :alt="s.name"
-              class="size-full rounded-full object-cover"
-            >
-          </div>
-          <div class="min-w-0">
-            <p class="break-words font-display text-xl font-bold">
-              {{ s.name }}
-            </p>
-            <p
-              v-if="s.meta"
-              class="mt-1 text-sm leading-relaxed tracking-[0.03em] text-slate"
-            >
-              {{ s.meta }}
-            </p>
-          </div>
-        </div>
-
-        <p class="text-xs uppercase tracking-[0.2em] text-slate-dim">
-          Prelekcja
+        <QuestionMarkBadge class="size-16 md:size-24" />
+        <p class="m-0 text-center font-display text-[10px] uppercase tracking-[0.2em] text-slate-dim md:text-[11px]">
+          Prelegent wkrótce
         </p>
-        <p class="mt-1.5 mb-4 min-h-28 font-display text-xl font-bold">
-          {{ s.talk }}
-        </p>
-        <p class="m-0 border-t border-white/8 pt-4 text-[15px] leading-[1.75] text-slate">
-          {{ s.desc }}
-        </p>
-      </article>
+      </div>
     </div>
+    <BonusSlotCard
+      class="mt-3 md:mt-7"
+      :layered="false"
+      label="Piąty slot"
+      title="Prelegent spoza ekosystemu Vue"
+      sub="Specjalna prelekcja bonusowa — szczegóły ogłosimy wkrótce."
+    />
   </SectionBand>
 </template>

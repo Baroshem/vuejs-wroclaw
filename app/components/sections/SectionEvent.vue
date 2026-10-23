@@ -1,11 +1,4 @@
 <script setup lang="ts">
-const talks = [
-  { n: 1, range: '18:10–18:30', title: 'Temat wkrótce', by: 'Prelegent — ogłoszenie wkrótce' },
-  { n: 2, range: '18:35–18:55', title: 'Temat wkrótce', by: 'Prelegent — ogłoszenie wkrótce' },
-  { n: 3, range: '19:10–19:30', title: 'Temat wkrótce', by: 'Prelegent — ogłoszenie wkrótce' },
-  { n: 4, range: '19:35–19:55', title: 'Temat wkrótce', by: 'Prelegent — ogłoszenie wkrótce' }
-]
-
 const chips = [
   '18:00 Rozpoczęcie',
   '19:00–19:10 Break',
@@ -41,32 +34,28 @@ const chips = [
       </UiButton>
     </div>
 
-    <!-- md+: poziomy stepper -->
+    <!-- md+: poziomy rząd kart "temat wkrótce" -->
     <div class="hidden md:block">
-      <div class="relative">
-        <div class="absolute left-0 right-0 top-[26px] h-px bg-[repeating-linear-gradient(to_right,rgba(148,163,184,0.35)_0_8px,transparent_8px_16px)]" />
-        <div class="grid grid-cols-4 gap-6">
-          <div
-            v-for="t in talks"
-            :key="t.n"
-            class="relative"
-          >
-            <D20Badge
-              :value="t.n"
-              class="relative z-1 mx-auto"
-            />
-            <p class="mt-4 text-center font-display text-[11px] tracking-[0.15em] text-accent-light">
-              {{ t.range }}
-            </p>
-            <p class="mx-auto mt-2 mb-2 max-w-60 text-center font-display text-base font-bold">
-              {{ t.title }}
-            </p>
-            <p class="m-0 text-center text-xs text-slate">
-              {{ t.by }}
+      <div class="grid grid-cols-4 gap-6">
+        <div
+          v-for="i in 4"
+          :key="i"
+          class="relative pb-1.5 pr-1.5 before:absolute before:bottom-0 before:left-1.5 before:right-0 before:top-1.5 before:z-0 before:rounded-xl before:border before:border-dashed before:border-white/15 before:bg-panel before:opacity-55"
+        >
+          <div class="relative flex flex-col items-center justify-center gap-4 overflow-hidden rounded-xl border border-white/10 bg-panel px-4 py-8">
+            <QuestionMarkBadge class="relative z-1 size-14" />
+            <p class="m-0 text-center font-display text-[10px] uppercase tracking-[0.2em] text-slate-dim">
+              Temat wkrótce
             </p>
           </div>
         </div>
       </div>
+      <BonusSlotCard
+        class="mt-6"
+        label="Slot bonusowy"
+        title="Prelekcja spoza ekosystemu Vue"
+        sub="Specjalna prelekcja bonusowa — szczegóły ogłosimy wkrótce."
+      />
       <div class="mt-10 flex flex-wrap gap-x-6 gap-y-2 border-t border-white/10 pt-5">
         <span
           v-for="c in chips"
@@ -76,31 +65,28 @@ const chips = [
       </div>
     </div>
 
-    <!-- mobile: pionowa wersja steppera -->
+    <!-- mobile -->
     <div class="md:hidden">
-      <div class="relative">
-        <div class="absolute bottom-6 left-5.75 top-6 w-px bg-[repeating-linear-gradient(to_bottom,rgba(148,163,184,0.35)_0_6px,transparent_6px_12px)]" />
-        <div class="flex flex-col gap-5">
-          <div
-            v-for="t in talks"
-            :key="t.n"
-            class="relative z-1 grid grid-cols-[46px_1fr] items-center gap-4"
-          >
-            <D20Badge :value="t.n" />
-            <div class="rounded-r-lg border border-white/10 border-l-2 border-l-accent bg-panel px-4 py-3">
-              <p class="font-display text-[11px] tracking-[0.15em] text-accent-light">
-                {{ t.range }}
-              </p>
-              <p class="mt-1 mb-1 font-display text-sm font-bold">
-                {{ t.title }}
-              </p>
-              <p class="m-0 text-xs text-slate">
-                {{ t.by }}
-              </p>
-            </div>
+      <div class="grid grid-cols-2 gap-3">
+        <div
+          v-for="i in 4"
+          :key="i"
+          class="relative pb-1 pr-1 before:absolute before:bottom-0 before:left-1 before:right-0 before:top-1 before:z-0 before:rounded-xl before:border before:border-dashed before:border-white/15 before:bg-panel before:opacity-55"
+        >
+          <div class="relative flex flex-col items-center justify-center gap-3 overflow-hidden rounded-xl border border-white/10 bg-panel px-4 py-6">
+            <QuestionMarkBadge class="relative z-1 size-10" />
+            <p class="m-0 text-center font-display text-[9px] uppercase tracking-[0.18em] text-slate-dim">
+              Temat wkrótce
+            </p>
           </div>
         </div>
       </div>
+      <BonusSlotCard
+        class="mt-3"
+        label="Slot bonusowy"
+        title="Prelekcja spoza ekosystemu Vue"
+        sub="Specjalna prelekcja bonusowa — szczegóły ogłosimy wkrótce."
+      />
       <div class="mt-8 flex flex-wrap gap-x-5 gap-y-2 border-t border-white/10 pt-4">
         <span
           v-for="c in chips"
