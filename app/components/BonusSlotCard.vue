@@ -2,7 +2,7 @@
 // Bonus talk placeholder card — "hidden slot" treatment: offset dashed layer
 // behind the panel + BONUS corner ribbon. The only card allowed to use the
 // ribbon, so "bonus" stays unambiguous vs regular slots.
-withDefaults(defineProps<{ label: string, title: string, sub: string, layered?: boolean }>(), { layered: true })
+withDefaults(defineProps<{ label: string, title: string, sub?: string, layered?: boolean }>(), { layered: true, sub: '' })
 </script>
 
 <template>
@@ -29,7 +29,10 @@ withDefaults(defineProps<{ label: string, title: string, sub: string, layered?: 
         <p class="m-0 font-display text-[15px] font-bold md:text-base">
           {{ title }}
         </p>
-        <p class="m-0 text-xs leading-[1.55] text-slate md:text-[13px]">
+        <p
+          v-if="sub"
+          class="m-0 text-xs leading-[1.55] text-slate md:text-[13px]"
+        >
           {{ sub }}
         </p>
       </div>

@@ -44,7 +44,6 @@
       :layered="false"
       label="Piąty slot"
       title="Prelegent spoza ekosystemu Vue"
-      sub="Specjalna prelekcja bonusowa — szczegóły ogłosimy wkrótce."
     />
   </SectionBand>
 </template>
