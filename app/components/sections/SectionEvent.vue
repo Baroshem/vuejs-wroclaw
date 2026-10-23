@@ -60,7 +60,7 @@ const chips = [
         <span
           v-for="c in chips"
           :key="c"
-          class="font-display text-[11px] tracking-[0.12em] text-slate"
+          class="font-display text-[11px] tracking-[0.12em] text-white"
         >{{ c }}</span>
       </div>
     </div>
@@ -91,7 +91,7 @@ const chips = [
         <span
           v-for="c in chips"
           :key="c"
-          class="font-display text-[11px] tracking-[0.12em] text-slate"
+          class="font-display text-[11px] tracking-[0.12em] text-white"
         >{{ c }}</span>
       </div>
     </div>
