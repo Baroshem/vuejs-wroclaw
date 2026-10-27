@@ -1,4 +1,17 @@
 <script setup lang="ts">
+interface AgendaTalk {
+  title: string
+  speaker: string
+}
+
+// null = still-unconfirmed slot → "Temat wkrótce" card
+const agendaSlots: (AgendaTalk | null)[] = [
+  { title: 'Sztuka tworzenia UI\'a z Vue.js', speaker: 'Przemysław Spaczek' },
+  null,
+  null,
+  null
+]
+
 const chips = [
   '18:00 Rozpoczęcie',
   '19:00–19:10 Break',
@@ -37,18 +50,38 @@ const chips = [
     <!-- md+: poziomy rząd kart "temat wkrótce" -->
     <div class="hidden md:block">
       <div class="grid grid-cols-4 gap-6">
-        <div
-          v-for="i in 4"
-          :key="i"
-          class="relative pb-1.5 pr-1.5 before:absolute before:bottom-0 before:left-1.5 before:right-0 before:top-1.5 before:z-0 before:rounded-xl before:border before:border-dashed before:border-white/15 before:bg-panel before:opacity-55"
+        <template
+          v-for="(talk, i) in agendaSlots"
+          :key="talk?.title ?? `tbd-${i}`"
         >
-          <div class="relative flex flex-col items-center justify-center gap-4 overflow-hidden rounded-xl border border-white/10 bg-panel px-4 py-8">
-            <QuestionMarkBadge class="relative z-1 size-14" />
-            <p class="m-0 text-center font-display text-[10px] uppercase tracking-[0.2em] text-slate-dim">
-              Temat wkrótce
-            </p>
+          <div
+            v-if="talk"
+            class="relative pb-1.5 pr-1.5 before:absolute before:bottom-0 before:left-1.5 before:right-0 before:top-1.5 before:z-0 before:rounded-xl before:border before:border-dashed before:border-white/15 before:bg-panel before:opacity-55"
+          >
+            <div class="relative flex flex-col items-center justify-center gap-3 overflow-hidden rounded-xl border border-white/10 bg-panel px-4 py-8 text-center">
+              <p class="m-0 font-display text-[10px] uppercase tracking-[0.2em] text-slate-dim">
+                Prelekcja
+              </p>
+              <p class="m-0 font-display text-lg font-bold leading-snug">
+                {{ talk.title }}
+              </p>
+              <p class="m-0 text-sm text-slate">
+                {{ talk.speaker }}
+              </p>
+            </div>
           </div>
-        </div>
+          <div
+            v-else
+            class="relative pb-1.5 pr-1.5 before:absolute before:bottom-0 before:left-1.5 before:right-0 before:top-1.5 before:z-0 before:rounded-xl before:border before:border-dashed before:border-white/15 before:bg-panel before:opacity-55"
+          >
+            <div class="relative flex flex-col items-center justify-center gap-4 overflow-hidden rounded-xl border border-white/10 bg-panel px-4 py-8">
+              <QuestionMarkBadge class="relative z-1 size-14" />
+              <p class="m-0 text-center font-display text-[10px] uppercase tracking-[0.2em] text-slate-dim">
+                Temat wkrótce
+              </p>
+            </div>
+          </div>
+        </template>
       </div>
       <BonusSlotCard
         class="mt-6"
@@ -68,18 +101,38 @@ const chips = [
     <!-- mobile -->
     <div class="md:hidden">
       <div class="grid grid-cols-2 gap-3">
-        <div
-          v-for="i in 4"
-          :key="i"
-          class="relative pb-1 pr-1 before:absolute before:bottom-0 before:left-1 before:right-0 before:top-1 before:z-0 before:rounded-xl before:border before:border-dashed before:border-white/15 before:bg-panel before:opacity-55"
+        <template
+          v-for="(talk, i) in agendaSlots"
+          :key="talk?.title ?? `tbd-${i}`"
         >
-          <div class="relative flex flex-col items-center justify-center gap-3 overflow-hidden rounded-xl border border-white/10 bg-panel px-4 py-6">
-            <QuestionMarkBadge class="relative z-1 size-10" />
-            <p class="m-0 text-center font-display text-[9px] uppercase tracking-[0.18em] text-slate-dim">
-              Temat wkrótce
-            </p>
+          <div
+            v-if="talk"
+            class="relative pb-1 pr-1 before:absolute before:bottom-0 before:left-1 before:right-0 before:top-1 before:z-0 before:rounded-xl before:border before:border-dashed before:border-white/15 before:bg-panel before:opacity-55"
+          >
+            <div class="relative flex flex-col items-center justify-center gap-2 overflow-hidden rounded-xl border border-white/10 bg-panel px-3 py-6 text-center">
+              <p class="m-0 font-display text-[9px] uppercase tracking-[0.18em] text-slate-dim">
+                Prelekcja
+              </p>
+              <p class="m-0 font-display text-sm font-bold leading-snug">
+                {{ talk.title }}
+              </p>
+              <p class="m-0 text-xs text-slate">
+                {{ talk.speaker }}
+              </p>
+            </div>
           </div>
-        </div>
+          <div
+            v-else
+            class="relative pb-1 pr-1 before:absolute before:bottom-0 before:left-1 before:right-0 before:top-1 before:z-0 before:rounded-xl before:border before:border-dashed before:border-white/15 before:bg-panel before:opacity-55"
+          >
+            <div class="relative flex flex-col items-center justify-center gap-3 overflow-hidden rounded-xl border border-white/10 bg-panel px-4 py-6">
+              <QuestionMarkBadge class="relative z-1 size-10" />
+              <p class="m-0 text-center font-display text-[9px] uppercase tracking-[0.18em] text-slate-dim">
+                Temat wkrótce
+              </p>
+            </div>
+          </div>
+        </template>
       </div>
       <BonusSlotCard
         class="mt-3"
