@@ -14,7 +14,12 @@ const speakerSlots: (Speaker | null)[] = [
     desc: 'Senior Frontend Developer z wieloletnim doświadczeniem w pracy z Vue.js, TypeScriptem i tworzeniu Design Systemów open-source. Pracował w projektach związanych z eCommerce oraz medtech. Jako aktywny członek społeczności angażuje się w dzielenie się wiedzą oraz promowanie najlepszych praktyk w branży.',
     photo: '/speakers/przemyslaw-spaczek.jpg'
   },
-  null,
+  {
+    name: 'Paweł Niedużak',
+    meta: 'Product Developer',
+    desc: 'Product Developer i współorganizator Vue.js Wrocław. Pokaże, że aplikacje, które otwierają się bez internetu i działają tak szybko jak natywne, da się zbudować w Vue — bez osobnego zespołu mobilnego i bez czekania na akceptację sklepu.',
+    photo: '/speakers/pawel-nieduzak.jpg'
+  },
   null,
   null
 ]
