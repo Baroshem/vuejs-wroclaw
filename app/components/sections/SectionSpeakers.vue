@@ -16,7 +16,7 @@ const speakerSlots: (Speaker | null)[] = [
   },
   {
     name: 'Paweł Niedużak',
-    meta: 'Product Developer',
+    meta: 'Vue Developer',
     desc: 'Product Developer i współorganizator Vue.js Wrocław. Pokaże, że aplikacje, które otwierają się bez internetu i działają tak szybko jak natywne, da się zbudować w Vue — bez osobnego zespołu mobilnego i bez czekania na akceptację sklepu.',
     photo: '/speakers/pawel-nieduzak.jpg'
   },
