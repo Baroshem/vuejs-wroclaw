@@ -22,7 +22,7 @@ const speakerSlots: (Speaker | null)[] = [
   },
   {
     name: 'Filip Rakowski',
-    meta: 'Współzałożyciel Alokai',
+    meta: 'Co-founder & CTO @ Alokai',
     desc: 'Współtwórca Vue Storefront i współzałożyciel Alokai, gdzie zajmuje się architekturą dużych platform e-commerce. Opowie o tym, jak wykorzystać Domain Driven Design w aplikacjach Vue.',
     photo: '/speakers/filip-rakowski.jpg'
   },
