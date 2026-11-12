@@ -74,7 +74,7 @@ onMounted(() => {
     </div>
     <div
       ref="gridEl"
-      class="grid grid-cols-2 gap-3 md:gap-7 xl:grid-cols-4"
+      class="grid grid-cols-1 gap-3 md:grid-cols-2 md:gap-7 xl:grid-cols-4"
       :class="{ 'is-revealed': revealed }"
     >
       <template
