@@ -5,6 +5,7 @@ defineProps<{ active: string | null }>()
 
 const links = [
   { id: 'speakers', label: 'Prelegenci' },
+  { id: 'sponsors', label: 'Sponsorzy' },
   { id: 'agenda', label: 'Agenda' },
   { id: 'venue', label: 'Miejsce' },
   { id: 'cfp', label: 'CFP' }
