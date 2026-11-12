@@ -8,7 +8,7 @@ interface AgendaTalk {
 const agendaSlots: (AgendaTalk | null)[] = [
   { title: 'Sztuka tworzenia UI\'a z Vue.js', speaker: 'Przemysław Spaczek' },
   { title: 'Vue offline-first: aplikacja, której nie ma w App Store', speaker: 'Paweł Niedużak' },
-  null,
+  { title: 'Domain Driven Design w Vue', speaker: 'Filip Rakowski' },
   null
 ]
 

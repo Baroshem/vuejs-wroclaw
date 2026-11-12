@@ -20,7 +20,12 @@ const speakerSlots: (Speaker | null)[] = [
     desc: 'Product Developer i współorganizator Vue.js Wrocław. Pokaże, że aplikacje, które otwierają się bez internetu i działają tak szybko jak natywne, da się zbudować w Vue — bez osobnego zespołu mobilnego i bez czekania na akceptację sklepu.',
     photo: '/speakers/pawel-nieduzak.jpg'
   },
-  null,
+  {
+    name: 'Filip Rakowski',
+    meta: 'Współzałożyciel Alokai',
+    desc: 'Współtwórca Vue Storefront i współzałożyciel Alokai, gdzie zajmuje się architekturą dużych platform e-commerce. Opowie o tym, jak wykorzystać Domain Driven Design w aplikacjach Vue.',
+    photo: '/speakers/filip-rakowski.jpg'
+  },
   null
 ]
 
