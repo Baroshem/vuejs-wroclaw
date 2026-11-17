@@ -22,13 +22,13 @@ const speakerSlots: (Speaker | null)[] = [
   },
   {
     name: 'Filip Rakowski',
-    meta: 'Co-founder & CTO @ Alokai',
+    meta: 'Co-founder & CTO @ Alokai',
     desc: 'Współtwórca Vue Storefront i współzałożyciel Alokai, gdzie zajmuje się architekturą dużych platform e-commerce. Opowie o tym, jak wykorzystać Domain Driven Design w aplikacjach Vue.',
     photo: '/speakers/filip-rakowski.jpg'
   },
   {
     name: 'Sebastian Wrzalek',
-    meta: 'Senior Product Engineer @ Lette',
+    meta: 'Senior Product Engineer @ Lette',
     desc: 'Senior Product Engineer w Lette, Vue.js Advocate i autor artykułów o Vue na DEV. Pokaże, jak zbudować aplikację na mikrofrontendach w Vue 3, połączyć niezależne aplikacje za pomocą Vite i Single-SPA, jak wygląda ich komunikacja i routing oraz na jakie problemy można się natknąć po drodze.',
     photo: '/speakers/sebastian-wrzalek.jpg'
   }
@@ -79,7 +79,7 @@ onMounted(() => {
     </div>
     <div
       ref="gridEl"
-      class="grid grid-cols-1 gap-3 md:grid-cols-2 md:gap-7 xl:grid-cols-4"
+      class="grid grid-cols-1 gap-x-3 md:grid-cols-2 md:gap-x-7 xl:grid-cols-4"
       :class="{ 'is-revealed': revealed }"
     >
       <template
@@ -89,7 +89,7 @@ onMounted(() => {
         <!-- Confirmed speaker: ? card flips over to reveal the speaker card -->
         <div
           v-if="speaker"
-          class="flip-card"
+          class="flip-card mb-3 md:mb-7"
         >
           <div class="flip-inner">
             <div class="flip-face flex flex-col items-center justify-center gap-5 rounded-xl border border-dashed border-white/15 bg-panel px-6 py-10">
@@ -98,7 +98,7 @@ onMounted(() => {
                 Prelegent wkrótce
               </p>
             </div>
-            <article class="flip-face flip-face--back flex flex-col rounded-xl border border-white/10 bg-panel p-8">
+            <article class="flip-face flip-face--back flip-face--rows rounded-xl border border-white/10 bg-panel p-8">
               <div class="mb-5 flex min-h-20 items-center gap-5">
                 <div class="size-20 shrink-0 rounded-full border border-white/15 p-0.5">
                   <img
@@ -128,7 +128,7 @@ onMounted(() => {
         <!-- Open slot -->
         <div
           v-else
-          class="flex flex-col items-center justify-center gap-5 rounded-xl border border-dashed border-white/15 bg-panel px-6 py-10"
+          class="row-span-2 mb-3 flex flex-col items-center justify-center gap-5 rounded-xl border border-dashed border-white/15 bg-panel px-6 py-10"
         >
           <QuestionMarkBadge class="size-16 md:size-24" />
           <p class="m-0 text-center font-display text-[10px] uppercase tracking-[0.2em] text-slate-dim md:text-[11px]">
@@ -138,7 +138,7 @@ onMounted(() => {
       </template>
     </div>
     <BonusSlotCard
-      class="mt-3 md:mt-7"
+      class="mt-0"
       :layered="false"
       label="Piąty slot"
       title="Prelegent spoza ekosystemu Vue"
@@ -147,21 +147,33 @@ onMounted(() => {
 </template>
 
 <style scoped>
+/* Each card spans two rows of the parent grid (header + description) and passes
+   them down via subgrid, so the header height and the divider line match across
+   all cards without a fixed height. */
 .flip-card {
   display: grid;
+  grid-row: span 2;
+  grid-template-rows: subgrid;
   perspective: 1400px;
 }
 
 .flip-inner {
   display: grid;
+  grid-row: 1 / span 2;
+  grid-template-rows: subgrid;
   transform-style: preserve-3d;
   transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .flip-face {
-  grid-area: 1 / 1;
+  grid-area: 1 / 1 / 3 / 2;
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
+}
+
+.flip-face--rows {
+  display: grid;
+  grid-template-rows: subgrid;
 }
 
 .flip-face--back {
