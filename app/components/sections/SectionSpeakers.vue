@@ -26,7 +26,12 @@ const speakerSlots: (Speaker | null)[] = [
     desc: 'Współtwórca Vue Storefront i współzałożyciel Alokai, gdzie zajmuje się architekturą dużych platform e-commerce. Opowie o tym, jak wykorzystać Domain Driven Design w aplikacjach Vue.',
     photo: '/speakers/filip-rakowski.jpg'
   },
-  null
+  {
+    name: 'Sebastian Wrzalek',
+    meta: 'Senior Product Engineer @ Lette',
+    desc: 'Senior Product Engineer w Lette, Vue.js Advocate i autor artykułów o Vue na DEV. Pokaże, jak zbudować aplikację na mikrofrontendach w Vue 3, połączyć niezależne aplikacje za pomocą Vite i Single-SPA, jak wygląda ich komunikacja i routing oraz na jakie problemy można się natknąć po drodze.',
+    photo: '/speakers/sebastian-wrzalek.jpg'
+  }
 ]
 
 // Reveal flip: SSR ships the grid revealed (works without JS). On mount, if the

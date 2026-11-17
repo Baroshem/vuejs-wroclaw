@@ -9,7 +9,7 @@ const agendaSlots: (AgendaTalk | null)[] = [
   { title: 'Sztuka tworzenia UI\'a z Vue.js', speaker: 'Przemysław Spaczek' },
   { title: 'Vue offline-first: aplikacja, której nie ma w App Store', speaker: 'Paweł Niedużak' },
   { title: 'Domain Driven Design w Vue', speaker: 'Filip Rakowski' },
-  null
+  { title: 'Microfrontendy w Vue 3 – od teorii do praktyki', speaker: 'Sebastian Wrzalek' }
 ]
 
 const chips = [
