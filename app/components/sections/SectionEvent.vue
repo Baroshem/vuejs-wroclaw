@@ -86,8 +86,9 @@ const chips = [
       <BonusSlotCard
         class="mt-6"
         label="Slot bonusowy"
-        title="Prelekcja spoza ekosystemu Vue"
-        sub="Specjalna prelekcja bonusowa — szczegóły ogłosimy wkrótce."
+        no-badge
+        title="Odpowiedz sobie na jedno * ważne pytanie..."
+        sub="Michalina Filimoniak"
       />
       <div class="mt-10 flex flex-wrap gap-x-6 gap-y-2 border-t border-white/10 pt-5">
         <span
@@ -137,8 +138,9 @@ const chips = [
       <BonusSlotCard
         class="mt-3"
         label="Slot bonusowy"
-        title="Prelekcja spoza ekosystemu Vue"
-        sub="Specjalna prelekcja bonusowa — szczegóły ogłosimy wkrótce."
+        no-badge
+        title="Odpowiedz sobie na jedno * ważne pytanie..."
+        sub="Michalina Filimoniak"
       />
       <div class="mt-8 flex flex-wrap gap-x-5 gap-y-2 border-t border-white/10 pt-4">
         <span

@@ -2,7 +2,7 @@
 // Bonus talk placeholder card — "hidden slot" treatment: offset dashed layer
 // behind the panel + BONUS corner ribbon. The only card allowed to use the
 // ribbon, so "bonus" stays unambiguous vs regular slots.
-withDefaults(defineProps<{ label: string, title: string, sub?: string, layered?: boolean }>(), { layered: true, sub: '' })
+withDefaults(defineProps<{ label: string, title: string, sub?: string, meta?: string, photo?: string, noBadge?: boolean, layered?: boolean }>(), { layered: true, sub: '', meta: '', photo: '', noBadge: false })
 </script>
 
 <template>
@@ -21,13 +21,32 @@ withDefaults(defineProps<{ label: string, title: string, sub?: string, layered?:
           Bonus
         </span>
       </div>
-      <QuestionMarkBadge class="relative z-1 size-15 md:size-24" />
+      <div
+        v-if="photo"
+        class="relative z-1 size-20 shrink-0 rounded-full border border-white/15 p-0.5 md:size-24"
+      >
+        <img
+          :src="photo"
+          :alt="title"
+          class="size-full rounded-full object-cover"
+        >
+      </div>
+      <QuestionMarkBadge
+        v-else-if="!noBadge"
+        class="relative z-1 size-15 md:size-24"
+      />
       <div class="relative z-1 flex flex-col gap-2">
         <p class="m-0 font-display text-[9px] uppercase tracking-[0.2em] text-slate-dim">
           {{ label }}
         </p>
         <p class="m-0 font-display text-[15px] font-bold md:text-base">
           {{ title }}
+        </p>
+        <p
+          v-if="meta"
+          class="m-0 text-sm leading-relaxed tracking-[0.03em] text-slate"
+        >
+          {{ meta }}
         </p>
         <p
           v-if="sub"

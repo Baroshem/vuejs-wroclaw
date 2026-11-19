@@ -65,6 +65,24 @@ onMounted(() => {
     deep
     wide
   >
+    <div class="mb-6">
+      <UiBadge>
+        <UIcon
+          name="i-lucide-mic"
+          class="size-5"
+        />
+        Prowadzenie
+      </UiBadge>
+      <h2 class="mt-3.5 font-display text-[26px] font-bold md:text-[34px]">
+        Kto poprowadzi
+      </h2>
+    </div>
+    <div class="mx-auto mb-16 flex max-w-160 flex-col items-center justify-center gap-5 rounded-xl border border-dashed border-white/15 bg-panel px-6 py-10">
+      <QuestionMarkBadge class="size-16 md:size-24" />
+      <p class="m-0 text-center font-display text-[10px] uppercase tracking-[0.2em] text-slate-dim md:text-[11px]">
+        Prowadzący wkrótce
+      </p>
+    </div>
     <div class="mb-11">
       <UiBadge>
         <UIcon
@@ -140,8 +158,11 @@ onMounted(() => {
     <BonusSlotCard
       class="mt-0"
       :layered="false"
-      label="Piąty slot"
-      title="Prelegent spoza ekosystemu Vue"
+      label="Prelegentka bonusowa"
+      title="Michalina Filimoniak"
+      meta="Senior Talent Solutions Partner @ Monterail"
+      sub="Prowadzi dział Staff Augmentation w Monterail, rekrutuje od ponad 7 lat i jest doradczynią zawodową oraz coachem kariery. Opowie, jak szukać sensu w świecie miliona możliwości."
+      photo="/speakers/michalina-filimoniak.jpg"
     />
   </SectionBand>
 </template>
