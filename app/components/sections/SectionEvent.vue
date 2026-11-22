@@ -87,7 +87,8 @@ const chips = [
         class="mt-6"
         label="Slot bonusowy"
         no-badge
-        title="Odpowiedz sobie na jedno * ważne pytanie..."
+        title="„Odpowiedz sobie na jedno ważne pytanie…”"
+        meta="O tym, jak szukać sensu w świecie miliona możliwości."
         sub="Michalina Filimoniak"
       />
       <div class="mt-10 flex flex-wrap gap-x-6 gap-y-2 border-t border-white/10 pt-5">
@@ -139,7 +140,8 @@ const chips = [
         class="mt-3"
         label="Slot bonusowy"
         no-badge
-        title="Odpowiedz sobie na jedno * ważne pytanie..."
+        title="„Odpowiedz sobie na jedno ważne pytanie…”"
+        meta="O tym, jak szukać sensu w świecie miliona możliwości."
         sub="Michalina Filimoniak"
       />
       <div class="mt-8 flex flex-wrap gap-x-5 gap-y-2 border-t border-white/10 pt-4">
