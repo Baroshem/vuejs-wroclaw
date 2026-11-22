@@ -6,6 +6,13 @@ interface Speaker {
   photo: string
 }
 
+const host: Speaker = {
+  name: 'Jakub Andrzejewski',
+  meta: 'Senior Engineer @ Storyblok',
+  desc: 'Poprowadzi cały wieczór.',
+  photo: '/speakers/jakub-andrzejewski.jpg'
+}
+
 // null = still-unconfirmed slot → dashed placeholder card
 const speakerSlots: (Speaker | null)[] = [
   {
@@ -77,12 +84,28 @@ onMounted(() => {
         Kto poprowadzi
       </h2>
     </div>
-    <div class="mx-auto mb-16 flex max-w-160 flex-col items-center justify-center gap-5 rounded-xl border border-dashed border-white/15 bg-panel px-6 py-10">
-      <QuestionMarkBadge class="size-16 md:size-24" />
-      <p class="m-0 text-center font-display text-[10px] uppercase tracking-[0.2em] text-slate-dim md:text-[11px]">
-        Prowadzący wkrótce
+    <article class="mx-auto mb-16 max-w-160 rounded-xl border border-white/10 bg-panel p-8">
+      <div class="mb-5 flex min-h-20 items-center gap-5">
+        <div class="size-20 shrink-0 rounded-full border border-white/15 p-0.5">
+          <img
+            :src="host.photo"
+            :alt="host.name"
+            class="size-full rounded-full object-cover"
+          >
+        </div>
+        <div class="min-w-0">
+          <p class="break-words font-display text-xl font-bold">
+            {{ host.name }}
+          </p>
+          <p class="mt-1 text-sm leading-relaxed tracking-[0.03em] text-slate">
+            {{ host.meta }}
+          </p>
+        </div>
+      </div>
+      <p class="m-0 border-t border-white/8 pt-4 text-[15px] leading-[1.75] text-slate">
+        {{ host.desc }}
       </p>
-    </div>
+    </article>
     <div class="mb-11">
       <UiBadge>
         <UIcon
