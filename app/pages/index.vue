@@ -1,12 +1,13 @@
 <script setup lang="ts">
 import SectionCFP from '~/components/sections/SectionCFP.vue'
 import SectionEvent from '~/components/sections/SectionEvent.vue'
+import SectionGallery from '~/components/sections/SectionGallery.vue'
 import SectionHero from '~/components/sections/SectionHero.vue'
 import SectionSpeakers from '~/components/sections/SectionSpeakers.vue'
 import SectionSponsors from '~/components/sections/SectionSponsors.vue'
 import SectionVenue from '~/components/sections/SectionVenue.vue'
 
-const sections = ['speakers', 'sponsors', 'agenda', 'venue', 'cfp'] as const
+const sections = ['speakers', 'sponsors', 'agenda', 'venue', 'gallery', 'cfp'] as const
 const { active } = useScrollSpy(sections)
 </script>
 
@@ -25,6 +26,7 @@ const { active } = useScrollSpy(sections)
       <SectionSponsors />
       <SectionEvent />
       <SectionVenue />
+      <SectionGallery />
       <SectionCFP />
     </main>
     <SiteFooter />

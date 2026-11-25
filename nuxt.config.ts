@@ -12,6 +12,12 @@ export default defineNuxtConfig({
 
   css: ['~/assets/css/main.css'],
 
+  runtimeConfig: {
+    public: {
+      siteUrl: 'https://vuejs-wroclaw.vercel.app'
+    }
+  },
+
   routeRules: {
     '/': { prerender: true }
   },

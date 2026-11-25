@@ -8,6 +8,7 @@ const links = [
   { id: 'sponsors', label: 'Sponsorzy' },
   { id: 'agenda', label: 'Agenda' },
   { id: 'venue', label: 'Miejsce' },
+  { id: 'gallery', label: 'Galeria' },
   { id: 'cfp', label: 'CFP' }
 ]
 </script>
