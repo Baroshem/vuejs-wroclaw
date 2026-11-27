@@ -85,7 +85,7 @@ const stats = [
             to="/2026"
             data-moon
             aria-label="Edycja 1 — archiwum"
-            class="block animate-[spin_26s_linear_infinite_reverse] rounded-full bg-accent px-3 py-1 font-display text-xs font-bold whitespace-nowrap text-white shadow-[0_0_14px_var(--color-accent)] transition-colors hover:bg-accent-light"
+            class="block animate-[spin_26s_linear_infinite_reverse] rounded-full px-3 py-1 font-display text-xs font-bold whitespace-nowrap text-white transition-[filter] hover:brightness-110 bg-[#dc143c] shadow-[0_0_14px_#dc143c]"
           >
             Edycja 1
           </NuxtLink>
@@ -95,7 +95,7 @@ const stats = [
             to="/2027"
             data-moon
             aria-label="Edycja 2 — nadchodząca"
-            class="block animate-[spin_26s_linear_infinite_reverse] rounded-full bg-[#00dc82] px-3 py-1 font-display text-xs font-bold whitespace-nowrap text-bg-deep shadow-[0_0_14px_#00dc82] transition-colors hover:bg-[#2dd4bf]"
+            class="block animate-[spin_26s_linear_infinite_reverse] rounded-full px-3 py-1 font-display text-xs font-bold whitespace-nowrap text-white transition-[filter] hover:brightness-110 bg-[#00dc82] shadow-[0_0_14px_#00dc82]"
           >
             Edycja 2
           </NuxtLink>
