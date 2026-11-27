@@ -95,7 +95,7 @@ const stats = [
             to="/2027"
             data-moon
             aria-label="Edycja 2 — nadchodząca"
-            class="block animate-[spin_26s_linear_infinite_reverse] rounded-full border border-[#8b5cf6] bg-bg-deep px-3 py-1 font-display text-xs font-bold whitespace-nowrap text-white shadow-[0_0_14px_#2dd4bf] transition-colors hover:bg-[#8b5cf6]"
+            class="block animate-[spin_26s_linear_infinite_reverse] rounded-full border border-[#00dc82] bg-bg-deep px-3 py-1 font-display text-xs font-bold whitespace-nowrap text-white shadow-[0_0_14px_#2dd4bf] transition-colors hover:bg-[#00dc82]"
           >
             Edycja 2
           </NuxtLink>

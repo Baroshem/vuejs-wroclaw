@@ -7,7 +7,7 @@ import type { Frame } from 'vgpu'
 type Palette = { a: number[], b: number[], glow: number[] }
 const PALETTES: Record<'crimson' | 'nebula', Palette> = {
   crimson: { a: [0.863, 0.078, 0.235, 1], b: [0.937, 0.278, 0.427, 1], glow: [0.95, 0.3, 0.45, 1] },
-  nebula: { a: [0.55, 0.36, 1.0, 1], b: [0.13, 0.83, 0.78, 1], glow: [0.3, 0.72, 0.9, 1] }
+  nebula: { a: [0.0, 0.863, 0.51, 1], b: [0.13, 0.83, 0.78, 1], glow: [0.1, 0.85, 0.62, 1] }
 }
 
 const route = useRoute()
