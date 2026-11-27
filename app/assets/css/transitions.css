@@ -9,6 +9,11 @@
   view-transition-name: site-nav;
 }
 
+/* mobile tab bar: its own group, last in tree order, so the flying planet / copy never covers it */
+[data-tab-bar] {
+  view-transition-name: tab-bar;
+}
+
 [data-cosmos] {
   view-transition-name: cosmos;
 }
@@ -32,6 +37,7 @@
        0.30–1.20  new planet arrives (ease-out, overlaps the old one)
        0.55–1.10  new copy fades in         stars: displaced for 1.3s with in/out easing ───────── */
   html::view-transition-group(cosmos),
+  html::view-transition-group(tab-bar),
   html::view-transition-group(ui),
   html::view-transition-group(hero-copy),
   html::view-transition-group(hero-sigil) {
@@ -44,6 +50,15 @@
   }
 
   html::view-transition-new(cosmos) {
+    animation: none;
+    mix-blend-mode: normal;
+  }
+
+  html::view-transition-old(tab-bar) {
+    display: none;
+  }
+
+  html::view-transition-new(tab-bar) {
     animation: none;
     mix-blend-mode: normal;
   }

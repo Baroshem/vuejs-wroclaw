@@ -6,6 +6,7 @@ const route = useRoute()
 
 <template>
   <nav
+    data-tab-bar
     aria-label="Edycje"
     class="fixed inset-x-0 bottom-0 z-40 grid grid-cols-3 border-t border-white/10 bg-[rgba(6,8,11,0.96)] pb-[env(safe-area-inset-bottom)] backdrop-blur-lg md:hidden"
   >
