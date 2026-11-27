@@ -11,18 +11,11 @@ const bonus = edition2026.agenda.bonus!
     wide
   >
     <div class="mb-10 flex flex-wrap items-end justify-between gap-4">
-      <div>
-        <UiBadge class="mb-4.5">
-          <UIcon
-            name="i-lucide-calendar-clock"
-            class="size-5"
-          />
-          Agenda
-        </UiBadge>
-        <h2 class="font-display text-[26px] font-bold md:text-[34px]">
-          Co czeka na uczestników?
-        </h2>
-      </div>
+      <SectionHeader
+        icon="i-lucide-calendar-clock"
+        badge="Agenda"
+        title="Co czeka na uczestników?"
+      />
       <UiButton
         variant="ghost"
         :href="externalUrl"

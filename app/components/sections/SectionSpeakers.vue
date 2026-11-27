@@ -36,52 +36,22 @@ onMounted(() => {
     deep
     wide
   >
-    <div class="mb-6">
-      <UiBadge>
-        <UIcon
-          name="i-lucide-mic"
-          class="size-5"
-        />
-        Prowadzenie
-      </UiBadge>
-      <h2 class="mt-3.5 font-display text-[26px] font-bold md:text-[34px]">
-        Kto poprowadzi
-      </h2>
-    </div>
-    <article class="mx-auto mb-16 max-w-160 rounded-xl border border-white/10 bg-panel p-8">
-      <div class="mb-5 flex min-h-20 items-center gap-5">
-        <div class="size-20 shrink-0 rounded-full border border-white/15 p-0.5">
-          <img
-            :src="host.photo"
-            :alt="host.name"
-            class="size-full rounded-full object-cover"
-          >
-        </div>
-        <div class="min-w-0">
-          <p class="break-words font-display text-xl font-bold">
-            {{ host.name }}
-          </p>
-          <p class="mt-1 text-sm leading-relaxed tracking-[0.03em] text-slate">
-            {{ host.meta }}
-          </p>
-        </div>
-      </div>
-      <p class="m-0 border-t border-white/8 pt-4 text-[15px] leading-[1.75] text-slate">
-        {{ host.desc }}
-      </p>
-    </article>
-    <div class="mb-11">
-      <UiBadge>
-        <UIcon
-          name="i-lucide-users"
-          class="size-5"
-        />
-        Prelegenci
-      </UiBadge>
-      <h2 class="mt-3.5 font-display text-[26px] font-bold md:text-[34px]">
-        Kto wystąpi
-      </h2>
-    </div>
+    <SectionHeader
+      class="mb-6"
+      icon="i-lucide-mic"
+      badge="Prowadzenie"
+      title="Kto poprowadzi"
+    />
+    <PersonCard
+      class="mx-auto mb-16 max-w-160"
+      v-bind="host"
+    />
+    <SectionHeader
+      class="mb-11"
+      icon="i-lucide-users"
+      badge="Prelegenci"
+      title="Kto wystąpi"
+    />
     <div
       ref="gridEl"
       class="grid grid-cols-1 gap-x-3 md:grid-cols-2 md:gap-x-7 xl:grid-cols-4"
@@ -97,49 +67,22 @@ onMounted(() => {
           class="flip-card mb-3 md:mb-7"
         >
           <div class="flip-inner">
-            <div class="flip-face flex flex-col items-center justify-center gap-5 rounded-xl border border-dashed border-white/15 bg-panel px-6 py-10">
-              <QuestionMarkBadge class="size-16 md:size-24" />
-              <p class="m-0 text-center font-display text-[10px] uppercase tracking-[0.2em] text-slate-dim md:text-[11px]">
-                Prelegent wkrótce
-              </p>
-            </div>
-            <article class="flip-face flip-face--back flip-face--rows rounded-xl border border-white/10 bg-panel p-8">
-              <div class="mb-5 flex min-h-20 items-center gap-5">
-                <div class="size-20 shrink-0 rounded-full border border-white/15 p-0.5">
-                  <img
-                    :src="speaker.photo"
-                    :alt="speaker.name"
-                    class="size-full rounded-full object-cover"
-                  >
-                </div>
-                <div class="min-w-0">
-                  <p class="break-words font-display text-xl font-bold">
-                    {{ speaker.name }}
-                  </p>
-                  <p
-                    v-if="speaker.meta"
-                    class="mt-1 text-sm leading-relaxed tracking-[0.03em] text-slate"
-                  >
-                    {{ speaker.meta }}
-                  </p>
-                </div>
-              </div>
-              <p class="m-0 border-t border-white/8 pt-4 text-[15px] leading-[1.75] text-slate">
-                {{ speaker.desc }}
-              </p>
-            </article>
+            <PlaceholderCard
+              class="flip-face"
+              label="Prelegent wkrótce"
+            />
+            <PersonCard
+              class="flip-face flip-face--back flip-face--rows"
+              v-bind="speaker"
+            />
           </div>
         </div>
         <!-- Open slot -->
-        <div
+        <PlaceholderCard
           v-else
-          class="row-span-2 mb-3 flex flex-col items-center justify-center gap-5 rounded-xl border border-dashed border-white/15 bg-panel px-6 py-10"
-        >
-          <QuestionMarkBadge class="size-16 md:size-24" />
-          <p class="m-0 text-center font-display text-[10px] uppercase tracking-[0.2em] text-slate-dim md:text-[11px]">
-            Prelegent wkrótce
-          </p>
-        </div>
+          class="row-span-2 mb-3"
+          label="Prelegent wkrótce"
+        />
       </template>
     </div>
     <BonusSlotCard

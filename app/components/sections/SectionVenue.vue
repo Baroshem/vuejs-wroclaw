@@ -9,16 +9,12 @@ const venue = edition2026.venue!
     id="venue"
     deep
   >
-    <UiBadge class="mb-4.5">
-      <UIcon
-        name="i-lucide-map-pin"
-        class="size-5"
-      />
-      Miejsce &bull; Venue
-    </UiBadge>
-    <h2 class="mb-10 font-display text-[26px] font-bold md:text-[34px]">
-      Gdzie się spotykamy
-    </h2>
+    <SectionHeader
+      class="mb-10"
+      icon="i-lucide-map-pin"
+      badge="Miejsce • Venue"
+      title="Gdzie się spotykamy"
+    />
 
     <div class="grid items-start gap-10 lg:grid-cols-[1.05fr_1fr]">
       <div>
