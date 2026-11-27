@@ -8,7 +8,7 @@ const audience = computed(() => [0, 1, 2].map(i => t(`home.audience.${i}`)))
 <template>
   <section
     data-id="hero"
-    class="relative isolate grid items-center gap-10 overflow-x-clip px-5 pt-10 pb-14 md:px-16 lg:min-h-[calc(100vh-var(--nav-h))] lg:grid-cols-[1.1fr_1fr] lg:gap-16 lg:py-0"
+    class="relative isolate grid flex-1 items-center gap-10 overflow-x-clip px-5 pt-10 pb-14 md:px-16 lg:grid-cols-[1.1fr_1fr] lg:gap-16 lg:py-0"
   >
     <div data-copy>
       <UiBadge class="mb-7">
