@@ -20,6 +20,7 @@ withDefaults(defineProps<{
 
 <template>
   <nav
+    data-site-nav
     aria-label="Nawigacja główna"
     class="sticky top-0 z-20 flex items-center justify-between border-b border-white/7 bg-[rgba(6,8,11,0.9)] px-5 py-3.5 backdrop-blur-md md:px-16 md:py-5"
   >

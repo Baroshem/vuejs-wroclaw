@@ -14,8 +14,7 @@ const stats = [
     data-id="hero"
     class="relative isolate grid items-center gap-10 px-5 pt-10 pb-14 md:min-h-[calc(100vh-var(--nav-h))] md:grid-cols-[1.1fr_1fr] md:gap-16 md:px-16 md:py-0"
   >
-    <HeroCosmos />
-    <div>
+    <div data-copy>
       <UiBadge class="mb-7">
         <UIcon
           name="i-lucide-sparkle"

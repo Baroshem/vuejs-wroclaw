@@ -1,7 +1,10 @@
 <template>
-  <div class="flex flex-col items-center gap-4">
+  <div
+    class="flex flex-col items-center gap-4"
+    data-sigil
+  >
     <div class="relative size-60 md:size-95">
-      <div class="absolute inset-[14%] rounded-full bg-[radial-gradient(circle,rgba(220,20,60,0.16),transparent_70%)] blur-[10px]" />
+      <div class="absolute inset-[14%] rounded-full bg-[radial-gradient(circle,color-mix(in_srgb,var(--color-accent)_16%,transparent),transparent_70%)] blur-[10px]" />
 
       <div class="scroll-rotate absolute inset-0 animate-[spin_26s_linear_infinite] rounded-full border border-accent/30">
         <slot name="ring1">

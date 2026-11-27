@@ -130,3 +130,16 @@ body::before {
     rotate: calc(var(--scroll-y, 0) * 0.022deg);
   }
 }
+
+/* "2027" planet: violet → turquoise. Re-points the accent tokens for the whole page subtree. */
+.planet-2027 {
+  --color-accent: #8b5cf6;
+  --color-accent-light: #2dd4bf;
+  --color-primary-200: #c4b5fd;
+  --color-primary-300: #a78bfa;
+  --color-primary-400: #2dd4bf;
+  --color-primary-500: #8b5cf6;
+  --color-primary-600: #6d3fe0;
+  --ui-primary: #8b5cf6;
+  --ui-primary-hover: #2dd4bf;
+}

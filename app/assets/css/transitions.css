@@ -1,0 +1,216 @@
+/*
+ * "Planet change" page transition (View Transitions API, enabled via experimental.viewTransition).
+ * The sigil is a planet and the year pills are its moons; the starfield is a persistent live layer.
+ * Direction is <html data-vt-move="zoom-in|zoom-out|fly-fwd|fly-back">, set by plugins/transitions.client.ts.
+ */
+
+/* persistent / shared layers */
+[data-site-nav] {
+  view-transition-name: site-nav;
+}
+
+[data-cosmos] {
+  view-transition-name: cosmos;
+}
+
+[data-ui] {
+  view-transition-name: ui;
+}
+
+[data-sigil] {
+  view-transition-name: hero-sigil;
+}
+
+[data-copy] {
+  view-transition-name: hero-copy;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  /* One choreographed ~1.3s timeline. The starfield is a persistent live
+     layer (its own group) and the camera travels through it while the sigil planet leaves/arrives:
+       0.00–0.30  copy fades out            0.00–0.75  old planet recedes / exits (ease-in)
+       0.30–1.20  new planet arrives (ease-out, overlaps the old one)
+       0.55–1.10  new copy fades in         stars: displaced for 1.3s with in/out easing ───────── */
+  html::view-transition-group(cosmos),
+  html::view-transition-group(ui),
+  html::view-transition-group(hero-copy),
+  html::view-transition-group(hero-sigil) {
+    animation: none;
+  }
+
+  /* starfield: only the live (new) image is shown, so it keeps moving through the whole transition */
+  html::view-transition-old(cosmos) {
+    display: none;
+  }
+
+  html::view-transition-new(cosmos) {
+    animation: none;
+    mix-blend-mode: normal;
+  }
+
+  html::view-transition-old(root) {
+    animation: none;
+  }
+
+  html::view-transition-new(root) {
+    animation: none;
+  }
+
+  /* the page UI (everything except nav / sigil / copy) swaps with a short overlap */
+  html::view-transition-old(ui) {
+    animation: vt-copy-out 0.3s ease-in both;
+    mix-blend-mode: normal;
+  }
+
+  html::view-transition-new(ui) {
+    animation: vt-fade-in 0.5s ease-out 0.45s both;
+    mix-blend-mode: normal;
+  }
+
+  html::view-transition-old(hero-copy) {
+    animation: vt-copy-out 0.3s ease-in both;
+    mix-blend-mode: normal;
+  }
+
+  html::view-transition-new(hero-copy) {
+    animation: vt-copy-in 0.55s cubic-bezier(0.2, 0.7, 0.2, 1) 0.55s both;
+    mix-blend-mode: normal;
+  }
+
+  html::view-transition-old(hero-sigil) {
+    mix-blend-mode: normal;
+    animation-duration: 0.75s;
+    animation-timing-function: cubic-bezier(0.5, 0, 0.9, 0.55);
+    animation-fill-mode: both;
+  }
+
+  html::view-transition-new(hero-sigil) {
+    mix-blend-mode: normal;
+    animation-duration: 0.9s;
+    animation-delay: 0.3s;
+    animation-timing-function: cubic-bezier(0.15, 0.7, 0.2, 1);
+    animation-fill-mode: both;
+  }
+
+  html[data-vt-move="zoom-in"]::view-transition-old(hero-sigil) {
+    animation-name: planet-recede;
+  }
+
+  html[data-vt-move="zoom-in"]::view-transition-new(hero-sigil) {
+    animation-name: planet-from-moon;
+  }
+
+  html[data-vt-move="zoom-out"]::view-transition-old(hero-sigil) {
+    animation-name: planet-into-moon;
+  }
+
+  html[data-vt-move="zoom-out"]::view-transition-new(hero-sigil) {
+    animation-name: planet-approach;
+  }
+
+  html[data-vt-move="fly-fwd"]::view-transition-old(hero-sigil) {
+    animation-name: planet-exit-left;
+  }
+
+  html[data-vt-move="fly-fwd"]::view-transition-new(hero-sigil) {
+    animation-name: planet-enter-right;
+  }
+
+  html[data-vt-move="fly-back"]::view-transition-old(hero-sigil) {
+    animation-name: planet-exit-right;
+  }
+
+  html[data-vt-move="fly-back"]::view-transition-new(hero-sigil) {
+    animation-name: planet-enter-left;
+  }
+
+
+  @keyframes vt-fade-in {
+    from {
+      opacity: 0;
+    }
+  }
+
+  @keyframes vt-copy-out {
+    to {
+      opacity: 0;
+    }
+  }
+
+  @keyframes vt-copy-in {
+    from {
+      opacity: 0;
+      transform: translateY(12px);
+    }
+  }
+
+  @keyframes planet-recede {
+    to {
+      transform: scale(0.35);
+      opacity: 0;
+      filter: blur(6px);
+    }
+  }
+
+  @keyframes planet-from-moon {
+    from {
+      transform: translate(var(--moon-x, 0px), var(--moon-y, 10rem)) scale(0.06);
+      opacity: 0;
+    }
+
+    25% {
+      opacity: 1;
+    }
+  }
+
+  @keyframes planet-into-moon {
+    to {
+      transform: translate(var(--moon-x, 0px), var(--moon-y, 10rem)) scale(0.06);
+      opacity: 0;
+    }
+  }
+
+  @keyframes planet-approach {
+    from {
+      transform: scale(0.35);
+      opacity: 0;
+      filter: blur(6px);
+    }
+  }
+
+  @keyframes planet-exit-left {
+    to {
+      transform: translateX(-70vw) scale(0.45) rotate(-10deg);
+      opacity: 0;
+    }
+  }
+
+  @keyframes planet-enter-right {
+    from {
+      transform: translateX(70vw) scale(0.45) rotate(10deg);
+      opacity: 0;
+    }
+  }
+
+  @keyframes planet-exit-right {
+    to {
+      transform: translateX(70vw) scale(0.45) rotate(10deg);
+      opacity: 0;
+    }
+  }
+
+  @keyframes planet-enter-left {
+    from {
+      transform: translateX(-70vw) scale(0.45) rotate(-10deg);
+      opacity: 0;
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation: none !important;
+  }
+}

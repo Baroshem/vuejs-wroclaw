@@ -38,6 +38,9 @@ useSeoMeta({
 
 <template>
   <UApp>
+    <ClientOnly>
+      <SpaceBackground />
+    </ClientOnly>
     <NuxtPage />
   </UApp>
 </template>

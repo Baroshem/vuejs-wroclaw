@@ -5,7 +5,7 @@ const cta = { label: 'Edycja 2027', href: '/2027' }
 </script>
 
 <template>
-  <div>
+  <div data-ui>
     <SiteNav
       :active="null"
       :links="[]"

@@ -10,7 +10,7 @@ export default defineNuxtConfig({
     enabled: true
   },
 
-  css: ['~/assets/css/main.css'],
+  css: ['~/assets/css/main.css', '~/assets/css/transitions.css'],
 
   runtimeConfig: {
     public: {
@@ -22,6 +22,10 @@ export default defineNuxtConfig({
     '/': { prerender: true },
     '/2026': { prerender: true },
     '/2027': { prerender: true }
+  },
+
+  experimental: {
+    viewTransition: true
   },
 
   compatibilityDate: '2026-06-30',
