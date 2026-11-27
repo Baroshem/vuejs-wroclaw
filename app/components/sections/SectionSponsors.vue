@@ -1,16 +1,8 @@
 <script setup lang="ts">
-interface Sponsor {
-  name: string
-  role: string
-  logo?: string
-}
+import { edition2026 } from '~/data/editions/2026'
 
-// Only Storyblok funds free entry; Supabase and GDG are media partners.
-const mainSponsor: Sponsor = { name: 'Storyblok', role: 'Główny sponsor', logo: '/sponsors/storyblok.svg' }
-const mediaPartners: Sponsor[] = [
-  { name: 'Supabase', role: 'Partner medialny', logo: '/sponsors/supabase.svg' },
-  { name: 'GDG Wrocław', role: 'Partner medialny', logo: '/sponsors/gdg-wroclaw.png' }
-]
+const mainSponsors = edition2026.sponsors.main
+const mediaPartners = edition2026.sponsors.media
 </script>
 
 <template>
@@ -34,7 +26,7 @@ const mediaPartners: Sponsor[] = [
 
     <ul class="m-0 grid list-none gap-3 p-0 md:mx-auto md:max-w-[calc(50%-0.875rem)] md:gap-7">
       <li
-        v-for="s in [mainSponsor]"
+        v-for="s in mainSponsors"
         :key="s.name"
         class="flex flex-col items-center gap-5 rounded-xl border border-white/10 bg-panel px-6 py-8"
       >

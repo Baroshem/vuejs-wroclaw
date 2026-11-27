@@ -1,45 +1,9 @@
 <script setup lang="ts">
-interface Speaker {
-  name: string
-  meta: string
-  desc: string
-  photo: string
-}
+import { edition2026 } from '~/data/editions/2026'
 
-const host: Speaker = {
-  name: 'Jakub Andrzejewski',
-  meta: 'Senior Engineer @ Storyblok',
-  desc: 'Poprowadzi cały wieczór.',
-  photo: '/speakers/jakub-andrzejewski.jpg'
-}
-
-// null = still-unconfirmed slot → dashed placeholder card
-const speakerSlots: (Speaker | null)[] = [
-  {
-    name: 'Przemysław Spaczek',
-    meta: 'Senior Vue Developer w QIAGEN',
-    desc: 'Senior Frontend Developer z wieloletnim doświadczeniem w pracy z Vue.js, TypeScriptem i tworzeniu Design Systemów open-source. Pracował w projektach związanych z eCommerce oraz medtech. Jako aktywny członek społeczności angażuje się w dzielenie się wiedzą oraz promowanie najlepszych praktyk w branży.',
-    photo: '/speakers/przemyslaw-spaczek.jpg'
-  },
-  {
-    name: 'Paweł Niedużak',
-    meta: 'Vue Developer',
-    desc: 'Product Developer i współorganizator Vue.js Wrocław. Pokaże, że aplikacje, które otwierają się bez internetu i działają tak szybko jak natywne, da się zbudować w Vue — bez osobnego zespołu mobilnego i bez czekania na akceptację sklepu.',
-    photo: '/speakers/pawel-nieduzak.jpg'
-  },
-  {
-    name: 'Filip Rakowski',
-    meta: 'Co-founder & CTO @ Alokai',
-    desc: 'Współtwórca Vue Storefront i współzałożyciel Alokai, gdzie zajmuje się architekturą dużych platform e-commerce. Opowie o tym, jak wykorzystać Domain Driven Design w aplikacjach Vue.',
-    photo: '/speakers/filip-rakowski.jpg'
-  },
-  {
-    name: 'Sebastian Wrzalek',
-    meta: 'Senior Product Engineer @ Lette',
-    desc: 'Senior Product Engineer w Lette, Vue.js Advocate i autor artykułów o Vue na DEV. Pokaże, jak zbudować aplikację na mikrofrontendach w Vue 3, połączyć niezależne aplikacje za pomocą Vite i Single-SPA, jak wygląda ich komunikacja i routing oraz na jakie problemy można się natknąć po drodze.',
-    photo: '/speakers/sebastian-wrzalek.jpg'
-  }
-]
+const host = edition2026.host!
+const speakerSlots = edition2026.speakers
+const bonus = edition2026.speakersBonus!
 
 // Reveal flip: SSR ships the grid revealed (works without JS). On mount, if the
 // grid sits below the fold and motion is allowed, hide speaker cards behind the
@@ -181,11 +145,11 @@ onMounted(() => {
     <BonusSlotCard
       class="mt-0"
       :layered="false"
-      label="Prelegentka bonusowa"
-      title="Michalina Filimoniak"
-      meta="Senior Talent Solutions Partner @ Monterail"
-      sub="Prowadzi dział Staff Augmentation w Monterail, rekrutuje od ponad 7 lat i jest doradczynią zawodową oraz coachem kariery. Opowie, jak szukać sensu w świecie miliona możliwości."
-      photo="/speakers/michalina-filimoniak.jpg"
+      :label="bonus.label"
+      :title="bonus.title"
+      :meta="bonus.meta"
+      :sub="bonus.sub"
+      :photo="bonus.photo"
     />
   </SectionBand>
 </template>

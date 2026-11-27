@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { CFP_FORM_URL } from '~/utils/links'
+import { edition2027 } from '~/data/editions/2027'
 import SectionHeroNext from '~/components/sections/SectionHeroNext.vue'
 import SectionPlaceholder from '~/components/sections/SectionPlaceholder.vue'
 
@@ -10,7 +10,7 @@ const links = [
   { id: 'venue', label: 'Miejsce' },
   { id: 'cfp', label: 'CFP' }
 ]
-const cta = { label: 'Zgłoś prelekcję', href: CFP_FORM_URL, external: true }
+const cta = edition2027.nav.cta
 
 const { active } = useScrollSpy(links.map(l => l.id))
 </script>
@@ -67,9 +67,9 @@ const { active } = useScrollSpy(links.map(l => l.id))
       />
     </main>
     <SiteFooter
-      tagline="Kolejna edycja"
+      :tagline="edition2027.footer.tagline"
       :links="links"
-      :linkedin="false"
+      :linkedin="edition2027.footer.linkedin"
     />
     <MobileCtaBar :cta="cta" />
   </div>

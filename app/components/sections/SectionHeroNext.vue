@@ -1,13 +1,7 @@
 <script setup lang="ts">
-import { CFP_FORM_URL } from '~/utils/links'
+import { edition2027 } from '~/data/editions/2027'
 
-// Placeholder copy for the next edition — update once date, venue and line-up are confirmed.
-const audience = ['Dla developerów Vue i Nuxt', 'Case study i networking', 'Po polsku']
-const stats = [
-  { num: '2', label: 'Edycje' },
-  { num: 'TBA', label: 'Speakerzy' },
-  { num: 'TBA', label: 'Data' }
-]
+const { badge, audience, stats, ctas } = edition2027.hero
 </script>
 
 <template>
@@ -21,7 +15,7 @@ const stats = [
           name="i-lucide-sparkle"
           class="size-5"
         />
-        Wkrótce &bull; Wrocław
+        {{ badge }}
       </UiBadge>
 
       <h1 class="mb-6 font-display text-[44px] leading-none font-bold tracking-tight md:text-[min(76px,9vh)]">
@@ -50,25 +44,16 @@ const stats = [
 
       <div class="mb-12 flex flex-wrap gap-4">
         <UiButton
-          :href="CFP_FORM_URL"
-          external
+          v-for="c in ctas"
+          :key="c.label"
+          :variant="c.variant"
+          :href="c.href"
+          :external="c.external"
+          :download="c.download"
+          :disabled="c.disabled"
           class="max-md:flex-1 max-md:text-center"
         >
-          Zgłoś prelekcję
-        </UiButton>
-        <UiButton
-          variant="ghost"
-          disabled
-          class="max-md:flex-1 max-md:text-center"
-        >
-          Rezerwuj miejsce · wkrótce
-        </UiButton>
-        <UiButton
-          variant="ghost"
-          disabled
-          class="max-md:flex-1 max-md:text-center"
-        >
-          Dodaj do kalendarza · wkrótce
+          {{ c.label }}
         </UiButton>
       </div>
 

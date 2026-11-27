@@ -1,23 +1,8 @@
 <script setup lang="ts">
-interface AgendaTalk {
-  title: string
-  speaker: string
-}
+import { edition2026 } from '~/data/editions/2026'
 
-// null = still-unconfirmed slot → "Temat wkrótce" card
-const agendaSlots: (AgendaTalk | null)[] = [
-  { title: 'Sztuka tworzenia UI\'a z Vue.js', speaker: 'Przemysław Spaczek' },
-  { title: 'Vue offline-first: aplikacja, której nie ma w App Store', speaker: 'Paweł Niedużak' },
-  { title: 'Domain Driven Design w Vue', speaker: 'Filip Rakowski' },
-  { title: 'Microfrontendy w Vue 3 – od teorii do praktyki', speaker: 'Sebastian Wrzalek' }
-]
-
-const chips = [
-  '18:00 Rozpoczęcie',
-  '19:00–19:10 Break',
-  '20:00–20:05 Zakończenie',
-  '20:10–22:00 Networking'
-]
+const { talks: agendaSlots, schedule: chips, externalUrl } = edition2026.agenda
+const bonus = edition2026.agenda.bonus!
 </script>
 
 <template>
@@ -40,7 +25,7 @@ const chips = [
       </div>
       <UiButton
         variant="ghost"
-        href="https://www.linkedin.com/events/7287746621629587456/"
+        :href="externalUrl"
         external
       >
         Zobacz na LinkedIn
@@ -85,11 +70,11 @@ const chips = [
       </div>
       <BonusSlotCard
         class="mt-6"
-        label="Slot bonusowy"
+        :label="bonus.label"
         no-badge
-        title="„Odpowiedz sobie na jedno ważne pytanie…”"
-        meta="O tym, jak szukać sensu w świecie miliona możliwości."
-        sub="Michalina Filimoniak"
+        :title="bonus.title"
+        :meta="bonus.meta"
+        :sub="bonus.sub"
       />
       <div class="mt-10 flex flex-wrap gap-x-6 gap-y-2 border-t border-white/10 pt-5">
         <span
@@ -138,11 +123,11 @@ const chips = [
       </div>
       <BonusSlotCard
         class="mt-3"
-        label="Slot bonusowy"
+        :label="bonus.label"
         no-badge
-        title="„Odpowiedz sobie na jedno ważne pytanie…”"
-        meta="O tym, jak szukać sensu w świecie miliona możliwości."
-        sub="Michalina Filimoniak"
+        :title="bonus.title"
+        :meta="bonus.meta"
+        :sub="bonus.sub"
       />
       <div class="mt-8 flex flex-wrap gap-x-5 gap-y-2 border-t border-white/10 pt-4">
         <span

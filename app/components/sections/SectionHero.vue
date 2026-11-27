@@ -1,12 +1,7 @@
 <script setup lang="ts">
-import { RESERVE_URL } from '~/utils/links'
+import { edition2026 } from '~/data/editions/2026'
 
-const audience = ['Dla developerów Vue i Nuxt', 'Pure Vue — zero AI', 'Case study i networking', 'Po polsku']
-const stats = [
-  { num: '4', label: 'Speakerów' },
-  { num: '1', label: 'Edycja' },
-  { num: '0 zł', label: 'Wstęp' }
-]
+const { badge, audience, stats, ctas } = edition2026.hero
 </script>
 
 <template>
@@ -20,7 +15,7 @@ const stats = [
           name="i-lucide-sparkle"
           class="size-5"
         />
-        23 listopada &bull; Wrocław
+        {{ badge }}
       </UiBadge>
 
       <h1 class="mb-6 font-display text-[44px] leading-none font-bold tracking-tight md:text-[min(76px,9vh)]">
@@ -49,26 +44,16 @@ const stats = [
 
       <div class="mb-12 flex flex-wrap gap-4">
         <UiButton
-          :href="RESERVE_URL"
-          external
+          v-for="c in ctas"
+          :key="c.label"
+          :variant="c.variant"
+          :href="c.href"
+          :external="c.external"
+          :download="c.download"
+          :disabled="c.disabled"
           class="max-md:flex-1 max-md:text-center"
         >
-          Zarezerwuj miejsce
-        </UiButton>
-        <UiButton
-          variant="ghost"
-          href="#cfp"
-          class="max-md:flex-1 max-md:text-center"
-        >
-          Zgłoś prelekcję
-        </UiButton>
-        <UiButton
-          variant="ghost"
-          href="/event.ics"
-          download
-          class="max-md:flex-1 max-md:text-center"
-        >
-          Dodaj do kalendarza
+          {{ c.label }}
         </UiButton>
       </div>
 

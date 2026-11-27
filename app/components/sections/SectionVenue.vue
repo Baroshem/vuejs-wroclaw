@@ -1,10 +1,7 @@
 <script setup lang="ts">
-const facts = [
-  { k: 'Miejsce', v: 'Klimatyczny pub eventowy', sub: 'spotkania i prelekcje w sercu Wrocławia' },
-  { k: 'Dojazd', v: 'Ścisłe centrum — Podwale', sub: 'ok. 10 minut pieszo od Rynku' },
-  { k: 'Parking', v: 'Strefa płatnego parkowania', sub: 'w okolicy; wygodnie też komunikacją miejską' },
-  { k: 'Po meetupie', v: 'Afterparty na miejscu', sub: 'rozmowy i networking do ok. 22:00' }
-]
+import { edition2026 } from '~/data/editions/2026'
+
+const venue = edition2026.venue!
 </script>
 
 <template>
@@ -26,15 +23,15 @@ const facts = [
     <div class="grid items-start gap-10 lg:grid-cols-[1.05fr_1fr]">
       <div>
         <p class="mb-1.5 text-[22px] font-bold">
-          Klub Wędrówki
+          {{ venue.name }}
         </p>
         <p class="mb-7 font-display text-[13px] tracking-[0.04em] text-slate">
-          Podwale 37/38, 50-040 Wrocław
+          {{ venue.address }}
         </p>
 
         <dl class="mb-7.5">
           <div
-            v-for="fact in facts"
+            v-for="fact in venue.facts"
             :key="fact.k"
             class="grid grid-cols-[118px_1fr] gap-4 border-t border-dashed border-white/9 py-3 last:border-b"
           >
@@ -50,7 +47,7 @@ const facts = [
 
         <div class="flex flex-wrap gap-3">
           <UiButton
-            href="https://www.google.com/maps/search/?api=1&query=Klub+W%C4%99dr%C3%B3wki+Podwale+37%2F38+Wroc%C5%82aw"
+            :href="venue.navigateUrl"
             external
           >
             Nawiguj
@@ -67,15 +64,15 @@ const facts = [
       <div class="rounded-lg border border-white/10 border-l-2 border-l-accent bg-panel p-3.5">
         <div class="overflow-hidden">
           <iframe
-            title="Mapa okolicy Klubu Wędrówki"
-            src="https://www.openstreetmap.org/export/embed.html?bbox=17.0249%2C51.0992%2C17.0349%2C51.1092&layer=mapnik&marker=51.10419%2C17.02990"
+            :title="venue.mapTitle"
+            :src="venue.mapEmbedUrl"
             class="h-80 w-full border-0"
             loading="lazy"
           />
         </div>
         <div class="mt-3 flex justify-between gap-3 font-display text-[10px] tracking-[0.16em] text-slate-dim uppercase">
-          <span>51.1042 N &bull; 17.0299 E</span>
-          <span>Podwale 37/38</span>
+          <span>{{ venue.coords }}</span>
+          <span>{{ venue.address.split(',')[0] }}</span>
         </div>
       </div>
     </div>

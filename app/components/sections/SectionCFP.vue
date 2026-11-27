@@ -1,11 +1,7 @@
 <script setup lang="ts">
-import { CFP_FORM_URL } from '~/utils/links'
+import { edition2026 } from '~/data/editions/2026'
 
-const steps = [
-  { title: 'Zgłoś temat', desc: 'Wyślij opis swojej prezentacji, kontekst i wnioski, które mogą pomóc innym deweloperom.' },
-  { title: 'Wybierz format', desc: 'Lightning talk, case study lub głębszy workshop na temat Vue, DX, performance i architektury.' },
-  { title: 'Dołącz do programu', desc: 'Po akceptacji otrzymasz szczegóły techniczne, harmonogram i wsparcie organizacyjne.' }
-]
+const { steps } = edition2026.cfp
 </script>
 
 <template>
@@ -26,7 +22,7 @@ const steps = [
         tworzących aplikacje w Vue.js.
       </p>
       <UiButton
-        :href="CFP_FORM_URL"
+        :href="edition2026.cfp.formUrl"
         external
         class="mb-11"
       >
