@@ -11,7 +11,7 @@ const tag = computed(() => (internal.value ? resolveComponent('NuxtLink') : prop
 const type = computed(() => (props.href ? undefined : 'button'))
 const classes = computed(() => [
   props.disabled && 'pointer-events-none opacity-50',
-  'inline-block cursor-pointer rounded-md px-6.5 py-3.5 text-sm transition-colors',
+  'inline-flex cursor-pointer items-center justify-center text-center rounded-md px-6.5 py-3.5 text-sm transition-colors',
   props.variant === 'primary'
     ? 'bg-accent font-bold text-white hover:bg-accent-light hover:text-white'
     : 'rounded-md border border-white/25 bg-transparent text-white hover:border-accent hover:text-accent'

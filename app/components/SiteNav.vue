@@ -97,7 +97,7 @@ onBeforeUnmount(() => {
       <CtaLink
         v-if="cta"
         :cta="cta"
-        class="hidden whitespace-nowrap rounded-md bg-accent px-5 py-2.5 text-xs font-bold uppercase tracking-widest text-white hover:bg-primary-600 hover:text-white md:inline-block"
+        class="hidden whitespace-nowrap rounded-md bg-accent px-5 py-2.5 text-xs font-bold uppercase tracking-widest text-white hover:bg-primary-600 hover:text-white md:inline-flex md:items-center md:justify-center"
       />
       <button
         v-if="hasMenu"
