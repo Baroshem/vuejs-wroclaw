@@ -58,10 +58,17 @@ const stats = [
         </UiButton>
         <UiButton
           variant="ghost"
-          href="/2026"
+          disabled
           class="max-md:flex-1 max-md:text-center"
         >
-          Zobacz edycję 1
+          Rezerwuj miejsce · wkrótce
+        </UiButton>
+        <UiButton
+          variant="ghost"
+          disabled
+          class="max-md:flex-1 max-md:text-center"
+        >
+          Dodaj do kalendarza · wkrótce
         </UiButton>
       </div>
 

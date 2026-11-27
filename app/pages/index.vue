@@ -9,7 +9,7 @@ const cta = { label: 'Edycja 2', href: '/2027' }
     <SiteNav
       :active="null"
       :links="[]"
-      :cta="cta"
+      :cta="null"
     />
     <main id="main">
       <SectionHeroHome />

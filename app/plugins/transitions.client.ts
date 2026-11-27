@@ -25,6 +25,11 @@ export default defineNuxtPlugin((nuxtApp) => {
     const href = link.getAttribute('href')
     const moon = link.hasAttribute('data-moon') ? link : document.querySelector(`[data-moon][href="${href}"]`)
     if (!moon) {
+      // no moon on this page (e.g. /2026 hero buttons) — fall back to a default direction
+      moonVec.x = 0
+      moonVec.y = 1
+      root.style.setProperty('--moon-x', '0px')
+      root.style.setProperty('--moon-y', `${(s0 => s0 ? s0.getBoundingClientRect().height / 2 : 0)(sigil)}px`)
       return
     }
     const m = moon.getBoundingClientRect()
