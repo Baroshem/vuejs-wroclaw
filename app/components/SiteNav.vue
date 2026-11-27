@@ -1,16 +1,21 @@
 <script setup lang="ts">
 import { RESERVE_URL } from '~/utils/links'
 
-defineProps<{ active: string | null }>()
-
-const links = [
-  { id: 'speakers', label: 'Prelegenci' },
-  { id: 'sponsors', label: 'Sponsorzy' },
-  { id: 'agenda', label: 'Agenda' },
-  { id: 'venue', label: 'Miejsce' },
-  { id: 'gallery', label: 'Galeria' },
-  { id: 'cfp', label: 'CFP' }
-]
+withDefaults(defineProps<{
+  active: string | null
+  links?: { id: string, label: string }[]
+  cta?: { label: string, href: string, external?: boolean }
+}>(), {
+  links: () => [
+    { id: 'speakers', label: 'Prelegenci' },
+    { id: 'sponsors', label: 'Sponsorzy' },
+    { id: 'agenda', label: 'Agenda' },
+    { id: 'venue', label: 'Miejsce' },
+    { id: 'gallery', label: 'Galeria' },
+    { id: 'cfp', label: 'CFP' }
+  ],
+  cta: () => ({ label: 'Rezerwuj miejsce', href: RESERVE_URL, external: true })
+})
 </script>
 
 <template>
@@ -45,13 +50,16 @@ const links = [
         </a>
       </span>
       <a
-        :href="RESERVE_URL"
-        target="_blank"
-        rel="noopener"
+        :href="cta.href"
+        :target="cta.external ? '_blank' : undefined"
+        :rel="cta.external ? 'noopener' : undefined"
         class="hidden whitespace-nowrap rounded-md bg-accent px-5 py-2.5 text-xs font-bold uppercase tracking-widest text-white hover:bg-primary-600 hover:text-white md:inline-block"
       >
-        Rezerwuj miejsce
-        <span class="sr-only">(otwiera się w nowej karcie)</span>
+        {{ cta.label }}
+        <span
+          v-if="cta.external"
+          class="sr-only"
+        >(otwiera się w nowej karcie)</span>
       </a>
     </span>
   </nav>

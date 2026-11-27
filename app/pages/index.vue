@@ -1,14 +1,18 @@
 <script setup lang="ts">
-import SectionCFP from '~/components/sections/SectionCFP.vue'
-import SectionEvent from '~/components/sections/SectionEvent.vue'
-import SectionGallery from '~/components/sections/SectionGallery.vue'
-import SectionHero from '~/components/sections/SectionHero.vue'
-import SectionSpeakers from '~/components/sections/SectionSpeakers.vue'
-import SectionSponsors from '~/components/sections/SectionSponsors.vue'
-import SectionVenue from '~/components/sections/SectionVenue.vue'
+import { CFP_FORM_URL } from '~/utils/links'
+import SectionHeroNext from '~/components/sections/SectionHeroNext.vue'
+import SectionPlaceholder from '~/components/sections/SectionPlaceholder.vue'
 
-const sections = ['speakers', 'sponsors', 'agenda', 'venue', 'gallery', 'cfp'] as const
-const { active } = useScrollSpy(sections)
+const links = [
+  { id: 'speakers', label: 'Prelegenci' },
+  { id: 'sponsors', label: 'Sponsorzy' },
+  { id: 'agenda', label: 'Agenda' },
+  { id: 'venue', label: 'Miejsce' },
+  { id: 'cfp', label: 'CFP' }
+]
+const cta = { label: 'Zgłoś prelekcję', href: CFP_FORM_URL, external: true }
+
+const { active } = useScrollSpy(links.map(l => l.id))
 </script>
 
 <template>
@@ -19,17 +23,51 @@ const { active } = useScrollSpy(sections)
     >
       Przejdź do treści
     </a>
-    <SiteNav :active="active" />
+    <SiteNav
+      :active="active"
+      :links="links"
+      :cta="cta"
+    />
     <main id="main">
-      <SectionHero />
-      <SectionSpeakers />
-      <SectionSponsors />
-      <SectionEvent />
-      <SectionVenue />
-      <SectionGallery />
-      <SectionCFP />
+      <SectionHeroNext />
+      <SectionPlaceholder
+        id="speakers"
+        title="Prelegenci"
+        description="Line-up kolejnej edycji jest w przygotowaniu."
+        icon="i-lucide-users"
+      />
+      <SectionPlaceholder
+        id="sponsors"
+        title="Sponsorzy"
+        description="Chcesz wesprzeć kolejną edycję? Odezwij się do organizatorów."
+        icon="i-lucide-handshake"
+        deep
+      />
+      <SectionPlaceholder
+        id="agenda"
+        title="Agenda"
+        description="Harmonogram pojawi się po potwierdzeniu prelegentów."
+        icon="i-lucide-calendar-clock"
+      />
+      <SectionPlaceholder
+        id="venue"
+        title="Miejsce"
+        description="Lokalizacja i data zostaną ogłoszone wkrótce."
+        icon="i-lucide-map-pin"
+        deep
+      />
+      <SectionPlaceholder
+        id="cfp"
+        title="Call for Papers"
+        description="Zgłoszenia prelekcji otwieramy wkrótce — w międzyczasie możesz skorzystać z formularza w nawigacji."
+        icon="i-lucide-mic"
+      />
     </main>
-    <SiteFooter />
-    <MobileCtaBar />
+    <SiteFooter
+      tagline="Kolejna edycja 2027"
+      :links="links"
+      :linkedin="false"
+    />
+    <MobileCtaBar :cta="cta" />
   </div>
 </template>
