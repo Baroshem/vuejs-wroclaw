@@ -79,6 +79,6 @@ defineProps<{
       </div>
     </div>
 
-    <HeroSigil />
+    <HeroSigil class="max-md:order-first" />
   </section>
 </template>

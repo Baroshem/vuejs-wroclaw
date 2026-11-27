@@ -78,7 +78,7 @@ const stats = [
       </div>
     </div>
 
-    <HeroSigil>
+    <HeroSigil class="max-md:order-first">
       <template #ring1>
         <div class="absolute -top-3.5 left-1/2 -translate-x-1/2">
           <NuxtLink
