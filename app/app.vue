@@ -1,6 +1,8 @@
 <script setup>
 useScrollFx()
 
+const { t, locale } = useI18n()
+
 useHead({
   meta: [
     { name: 'viewport', content: 'width=device-width, initial-scale=1' }
@@ -11,12 +13,12 @@ useHead({
     { rel: 'apple-touch-icon', href: '/apple-touch-icon.png' }
   ],
   htmlAttrs: {
-    lang: 'pl'
+    lang: locale
   }
 })
 
-const title = 'Vue.js Wrocław • Meetup'
-const description = 'Lokalny meetup Vue.js Wrocław z 4 speakerami, networkingiem i nowoczesną techniczną atmosferą.'
+const title = computed(() => t('meta.title'))
+const description = computed(() => t('meta.description'))
 
 // Open Graph crawlers need an absolute URL; override with NUXT_PUBLIC_SITE_URL if the domain changes.
 const { siteUrl } = useRuntimeConfig().public
