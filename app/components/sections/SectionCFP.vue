@@ -5,6 +5,8 @@ defineProps<{
   formUrl?: string
   steps: Step[]
 }>()
+
+const { t } = useI18n()
 </script>
 
 <template>
@@ -18,11 +20,10 @@ defineProps<{
         Call for Papers
       </UiBadge>
       <h2 class="mb-3.5 font-display text-[28px] font-bold md:text-[40px]">
-        Zgłoś swój temat
+        {{ t('sections.cfp.title') }}
       </h2>
       <p class="mb-8 max-w-120 leading-[1.7] text-slate">
-        Szukamy praktycznych historii, pomysłów i doświadczeń, które realnie wspierają ludzi
-        tworzących aplikacje w Vue.js.
+        {{ t('sections.cfp.description') }}
       </p>
       <UiButton
         :href="formUrl"
@@ -30,7 +31,7 @@ defineProps<{
         :disabled="!formUrl"
         class="mb-11"
       >
-        {{ formUrl ? 'Aplikuj przez Google Forms' : 'Aplikuj przez Google Forms · wkrótce' }}
+        {{ formUrl ? t('sections.cfp.apply') : `${t('sections.cfp.apply')} · ${t('common.soon')}` }}
       </UiButton>
 
       <div class="grid md:grid-cols-3">

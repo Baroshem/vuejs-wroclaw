@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import SectionHeroHome from '~/components/sections/SectionHeroHome.vue'
+
+const { t } = useI18n()
 </script>
 
 <template>
@@ -13,7 +15,7 @@ import SectionHeroHome from '~/components/sections/SectionHeroHome.vue'
       <SectionHeroHome />
     </main>
     <SiteFooter
-      tagline="Wrocław"
+      :tagline="t('home.footerTagline')"
       :links="[]"
       :linkedin="false"
     />

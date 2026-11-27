@@ -1,7 +1,10 @@
 <script setup lang="ts">
-import { edition2027 } from '~/data/editions/2027'
+import { createEdition2027 } from '~/data/editions/2027'
+
+const { t } = useI18n()
+const edition = computed(() => createEdition2027(t))
 </script>
 
 <template>
-  <EditionPage :edition="edition2027" />
+  <EditionPage :edition="edition" />
 </template>

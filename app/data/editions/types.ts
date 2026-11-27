@@ -4,6 +4,9 @@
 
 import type { GalleryPhoto } from '../gallery'
 
+/** Message lookup passed to the edition factories (the `t` from useI18n). */
+export type Translate = (key: string, named?: Record<string, unknown>) => string
+
 export interface Person {
   name: string
   meta: string

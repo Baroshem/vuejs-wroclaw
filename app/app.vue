@@ -1,7 +1,8 @@
 <script setup lang="ts">
 useScrollFx()
 
-const { t, locale } = useI18n()
+const { t } = useI18n()
+const i18nHead = useLocaleHead({ dir: true, lang: true, seo: true })
 
 useHead({
   meta: [
@@ -11,11 +12,15 @@ useHead({
     { rel: 'icon', type: 'image/svg+xml', href: '/vuejs-wroclaw.svg' },
     { rel: 'icon', type: 'image/png', href: '/favicon.png' },
     { rel: 'apple-touch-icon', href: '/apple-touch-icon.png' }
-  ],
-  htmlAttrs: {
-    lang: locale
-  }
+  ]
 })
+
+// lang/dir on <html>, hreflang alternates, canonical and og:locale for the current route.
+useHead(() => ({
+  htmlAttrs: i18nHead.value.htmlAttrs,
+  link: i18nHead.value.link,
+  meta: i18nHead.value.meta
+}))
 
 const title = computed(() => t('meta.title'))
 const description = computed(() => t('meta.description'))
@@ -32,7 +37,7 @@ useSeoMeta({
   ogImage,
   ogImageWidth: 1200,
   ogImageHeight: 630,
-  ogImageAlt: 'Prelegenci i organizatorzy meetupu Vue.js Wrocław na scenie przed slajdem z logo',
+  ogImageAlt: computed(() => t('meta.ogImageAlt')),
   twitterImage: ogImage,
   twitterCard: 'summary_large_image'
 })

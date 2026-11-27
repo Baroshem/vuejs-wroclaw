@@ -13,7 +13,7 @@ defineProps<{
 <template>
   <section
     data-id="hero"
-    class="relative isolate grid items-center gap-10 px-5 pt-10 pb-14 md:min-h-[calc(100vh-var(--nav-h))] md:grid-cols-[1.1fr_1fr] md:gap-16 md:px-16 md:py-0"
+    class="relative isolate grid items-center gap-10 overflow-x-clip px-5 pt-10 pb-14 md:px-16 lg:min-h-[calc(100vh-var(--nav-h))] lg:grid-cols-[1.1fr_1fr] lg:gap-16 lg:py-0"
   >
     <div data-copy>
       <UiBadge class="mb-7">
@@ -79,6 +79,6 @@ defineProps<{
       </div>
     </div>
 
-    <HeroSigil class="max-md:order-first" />
+    <HeroSigil class="max-lg:order-first" />
   </section>
 </template>

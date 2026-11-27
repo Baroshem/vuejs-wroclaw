@@ -1,18 +1,10 @@
 <script setup lang="ts">
-withDefaults(defineProps<{
-  tagline?: string
-  links?: { id: string, label: string }[]
-  linkedin?: boolean
-}>(), {
-  tagline: '23 listopada, Wrocław',
-  links: () => [
-    { id: 'speakers', label: 'Prelegenci' },
-    { id: 'agenda', label: 'Agenda' },
-    { id: 'venue', label: 'Miejsce' },
-    { id: 'cfp', label: 'CFP' }
-  ],
-  linkedin: true
-})
+defineProps<{
+  tagline: string
+  links: { id: string, label: string }[]
+  linkedin: boolean
+}>()
+const { t } = useI18n()
 </script>
 
 <template>
@@ -29,7 +21,7 @@ withDefaults(defineProps<{
         href="https://www.linkedin.com/events/7287746621629587456/"
         target="_blank"
         rel="noopener noreferrer"
-      >LinkedIn<span class="sr-only">(otwiera się w nowej karcie)</span></a>
+      >LinkedIn<span class="sr-only">{{ t('common.newTab') }}</span></a>
     </span>
   </footer>
 </template>

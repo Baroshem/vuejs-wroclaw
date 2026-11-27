@@ -9,6 +9,8 @@ const props = defineProps<{
   externalUrl?: string
 }>()
 
+const { t } = useI18n()
+
 const slots = computed(() => props.talks.length ? props.talks : Array.from({ length: 4 }, () => null))
 </script>
 
@@ -20,8 +22,8 @@ const slots = computed(() => props.talks.length ? props.talks : Array.from({ len
     <div class="mb-10 flex flex-wrap items-end justify-between gap-4">
       <SectionHeader
         icon="i-lucide-calendar-clock"
-        badge="Agenda"
-        title="Co czeka na uczestników?"
+        :badge="t('sections.agenda.badge')"
+        :title="t('sections.agenda.title')"
       />
       <UiButton
         v-if="externalUrl"
@@ -29,7 +31,7 @@ const slots = computed(() => props.talks.length ? props.talks : Array.from({ len
         :href="externalUrl"
         external
       >
-        Zobacz na LinkedIn
+        {{ t('sections.agenda.linkedin') }}
       </UiButton>
     </div>
 

@@ -22,7 +22,10 @@ export default defineNuxtConfig({
   routeRules: {
     '/': { prerender: true },
     '/2026': { prerender: true },
-    '/2027': { prerender: true }
+    '/2027': { prerender: true },
+    '/en': { prerender: true },
+    '/en/2026': { prerender: true },
+    '/en/2027': { prerender: true }
   },
 
   experimental: {
@@ -41,7 +44,7 @@ export default defineNuxtConfig({
   },
 
   // Polish stays at the root (/2026, /2027 keep their URLs); other locales live under a prefix (/en/2026).
-  // Files are lazy-loaded from i18n/locales. Strings are not migrated yet — see HANDOFF.md.
+  // Files are lazy-loaded from i18n/locales; edition copy lives under `editions.<slug>.*`.
   i18n: {
     defaultLocale: 'pl',
     strategy: 'prefix_except_default',

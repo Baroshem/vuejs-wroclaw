@@ -1,25 +1,18 @@
 <script setup lang="ts">
-import { RESERVE_URL } from '~/utils/links'
 import { SITE_PAGES as pages } from '~/utils/editions'
 import type { CtaLinkData } from './CtaLink.vue'
 
-const props = withDefaults(defineProps<{
+const props = defineProps<{
   active: string | null
-  links?: { id: string, label: string }[]
-  cta?: CtaLinkData | null
-}>(), {
-  links: () => [
-    { id: 'speakers', label: 'Prelegenci' },
-    { id: 'sponsors', label: 'Sponsorzy' },
-    { id: 'agenda', label: 'Agenda' },
-    { id: 'venue', label: 'Miejsce' },
-    { id: 'gallery', label: 'Galeria' },
-    { id: 'cfp', label: 'CFP' }
-  ],
-  cta: () => ({ label: 'Rezerwuj miejsce', href: RESERVE_URL, external: true })
-})
+  links: { id: string, label: string }[]
+  cta: CtaLinkData | null
+}>()
 const NuxtLink = resolveComponent('NuxtLink')
 const route = useRoute()
+const { t } = useI18n()
+const localePath = useLocalePath()
+const baseName = useRouteBaseName()
+const isCurrent = (name: string) => baseName(route) === name
 
 // Mobile menu: section links + CTA. Closes on navigation, Escape and viewport growth.
 const open = ref(false)
@@ -39,7 +32,7 @@ const onMq = () => {
   }
 }
 onMounted(() => {
-  mq = window.matchMedia('(min-width: 768px)')
+  mq = window.matchMedia('(min-width: 1440px)')
   window.addEventListener('keydown', onKey)
   mq.addEventListener('change', onMq)
 })
@@ -52,11 +45,11 @@ onBeforeUnmount(() => {
 <template>
   <nav
     data-site-nav
-    aria-label="Nawigacja główna"
+    :aria-label="t('a11y.mainNav')"
     class="sticky top-0 z-20 flex items-center justify-between border-b border-white/7 bg-[rgba(6,8,11,0.9)] px-5 py-3.5 backdrop-blur-md md:px-16 md:py-5"
   >
-    <a
-      href="#"
+    <NuxtLink
+      :to="localePath('/')"
       class="flex items-center gap-3 font-display text-[13px] font-bold md:text-base"
     >
       <img
@@ -65,21 +58,21 @@ onBeforeUnmount(() => {
         class="block w-6.5"
       >
       Vue.js Wrocław
-    </a>
+    </NuxtLink>
     <span class="mr-auto ml-8 hidden gap-6.5 border-l border-white/15 pl-8 text-xs uppercase tracking-[0.14em] md:flex">
       <NuxtLink
         v-for="p in pages"
         :key="p.to"
-        :to="p.to"
+        :to="localePath(p.to)"
         class="pb-0.75 transition-colors"
-        :class="route.path === p.to ? 'text-accent-light' : 'text-slate hover:text-accent-light'"
-        :aria-current="route.path === p.to ? 'page' : undefined"
+        :class="isCurrent(p.name) ? 'text-accent-light' : 'text-slate hover:text-accent-light'"
+        :aria-current="isCurrent(p.name) ? 'page' : undefined"
       >
-        {{ p.label }}
+        {{ t(p.label) }}
       </NuxtLink>
     </span>
-    <span class="flex items-center gap-5.5">
-      <span class="hidden gap-6.5 text-xs uppercase tracking-[0.14em] md:flex">
+    <span class="flex items-center gap-3 md:gap-5.5">
+      <span class="hidden gap-6.5 text-xs uppercase tracking-[0.14em] min-[1440px]:flex">
         <a
           v-for="l in links"
           :key="l.id"
@@ -93,18 +86,19 @@ onBeforeUnmount(() => {
           {{ l.label }}
         </a>
       </span>
+      <LocaleSwitcher />
       <CtaLink
         v-if="cta"
         :cta="cta"
-        class="hidden whitespace-nowrap rounded-md bg-accent px-5 py-2.5 text-xs font-bold uppercase tracking-widest text-white hover:bg-primary-600 hover:text-white md:inline-flex md:items-center md:justify-center"
+        class="hidden whitespace-nowrap rounded-md bg-accent px-5 py-2.5 text-xs font-bold uppercase tracking-widest text-white hover:bg-primary-600 hover:text-white min-[1440px]:inline-flex min-[1440px]:items-center min-[1440px]:justify-center"
       />
       <button
         v-if="hasMenu"
         type="button"
-        class="-mr-2 grid size-11 cursor-pointer place-items-center rounded-md text-white md:hidden"
+        class="-mr-2 grid size-11 cursor-pointer place-items-center rounded-md text-white min-[1440px]:hidden"
         :aria-expanded="open"
         aria-controls="mobile-menu"
-        :aria-label="open ? 'Zamknij menu' : 'Otwórz menu'"
+        :aria-label="open ? t('a11y.closeMenu') : t('a11y.openMenu')"
         @click="open = !open"
       >
         <UIcon
@@ -116,7 +110,7 @@ onBeforeUnmount(() => {
     <div
       v-if="open && hasMenu"
       id="mobile-menu"
-      class="absolute inset-x-0 top-full flex max-h-[calc(100dvh-4rem)] flex-col gap-1 overflow-y-auto border-b border-white/10 bg-[rgba(6,8,11,0.97)] px-5 py-4 backdrop-blur-lg md:hidden"
+      class="absolute inset-x-0 top-full flex max-h-[calc(100dvh-4rem)] flex-col gap-1 overflow-y-auto border-b border-white/10 bg-[rgba(6,8,11,0.97)] px-5 py-4 backdrop-blur-lg min-[1440px]:hidden"
     >
       <a
         v-for="l in links"

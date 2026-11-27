@@ -1,6 +1,233 @@
 {
   "meta": {
     "title": "Vue.js Wrocław • Meetup",
-    "description": "Lokalny meetup Vue.js Wrocław z 4 speakerami, networkingiem i nowoczesną techniczną atmosferą."
+    "description": "Lokalny meetup Vue.js Wrocław z 4 speakerami, networkingiem i nowoczesną techniczną atmosferą.",
+    "ogImageAlt": "Prelegenci i organizatorzy meetupu Vue.js Wrocław na scenie przed slajdem z logo"
+  },
+  "common": {
+    "soon": "wkrótce",
+    "newTab": "(otwiera się w nowej karcie)"
+  },
+  "a11y": {
+    "skipToContent": "Przejdź do treści",
+    "mainNav": "Nawigacja główna",
+    "editionsNav": "Edycje",
+    "openMenu": "Otwórz menu",
+    "closeMenu": "Zamknij menu",
+    "language": "Język",
+    "step": "Krok {n}"
+  },
+  "pages": {
+    "start": "Start",
+    "edition1": "Edycja 1",
+    "edition2": "Edycja 2"
+  },
+  "nav": {
+    "speakers": "Prelegenci",
+    "sponsors": "Sponsorzy",
+    "agenda": "Agenda",
+    "venue": "Miejsce",
+    "gallery": "Galeria",
+    "cfp": "CFP"
+  },
+  "cta": {
+    "reserve": "Rezerwuj miejsce",
+    "reserveHero": "Zarezerwuj miejsce",
+    "submitTalk": "Zgłoś prelekcję",
+    "addToCalendar": "Dodaj do kalendarza"
+  },
+  "home": {
+    "badge": "Meetup • Wrocław",
+    "description": "Lokalny meetup dla frontend developerów, architektów aplikacji i osób, które chcą budować lepszy web z Vue.js. Wybierz edycję i sprawdź, co u nas słychać.",
+    "audience": [
+      "Dla developerów Vue i Nuxt",
+      "Case study i networking",
+      "Po polsku"
+    ],
+    "edition1Moon": "Edycja 1 — archiwum",
+    "edition2Moon": "Edycja 2 — nadchodząca",
+    "footerTagline": "Wrocław"
+  },
+  "sections": {
+    "speakers": {
+      "hostBadge": "Prowadzenie",
+      "hostTitle": "Kto poprowadzi",
+      "hostSoon": "Prowadzący wkrótce",
+      "badge": "Prelegenci",
+      "title": "Kto wystąpi",
+      "speakerSoon": "Prelegent wkrótce"
+    },
+    "sponsors": {
+      "badge": "Sponsorzy & Partnerzy",
+      "soon": "Sponsor wkrótce"
+    },
+    "agenda": {
+      "badge": "Agenda",
+      "title": "Co czeka na uczestników?",
+      "linkedin": "Zobacz na LinkedIn",
+      "talk": "Prelekcja",
+      "topicSoon": "Temat wkrótce",
+      "bonus": "Bonus"
+    },
+    "venue": {
+      "badge": "Miejsce • Venue",
+      "title": "Gdzie się spotykamy",
+      "soon": "Lokalizacja wkrótce",
+      "navigate": "Nawiguj",
+      "seeAgenda": "Zobacz agendę"
+    },
+    "gallery": {
+      "badge": "Galeria",
+      "title": "Jak to wyglądało",
+      "description": "Kadry z naszego ostatniego meetupu — prelegenci, rozmowy i dobra atmosfera.",
+      "photoBy": "Zdjęcia:",
+      "instagram": "(Instagram, otwiera się w nowej karcie)",
+      "allPhotosBy": "Wszystkie zdjęcia: Daniel Kasperczyk ·",
+      "zoom": "Powiększ zdjęcie {n} z {total}",
+      "preview": "Podgląd zdjęcia",
+      "close": "Zamknij",
+      "previous": "Poprzednie zdjęcie",
+      "next": "Następne zdjęcie",
+      "caption": "{n} / {total} · Zdjęcie: Daniel Kasperczyk"
+    },
+    "cfp": {
+      "title": "Zgłoś swój temat",
+      "description": "Szukamy praktycznych historii, pomysłów i doświadczeń, które realnie wspierają ludzi tworzących aplikacje w Vue.js.",
+      "apply": "Aplikuj przez Google Forms",
+      "steps": [
+        { "title": "Zgłoś temat", "desc": "Wyślij opis swojej prezentacji, kontekst i wnioski, które mogą pomóc innym deweloperom." },
+        { "title": "Wybierz format", "desc": "Lightning talk, case study lub głębszy workshop na temat Vue, DX, performance i architektury." },
+        { "title": "Dołącz do programu", "desc": "Po akceptacji otrzymasz szczegóły techniczne, harmonogram i wsparcie organizacyjne." }
+      ]
+    }
+  },
+  "gallery": {
+    "alts": {
+      "p01": "Prelegent w jasnej koszuli z mikrofonem w dłoniach, patrzący w bok",
+      "p02": "Prelegentka w granatowej bluzie mówi do mikrofonu na niebieskim tle sceny",
+      "p03": "Uśmiechnięta prelegentka w czarnej bluzie z mikrofonem w dłoniach",
+      "p04": "Prelegent w granatowej koszulce z laptopem na pulpicie, skupiony na ekranie",
+      "p05": "Prelegent w okularach i jasnej bluzie opowiada do mikrofonu, na pierwszym planie rozmyte głowy słuchaczy",
+      "p06": "Łysy brodaty prelegent w jasnej bluzie z mikrofonem wskazuje ręką na ekran z prezentacją",
+      "p07": "Prelegent w okularach i szarej bluzie gestykuluje podczas wystąpienia na tle zielonych świateł",
+      "p08": "Prelegent z uniesioną ręką stoi przy ekranie ze slajdem o DDD",
+      "p09": "Prelegent w granatowej koszulce z mikrofonem tłumaczy coś, gestykulując obiema rękami",
+      "p10": "Dwóch mężczyzn na scenie przed ekranem projektora, jeden z nich trzyma mikrofon",
+      "p11": "Publiczność klaszcze, w tle widać jasno oświetlone osoby przy ścianie",
+      "p12": "Prelegenci i organizatorzy stoją na scenie przed slajdem z logo Vue.js Wrocław, przed nimi siedzi mężczyzna",
+      "p13": "Prelegent w okularach czyta do mikrofonu, przed sobą ma otwarty laptop",
+      "p14": "Prelegentka z mikrofonem w ruchu, w tle zielone i niebieskie światła sceny",
+      "p15": "Prelegent w jasnej koszuli patrzy w dół i przemawia do mikrofonu",
+      "p16": "Sześciu uczestników siedzi w rzędzie pod ekranem ze slajdem Vue.js Wrocław 23.11.2026",
+      "p17": "Prelegentka z mikrofonem w rozmytym kadrze, na pierwszym planie sylwetki słuchaczy",
+      "p18": "Łysy brodaty prelegent opowiada do mikrofonu przed ekranem z przeglądarką, na pierwszym planie głowy publiczności"
+    }
+  },
+  "editions": {
+    "2026": {
+      "hero": {
+        "badge": "23 listopada • Wrocław",
+        "description": "Lokalny meetup dla frontend developerów, architektów aplikacji i osób, które chcą budować lepszy web z Vue.js. Wieczór pełen praktycznych case study, świeżych pomysłów i networkingu.",
+        "audience": [
+          "Dla developerów Vue i Nuxt",
+          "Pure Vue — zero AI",
+          "Case study i networking",
+          "Po polsku"
+        ],
+        "stats": [
+          { "num": "4", "label": "Speakerów" },
+          { "num": "1", "label": "Edycja" },
+          { "num": "0 zł", "label": "Wstęp" }
+        ]
+      },
+      "host": {
+        "meta": "Senior Engineer {'@'} Storyblok",
+        "desc": "Poprowadzi cały wieczór."
+      },
+      "speakers": {
+        "spaczek": {
+          "meta": "Senior Vue Developer w QIAGEN",
+          "desc": "Senior Frontend Developer z wieloletnim doświadczeniem w pracy z Vue.js, TypeScriptem i tworzeniu Design Systemów open-source. Pracował w projektach związanych z eCommerce oraz medtech. Jako aktywny członek społeczności angażuje się w dzielenie się wiedzą oraz promowanie najlepszych praktyk w branży."
+        },
+        "nieduzak": {
+          "meta": "Vue Developer",
+          "desc": "Product Developer i współorganizator Vue.js Wrocław. Pokaże, że aplikacje, które otwierają się bez internetu i działają tak szybko jak natywne, da się zbudować w Vue — bez osobnego zespołu mobilnego i bez czekania na akceptację sklepu."
+        },
+        "rakowski": {
+          "meta": "Co-founder & CTO {'@'} Alokai",
+          "desc": "Współtwórca Vue Storefront i współzałożyciel Alokai, gdzie zajmuje się architekturą dużych platform e-commerce. Opowie o tym, jak wykorzystać Domain Driven Design w aplikacjach Vue."
+        },
+        "wrzalek": {
+          "meta": "Senior Product Engineer {'@'} Lette",
+          "desc": "Senior Product Engineer w Lette, Vue.js Advocate i autor artykułów o Vue na DEV. Pokaże, jak zbudować aplikację na mikrofrontendach w Vue 3, połączyć niezależne aplikacje za pomocą Vite i Single-SPA, jak wygląda ich komunikacja i routing oraz na jakie problemy można się natknąć po drodze."
+        }
+      },
+      "bonusSpeaker": {
+        "label": "Prelegentka bonusowa",
+        "meta": "Senior Talent Solutions Partner {'@'} Monterail",
+        "sub": "Prowadzi dział Staff Augmentation w Monterail, rekrutuje od ponad 7 lat i jest doradczynią zawodową oraz coachem kariery. Opowie, jak szukać sensu w świecie miliona możliwości."
+      },
+      "talks": {
+        "spaczek": "Sztuka tworzenia UI'a z Vue.js",
+        "nieduzak": "Vue offline-first: aplikacja, której nie ma w App Store",
+        "rakowski": "Domain Driven Design w Vue",
+        "wrzalek": "Microfrontendy w Vue 3 – od teorii do praktyki"
+      },
+      "bonusSlot": {
+        "label": "Slot bonusowy",
+        "title": "„Odpowiedz sobie na jedno ważne pytanie…”",
+        "meta": "O tym, jak szukać sensu w świecie miliona możliwości."
+      },
+      "schedule": [
+        "18:00 Rozpoczęcie",
+        "19:00–19:10 Break",
+        "20:00–20:05 Zakończenie",
+        "20:10–22:00 Networking"
+      ],
+      "sponsors": {
+        "title": "Główny sponsor",
+        "description": "Dzięki Storyblok wstęp na meetup jest wolny.",
+        "mainRole": "Główny sponsor",
+        "mediaTitle": "Partnerzy medialni",
+        "mediaDescription": "Supabase i GDG Wrocław pomagają nam dotrzeć do społeczności.",
+        "mediaRole": "Partner medialny"
+      },
+      "venue": {
+        "facts": [
+          { "k": "Miejsce", "v": "Klimatyczny pub eventowy", "sub": "spotkania i prelekcje w sercu Wrocławia" },
+          { "k": "Dojazd", "v": "Ścisłe centrum — Podwale", "sub": "ok. 10 minut pieszo od Rynku" },
+          { "k": "Parking", "v": "Strefa płatnego parkowania", "sub": "w okolicy; wygodnie też komunikacją miejską" },
+          { "k": "Po meetupie", "v": "Afterparty na miejscu", "sub": "rozmowy i networking do ok. 22:00" }
+        ],
+        "mapTitle": "Mapa okolicy Klubu Wędrówki"
+      },
+      "footer": {
+        "tagline": "23 listopada, Wrocław"
+      }
+    },
+    "2027": {
+      "hero": {
+        "badge": "Wkrótce • Wrocław",
+        "description": "Lokalny meetup dla frontend developerów, architektów aplikacji i osób, które chcą budować lepszy web z Vue.js. Kolejna edycja już w przygotowaniu — szczegóły wkrótce.",
+        "audience": [
+          "Dla developerów Vue i Nuxt",
+          "Case study i networking",
+          "Po polsku"
+        ],
+        "stats": [
+          { "num": "2", "label": "Edycje" },
+          { "num": "TBA", "label": "Speakerzy" },
+          { "num": "TBA", "label": "Data" }
+        ]
+      },
+      "sponsors": {
+        "title": "Sponsorzy",
+        "description": "Chcesz wesprzeć kolejną edycję? Odezwij się do organizatorów.",
+        "mediaTitle": "Partnerzy medialni"
+      },
+      "footer": {
+        "tagline": "Kolejna edycja"
+      }
+    }
   }
 }

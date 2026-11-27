@@ -8,6 +8,8 @@ const props = defineProps<{
   bonus?: BonusSlot
 }>()
 
+const { t } = useI18n()
+
 const speakerSlots = computed(() => props.speakers.length ? props.speakers : Array.from({ length: 4 }, () => null))
 
 // Reveal flip: SSR ships the grid revealed (works without JS). On mount, if the
@@ -44,8 +46,8 @@ onMounted(() => {
     <SectionHeader
       class="mb-6"
       icon="i-lucide-mic"
-      badge="Prowadzenie"
-      title="Kto poprowadzi"
+      :badge="t('sections.speakers.hostBadge')"
+      :title="t('sections.speakers.hostTitle')"
     />
     <PersonCard
       v-if="host"
@@ -55,13 +57,13 @@ onMounted(() => {
     <PlaceholderCard
       v-else
       class="mx-auto mb-16 max-w-160"
-      label="Prowadzący wkrótce"
+      :label="t('sections.speakers.hostSoon')"
     />
     <SectionHeader
       class="mb-11"
       icon="i-lucide-users"
-      badge="Prelegenci"
-      title="Kto wystąpi"
+      :badge="t('sections.speakers.badge')"
+      :title="t('sections.speakers.title')"
     />
     <div
       ref="gridEl"
@@ -80,7 +82,7 @@ onMounted(() => {
           <div class="flip-inner">
             <PlaceholderCard
               class="flip-face"
-              label="Prelegent wkrótce"
+              :label="t('sections.speakers.speakerSoon')"
             />
             <PersonCard
               class="flip-face flip-face--back flip-face--rows"
@@ -92,7 +94,7 @@ onMounted(() => {
         <PlaceholderCard
           v-else
           class="row-span-2 mb-3"
-          label="Prelegent wkrótce"
+          :label="t('sections.speakers.speakerSoon')"
         />
       </template>
     </div>

@@ -3,6 +3,7 @@
 // behind the panel + BONUS corner ribbon. The only card allowed to use the
 // ribbon, so "bonus" stays unambiguous vs regular slots.
 withDefaults(defineProps<{ label: string, title: string, sub?: string, meta?: string, photo?: string, noBadge?: boolean, layered?: boolean }>(), { layered: true, sub: '', meta: '', photo: '', noBadge: false })
+const { t } = useI18n()
 </script>
 
 <template>
@@ -18,7 +19,7 @@ withDefaults(defineProps<{ label: string, title: string, sub?: string, meta?: st
     >
       <div class="pointer-events-none absolute right-0 top-0 size-[124px] overflow-hidden max-md:size-[100px]">
         <span class="absolute right-[-44px] top-[30px] w-[180px] rotate-45 border-y border-accent/45 bg-accent/15 py-[5px] text-center font-display text-[10px] uppercase tracking-[0.2em] text-primary-300 indent-[0.2em] max-md:top-[24px] max-md:w-[160px]">
-          Bonus
+          {{ t('sections.agenda.bonus') }}
         </span>
       </div>
       <div

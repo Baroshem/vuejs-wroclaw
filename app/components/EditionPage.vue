@@ -11,14 +11,16 @@ import type { Edition } from '~/data/editions/types'
 // The only component that knows about an edition: it hands slices of the data to
 // otherwise dumb sections. Sections without data render ? placeholders themselves.
 const props = defineProps<{ edition: Edition }>()
+const { t } = useI18n()
 
+const link = (id: string) => ({ id, label: t(`nav.${id}`) })
 const links = computed(() => [
-  { id: 'speakers', label: 'Prelegenci' },
-  { id: 'sponsors', label: 'Sponsorzy' },
-  { id: 'agenda', label: 'Agenda' },
-  { id: 'venue', label: 'Miejsce' },
-  ...(props.edition.gallery ? [{ id: 'gallery', label: 'Galeria' }] : []),
-  { id: 'cfp', label: 'CFP' }
+  link('speakers'),
+  link('sponsors'),
+  link('agenda'),
+  link('venue'),
+  ...(props.edition.gallery ? [link('gallery')] : []),
+  link('cfp')
 ])
 const footerLinks = computed(() => links.value.filter(l => ['speakers', 'agenda', 'venue', 'cfp'].includes(l.id)))
 
@@ -34,12 +36,12 @@ const { active } = useScrollSpy(links.value.map(l => l.id))
       href="#main"
       class="sr-only focus:not-sr-only focus:absolute focus:top-3 focus:left-3 focus:z-50 focus:rounded-md focus:bg-accent focus:px-4 focus:py-2.5 focus:text-sm focus:font-bold focus:text-white"
     >
-      Przejdź do treści
+      {{ t('a11y.skipToContent') }}
     </a>
     <SiteNav
       :active="active"
       :links="links"
-      :cta="edition.nav.cta"
+      :cta="edition.nav.cta ?? null"
     />
     <main id="main">
       <SectionHero v-bind="edition.hero" />

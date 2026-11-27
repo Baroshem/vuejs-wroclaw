@@ -1,6 +1,233 @@
 {
   "meta": {
     "title": "Vue.js Wrocław • Meetup",
-    "description": "Local Vue.js Wrocław meetup with 4 speakers, networking and a modern, technical atmosphere."
+    "description": "Local Vue.js Wrocław meetup with 4 speakers, networking and a modern, technical atmosphere.",
+    "ogImageAlt": "Speakers and organisers of the Vue.js Wrocław meetup on stage in front of a slide with the logo"
+  },
+  "common": {
+    "soon": "coming soon",
+    "newTab": "(opens in a new tab)"
+  },
+  "a11y": {
+    "skipToContent": "Skip to content",
+    "mainNav": "Main navigation",
+    "editionsNav": "Editions",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "language": "Language",
+    "step": "Step {n}"
+  },
+  "pages": {
+    "start": "Home",
+    "edition1": "Edition 1",
+    "edition2": "Edition 2"
+  },
+  "nav": {
+    "speakers": "Speakers",
+    "sponsors": "Sponsors",
+    "agenda": "Agenda",
+    "venue": "Venue",
+    "gallery": "Gallery",
+    "cfp": "CFP"
+  },
+  "cta": {
+    "reserve": "Reserve a spot",
+    "reserveHero": "Reserve your spot",
+    "submitTalk": "Submit a talk",
+    "addToCalendar": "Add to calendar"
+  },
+  "home": {
+    "badge": "Meetup • Wrocław",
+    "description": "A local meetup for frontend developers, application architects and anyone who wants to build a better web with Vue.js. Pick an edition and see what we are up to.",
+    "audience": [
+      "For Vue and Nuxt developers",
+      "Case studies and networking",
+      "In Polish"
+    ],
+    "edition1Moon": "Edition 1 — archive",
+    "edition2Moon": "Edition 2 — upcoming",
+    "footerTagline": "Wrocław"
+  },
+  "sections": {
+    "speakers": {
+      "hostBadge": "Host",
+      "hostTitle": "Who will host",
+      "hostSoon": "Host coming soon",
+      "badge": "Speakers",
+      "title": "Who will speak",
+      "speakerSoon": "Speaker coming soon"
+    },
+    "sponsors": {
+      "badge": "Sponsors & Partners",
+      "soon": "Sponsor coming soon"
+    },
+    "agenda": {
+      "badge": "Agenda",
+      "title": "What awaits attendees?",
+      "linkedin": "See on LinkedIn",
+      "talk": "Talk",
+      "topicSoon": "Topic coming soon",
+      "bonus": "Bonus"
+    },
+    "venue": {
+      "badge": "Venue",
+      "title": "Where we meet",
+      "soon": "Location coming soon",
+      "navigate": "Navigate",
+      "seeAgenda": "See the agenda"
+    },
+    "gallery": {
+      "badge": "Gallery",
+      "title": "How it looked",
+      "description": "Shots from our last meetup — speakers, conversations and a great atmosphere.",
+      "photoBy": "Photos:",
+      "instagram": "(Instagram, opens in a new tab)",
+      "allPhotosBy": "All photos: Daniel Kasperczyk ·",
+      "zoom": "Enlarge photo {n} of {total}",
+      "preview": "Photo preview",
+      "close": "Close",
+      "previous": "Previous photo",
+      "next": "Next photo",
+      "caption": "{n} / {total} · Photo: Daniel Kasperczyk"
+    },
+    "cfp": {
+      "title": "Submit your topic",
+      "description": "We are looking for practical stories, ideas and experiences that genuinely help people building applications with Vue.js.",
+      "apply": "Apply via Google Forms",
+      "steps": [
+        { "title": "Submit a topic", "desc": "Send a description of your talk, its context and the takeaways that can help other developers." },
+        { "title": "Choose a format", "desc": "A lightning talk, a case study or a deeper workshop on Vue, DX, performance and architecture." },
+        { "title": "Join the programme", "desc": "Once accepted, you will receive the technical details, the schedule and organisational support." }
+      ]
+    }
+  },
+  "gallery": {
+    "alts": {
+      "p01": "A speaker in a light shirt holding a microphone, looking to the side",
+      "p02": "A speaker in a navy sweatshirt talking into a microphone against a blue stage backdrop",
+      "p03": "A smiling speaker in a black sweatshirt holding a microphone in both hands",
+      "p04": "A speaker in a navy T-shirt with a laptop on the desk, focused on the screen",
+      "p05": "A speaker in glasses and a light sweatshirt talking into a microphone, blurred heads of the audience in the foreground",
+      "p06": "A bald, bearded speaker in a light sweatshirt holding a microphone and pointing at the presentation screen",
+      "p07": "A speaker in glasses and a grey sweatshirt gesturing during the talk against green lights",
+      "p08": "A speaker with a raised hand standing by a screen showing a slide about DDD",
+      "p09": "A speaker in a navy T-shirt with a microphone explaining something, gesturing with both hands",
+      "p10": "Two men on stage in front of a projector screen, one of them holding a microphone",
+      "p11": "The audience applauding, brightly lit people by the wall in the background",
+      "p12": "Speakers and organisers standing on stage in front of a slide with the Vue.js Wrocław logo, a man sitting in front of them",
+      "p13": "A speaker in glasses reading into a microphone, an open laptop in front of them",
+      "p14": "A speaker with a microphone in motion, green and blue stage lights in the background",
+      "p15": "A speaker in a light shirt looking down and speaking into a microphone",
+      "p16": "Six attendees sitting in a row under a screen with a Vue.js Wrocław 23.11.2026 slide",
+      "p17": "A speaker with a microphone in a blurred shot, silhouettes of the audience in the foreground",
+      "p18": "A bald, bearded speaker talking into a microphone in front of a screen with a browser, heads of the audience in the foreground"
+    }
+  },
+  "editions": {
+    "2026": {
+      "hero": {
+        "badge": "23 November • Wrocław",
+        "description": "A local meetup for frontend developers, application architects and anyone who wants to build a better web with Vue.js. An evening full of practical case studies, fresh ideas and networking.",
+        "audience": [
+          "For Vue and Nuxt developers",
+          "Pure Vue — zero AI",
+          "Case studies and networking",
+          "In Polish"
+        ],
+        "stats": [
+          { "num": "4", "label": "Speakers" },
+          { "num": "1", "label": "Edition" },
+          { "num": "Free", "label": "Entry" }
+        ]
+      },
+      "host": {
+        "meta": "Senior Engineer {'@'} Storyblok",
+        "desc": "Will host the whole evening."
+      },
+      "speakers": {
+        "spaczek": {
+          "meta": "Senior Vue Developer at QIAGEN",
+          "desc": "A Senior Frontend Developer with many years of experience in Vue.js, TypeScript and building open-source Design Systems. He has worked on eCommerce and medtech projects. As an active community member, he is committed to sharing knowledge and promoting industry best practices."
+        },
+        "nieduzak": {
+          "meta": "Vue Developer",
+          "desc": "Product Developer and co-organiser of Vue.js Wrocław. He will show that apps which open without internet and run as fast as native ones can be built in Vue — without a separate mobile team and without waiting for app store approval."
+        },
+        "rakowski": {
+          "meta": "Co-founder & CTO {'@'} Alokai",
+          "desc": "Co-creator of Vue Storefront and co-founder of Alokai, where he works on the architecture of large e-commerce platforms. He will talk about how to apply Domain Driven Design in Vue applications."
+        },
+        "wrzalek": {
+          "meta": "Senior Product Engineer {'@'} Lette",
+          "desc": "Senior Product Engineer at Lette, Vue.js Advocate and author of Vue articles on DEV. He will show how to build a micro-frontend app in Vue 3, connect independent apps with Vite and Single-SPA, how they communicate and route, and what problems you may run into along the way."
+        }
+      },
+      "bonusSpeaker": {
+        "label": "Bonus speaker",
+        "meta": "Senior Talent Solutions Partner {'@'} Monterail",
+        "sub": "Leads the Staff Augmentation department at Monterail, has been recruiting for over 7 years and is a career advisor and career coach. She will talk about how to find meaning in a world of a million possibilities."
+      },
+      "talks": {
+        "spaczek": "The art of building UIs with Vue.js",
+        "nieduzak": "Vue offline-first: an app that is not in the App Store",
+        "rakowski": "Domain Driven Design in Vue",
+        "wrzalek": "Micro-frontends in Vue 3 – from theory to practice"
+      },
+      "bonusSlot": {
+        "label": "Bonus slot",
+        "title": "“Answer one important question for yourself…”",
+        "meta": "On how to find meaning in a world of a million possibilities."
+      },
+      "schedule": [
+        "18:00 Kick-off",
+        "19:00–19:10 Break",
+        "20:00–20:05 Wrap-up",
+        "20:10–22:00 Networking"
+      ],
+      "sponsors": {
+        "title": "Main sponsor",
+        "description": "Thanks to Storyblok, entry to the meetup is free.",
+        "mainRole": "Main sponsor",
+        "mediaTitle": "Media partners",
+        "mediaDescription": "Supabase and GDG Wrocław help us reach the community.",
+        "mediaRole": "Media partner"
+      },
+      "venue": {
+        "facts": [
+          { "k": "Place", "v": "An atmospheric event pub", "sub": "meetups and talks in the heart of Wrocław" },
+          { "k": "Getting there", "v": "The very centre — Podwale", "sub": "about 10 minutes on foot from the Market Square" },
+          { "k": "Parking", "v": "Paid parking zone", "sub": "nearby; public transport works well too" },
+          { "k": "After the meetup", "v": "Afterparty on site", "sub": "conversations and networking until about 22:00" }
+        ],
+        "mapTitle": "Map of the area around Klub Wędrówki"
+      },
+      "footer": {
+        "tagline": "23 November, Wrocław"
+      }
+    },
+    "2027": {
+      "hero": {
+        "badge": "Coming soon • Wrocław",
+        "description": "A local meetup for frontend developers, application architects and anyone who wants to build a better web with Vue.js. The next edition is already in the works — details coming soon.",
+        "audience": [
+          "For Vue and Nuxt developers",
+          "Case studies and networking",
+          "In Polish"
+        ],
+        "stats": [
+          { "num": "2", "label": "Editions" },
+          { "num": "TBA", "label": "Speakers" },
+          { "num": "TBA", "label": "Date" }
+        ]
+      },
+      "sponsors": {
+        "title": "Sponsors",
+        "description": "Want to support the next edition? Get in touch with the organisers.",
+        "mediaTitle": "Media partners"
+      },
+      "footer": {
+        "tagline": "Next edition"
+      }
+    }
   }
 }

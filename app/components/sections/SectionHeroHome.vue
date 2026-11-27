@@ -1,16 +1,14 @@
 <script setup lang="ts">
-const audience = ['Dla developerów Vue i Nuxt', 'Case study i networking', 'Po polsku']
-const stats = [
-  { num: '2', label: 'Edycje' },
-  { num: '#2', label: 'Następna' },
-  { num: '#1', label: 'Ostatnia' }
-]
+const { t } = useI18n()
+const localePath = useLocalePath()
+
+const audience = computed(() => [0, 1, 2].map(i => t(`home.audience.${i}`)))
 </script>
 
 <template>
   <section
     data-id="hero"
-    class="relative isolate grid items-center gap-10 px-5 pt-10 pb-14 md:min-h-[calc(100vh-var(--nav-h))] md:grid-cols-[1.1fr_1fr] md:gap-16 md:px-16 md:py-0"
+    class="relative isolate grid items-center gap-10 overflow-x-clip px-5 pt-10 pb-14 md:px-16 lg:min-h-[calc(100vh-var(--nav-h))] lg:grid-cols-[1.1fr_1fr] lg:gap-16 lg:py-0"
   >
     <div data-copy>
       <UiBadge class="mb-7">
@@ -18,7 +16,7 @@ const stats = [
           name="i-lucide-sparkle"
           class="size-5"
         />
-        Meetup &bull; Wrocław
+        {{ t('home.badge') }}
       </UiBadge>
 
       <h1 class="mb-6 font-display text-[44px] leading-none font-bold tracking-tight md:text-[min(76px,9vh)]">
@@ -27,8 +25,7 @@ const stats = [
       </h1>
 
       <p class="mb-6 max-w-130 leading-relaxed text-slate">
-        Lokalny meetup dla frontend developerów, architektów aplikacji i osób, które chcą budować
-        lepszy web z Vue.js. Wybierz edycję i sprawdź, co u nas słychać.
+        {{ t('home.description') }}
       </p>
 
       <div class="mb-6.5 flex flex-wrap gap-2.5">
@@ -50,54 +47,38 @@ const stats = [
           href="/2027"
           class="max-md:flex-1 max-md:text-center"
         >
-          Edycja 2
+          {{ t('pages.edition2') }}
         </UiButton>
         <UiButton
           variant="ghost"
           href="/2026"
           class="max-md:flex-1 max-md:text-center"
         >
-          Edycja 1
+          {{ t('pages.edition1') }}
         </UiButton>
-      </div>
-
-      <div class="flex gap-8">
-        <div
-          v-for="s in stats"
-          :key="s.label"
-          class="min-w-23"
-        >
-          <div class="font-display text-3xl font-bold">
-            {{ s.num }}
-          </div>
-          <div class="my-1 mb-2 text-[10px] uppercase tracking-[0.2em] text-slate">
-            {{ s.label }}
-          </div>
-          <div class="h-0.5 w-full rounded-full bg-accent/60" />
-        </div>
       </div>
     </div>
 
-    <HeroSigil class="max-md:order-first">
+    <HeroSigil class="max-lg:order-first">
       <template #ring1>
         <div class="absolute -top-3.5 left-1/2 -translate-x-1/2">
           <NuxtLink
-            to="/2026"
+            :to="localePath('/2026')"
             data-moon
-            aria-label="Edycja 1 — archiwum"
+            :aria-label="t('home.edition1Moon')"
             class="block animate-[spin_26s_linear_infinite_reverse] rounded-full px-3 py-1 font-display text-xs font-bold whitespace-nowrap text-white transition-[filter] hover:brightness-110 bg-[#dc143c] shadow-[0_0_14px_#dc143c]"
           >
-            Edycja 1
+            {{ t('pages.edition1') }}
           </NuxtLink>
         </div>
         <div class="absolute -bottom-3.5 left-1/2 -translate-x-1/2">
           <NuxtLink
-            to="/2027"
+            :to="localePath('/2027')"
             data-moon
-            aria-label="Edycja 2 — nadchodząca"
+            :aria-label="t('home.edition2Moon')"
             class="block animate-[spin_26s_linear_infinite_reverse] rounded-full px-3 py-1 font-display text-xs font-bold whitespace-nowrap text-white transition-[filter] hover:brightness-110 bg-[#00dc82] shadow-[0_0_14px_#00dc82]"
           >
-            Edycja 2
+            {{ t('pages.edition2') }}
           </NuxtLink>
         </div>
       </template>

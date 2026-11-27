@@ -1,6 +1,7 @@
 <script setup lang="ts">
 /** d20 facet net; only the centre number is dynamic. */
 withDefaults(defineProps<{ value: number | string, locked?: boolean }>(), { locked: false })
+const { t } = useI18n()
 
 const decoy = [
   { n: 12, x: 187, y: 93, r: -15 },
@@ -30,7 +31,7 @@ const edges = [
       viewBox="55 25 390 450"
       class="block size-full"
       role="img"
-      :aria-label="`Krok ${value}`"
+      :aria-label="t('a11y.step', { n: value })"
     >
       <g
         fill="none"

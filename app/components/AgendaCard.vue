@@ -3,6 +3,8 @@ import type { Talk } from '~/data/editions/types'
 
 // One agenda slot with the offset dashed layer behind it. null = topic not announced → ? card.
 defineProps<{ talk: Talk | null }>()
+
+const { t } = useI18n()
 </script>
 
 <template>
@@ -12,7 +14,7 @@ defineProps<{ talk: Talk | null }>()
       class="relative flex flex-1 flex-col items-center justify-center gap-2 overflow-hidden rounded-xl border border-white/10 bg-panel px-3 py-6 text-center md:gap-3 md:px-4 md:py-8"
     >
       <p class="m-0 font-display text-[9px] uppercase tracking-[0.18em] text-slate-dim md:text-[10px] md:tracking-[0.2em]">
-        Prelekcja
+        {{ t('sections.agenda.talk') }}
       </p>
       <p class="m-0 font-display text-sm font-bold leading-snug md:text-lg">
         {{ talk.title }}
@@ -27,7 +29,7 @@ defineProps<{ talk: Talk | null }>()
     >
       <QuestionMarkBadge class="relative z-1 size-10 md:size-14" />
       <p class="m-0 text-center font-display text-[9px] uppercase tracking-[0.18em] text-slate-dim md:text-[10px] md:tracking-[0.2em]">
-        Temat wkrótce
+        {{ t('sections.agenda.topicSoon') }}
       </p>
     </div>
   </div>

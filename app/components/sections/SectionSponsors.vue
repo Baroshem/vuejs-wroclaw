@@ -9,6 +9,8 @@ defineProps<{
   main: Sponsor[]
   media: Sponsor[]
 }>()
+
+const { t } = useI18n()
 </script>
 
 <template>
@@ -19,14 +21,14 @@ defineProps<{
     <SectionHeader
       class="mb-10"
       icon="i-lucide-handshake"
-      badge="Sponsorzy & Partnerzy"
+      :badge="t('sections.sponsors.badge')"
       :title="title"
       :description="description"
     />
 
     <PlaceholderCard
       v-if="!main.length && !media.length"
-      label="Sponsor wkrótce"
+      :label="t('sections.sponsors.soon')"
     />
 
     <template v-else>

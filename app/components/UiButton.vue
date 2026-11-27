@@ -6,6 +6,9 @@ const props = withDefaults(defineProps<{
   disabled?: boolean
 }>(), { variant: 'primary' })
 
+const { t } = useI18n()
+const localePath = useLocalePath()
+
 const internal = computed(() => !!props.href && !props.external && props.href.startsWith('/') && !/\.\w+$/.test(props.href))
 const tag = computed(() => (internal.value ? resolveComponent('NuxtLink') : props.href ? 'a' : 'button'))
 const type = computed(() => (props.href ? undefined : 'button'))
@@ -22,7 +25,7 @@ const classes = computed(() => [
   <component
     :is="tag"
     :class="classes"
-    v-bind="internal ? { to: href } : { href }"
+    v-bind="internal ? { to: localePath(href!) } : { href }"
     :type="type"
     :disabled="disabled && !href ? true : undefined"
     :aria-disabled="disabled ? 'true' : undefined"
@@ -33,6 +36,6 @@ const classes = computed(() => [
     <span
       v-if="external"
       class="sr-only"
-    >(otwiera się w nowej karcie)</span>
+    >{{ t('common.newTab') }}</span>
   </component>
 </template>

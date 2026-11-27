@@ -2,6 +2,8 @@
 import type { Venue } from '~/data/editions/types'
 
 defineProps<{ venue?: Venue }>()
+
+const { t } = useI18n()
 </script>
 
 <template>
@@ -12,13 +14,13 @@ defineProps<{ venue?: Venue }>()
     <SectionHeader
       class="mb-10"
       icon="i-lucide-map-pin"
-      badge="Miejsce • Venue"
-      title="Gdzie się spotykamy"
+      :badge="t('sections.venue.badge')"
+      :title="t('sections.venue.title')"
     />
 
     <PlaceholderCard
       v-if="!venue"
-      label="Lokalizacja wkrótce"
+      :label="t('sections.venue.soon')"
     />
 
     <div
@@ -54,13 +56,13 @@ defineProps<{ venue?: Venue }>()
             :href="venue.navigateUrl"
             external
           >
-            Nawiguj
+            {{ t('sections.venue.navigate') }}
           </UiButton>
           <UiButton
             variant="ghost"
             href="#agenda"
           >
-            Zobacz agendę
+            {{ t('sections.venue.seeAgenda') }}
           </UiButton>
         </div>
       </div>

@@ -5,10 +5,11 @@
  *  - starfield camera move    started when the transition animations start (see useSpaceTravel), so the
  *                             background, the planet and the copy share one timeline
  */
-const EDITIONS = ['/2026', '/2027']
+const EDITIONS = ['2026', '2027'] // route base names, i.e. without the locale suffix
 
 export default defineNuxtPlugin((nuxtApp) => {
   const router = useRouter()
+  const baseName = useRouteBaseName()
   const space = useSpaceTravel()
   const root = document.documentElement
   const reduced = window.matchMedia('(prefers-reduced-motion: reduce)')
@@ -41,11 +42,15 @@ export default defineNuxtPlugin((nuxtApp) => {
   }, true)
 
   router.beforeEach((to, from) => {
-    if (to.path === from.path) {
+    const toName = String(baseName(to) ?? '')
+    const fromName = String(baseName(from) ?? '')
+    if (toName === fromName) {
+      // same page (e.g. a language switch): no planet travel
+      root.dataset.vtMove = 'none'
       return
     }
-    const toEdition = EDITIONS.indexOf(to.path)
-    const fromEdition = EDITIONS.indexOf(from.path)
+    const toEdition = EDITIONS.indexOf(toName)
+    const fromEdition = EDITIONS.indexOf(fromName)
     let move = 'none'
     if (fromEdition === -1 && toEdition !== -1) {
       move = 'zoom-in'

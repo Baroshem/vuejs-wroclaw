@@ -11,8 +11,9 @@ const PALETTES: Record<'crimson' | 'nebula', Palette> = {
 }
 
 const route = useRoute()
+const baseName = useRouteBaseName()
 const space = useSpaceTravel()
-const targetPalette = () => (route.path === '/2027' ? PALETTES.nebula : PALETTES.crimson)
+const targetPalette = () => (baseName(route) === '2027' ? PALETTES.nebula : PALETTES.crimson)
 
 const el = ref<HTMLCanvasElement | null>(null)
 const ready = ref(false)

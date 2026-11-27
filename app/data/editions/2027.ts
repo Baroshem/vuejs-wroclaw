@@ -1,46 +1,47 @@
-import { cfpSteps } from './shared'
-import type { Edition } from './types'
+import { createCfpSteps, list } from './shared'
+import type { Edition, Translate } from './types'
 
 // Next edition — mostly unannounced. Empty arrays render ? placeholder cards;
 // fill these in once date, venue and line-up are confirmed.
-export const edition2027: Edition = {
-  slug: '2027',
-  hero: {
-    badge: 'Wkrótce • Wrocław',
-    description: 'Lokalny meetup dla frontend developerów, architektów aplikacji i osób, które chcą budować lepszy web z Vue.js. Kolejna edycja już w przygotowaniu — szczegóły wkrótce.',
-    audience: ['Dla developerów Vue i Nuxt', 'Case study i networking', 'Po polsku'],
-    stats: [
-      { num: '2', label: 'Edycje' },
-      { num: 'TBA', label: 'Speakerzy' },
-      { num: 'TBA', label: 'Data' }
-    ],
-    ctas: [
-      { label: 'Zgłoś prelekcję · wkrótce', disabled: true },
-      { label: 'Rezerwuj miejsce · wkrótce', variant: 'ghost', disabled: true },
-      { label: 'Dodaj do kalendarza · wkrótce', variant: 'ghost', disabled: true }
-    ]
-  },
-  speakers: [],
-  agenda: {
-    talks: [],
-    schedule: []
-  },
-  sponsors: {
-    title: 'Sponsorzy',
-    description: 'Chcesz wesprzeć kolejną edycję? Odezwij się do organizatorów.',
-    mediaTitle: 'Partnerzy medialni',
-    mediaDescription: '',
-    main: [],
-    media: []
-  },
-  cfp: {
-    steps: cfpSteps
-  },
-  nav: {
-    cta: { label: 'Zgłoś prelekcję · wkrótce', disabled: true }
-  },
-  footer: {
-    tagline: 'Kolejna edycja',
-    linkedin: false
+export const createEdition2027 = (t: Translate): Edition => {
+  const k = (path: string) => t(`editions.2027.${path}`)
+  const soon = (key: string) => `${t(key)} · ${t('common.soon')}`
+
+  return {
+    slug: '2027',
+    hero: {
+      badge: k('hero.badge'),
+      description: k('hero.description'),
+      audience: list(t, 'editions.2027.hero.audience', 3),
+      stats: [0, 1, 2].map(i => ({ num: k(`hero.stats.${i}.num`), label: k(`hero.stats.${i}.label`) })),
+      ctas: [
+        { label: soon('cta.submitTalk'), disabled: true },
+        { label: soon('cta.reserve'), variant: 'ghost', disabled: true },
+        { label: soon('cta.addToCalendar'), variant: 'ghost', disabled: true }
+      ]
+    },
+    speakers: [],
+    agenda: {
+      talks: [],
+      schedule: []
+    },
+    sponsors: {
+      title: k('sponsors.title'),
+      description: k('sponsors.description'),
+      mediaTitle: k('sponsors.mediaTitle'),
+      mediaDescription: '',
+      main: [],
+      media: []
+    },
+    cfp: {
+      steps: createCfpSteps(t)
+    },
+    nav: {
+      cta: { label: soon('cta.submitTalk'), disabled: true }
+    },
+    footer: {
+      tagline: k('footer.tagline'),
+      linkedin: false
+    }
   }
 }

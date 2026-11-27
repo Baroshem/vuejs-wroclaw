@@ -3,6 +3,8 @@ import type { GalleryPhoto } from '~/data/gallery'
 import { PHOTOGRAPHER_URL } from '~/utils/links'
 
 const props = defineProps<{ photos: GalleryPhoto[] }>()
+const { t } = useI18n()
+const alt = (p: GalleryPhoto) => t(`gallery.alts.${p.id}`)
 
 // Two featured tiles (see data/gallery.ts) span 2x2 on desktop; with 16 singles that fills six full rows of four.
 const isWide = (i: number) => i === 0 || i === 9
@@ -41,15 +43,15 @@ function onKey(e: KeyboardEvent) {
         name="i-lucide-camera"
         class="size-5"
       />
-      Galeria
+      {{ t('sections.gallery.badge') }}
     </UiBadge>
     <div class="mb-10 flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
       <div>
         <h2 class="mb-3 font-display text-[26px] font-bold md:text-[34px]">
-          Jak to wyglądało
+          {{ t('sections.gallery.title') }}
         </h2>
         <p class="m-0 max-w-160 text-[15px] leading-[1.75] text-slate">
-          Kadry z naszego ostatniego meetupu — prelegenci, rozmowy i dobra atmosfera.
+          {{ t('sections.gallery.description') }}
         </p>
       </div>
       <a
@@ -63,13 +65,13 @@ function onKey(e: KeyboardEvent) {
           class="size-4 text-accent-light"
         />
         <span>
-          Zdjęcia: <strong class="font-bold text-white">Daniel Kasperczyk</strong>
+          {{ t('sections.gallery.photoBy') }} <strong class="font-bold text-white">Daniel Kasperczyk</strong>
         </span>
         <UIcon
           name="i-simple-icons-instagram"
           class="size-4"
         />
-        <span class="sr-only">(Instagram, otwiera się w nowej karcie)</span>
+        <span class="sr-only">{{ t('sections.gallery.instagram') }}</span>
       </a>
     </div>
 
@@ -82,12 +84,12 @@ function onKey(e: KeyboardEvent) {
         <button
           type="button"
           class="group relative block size-full cursor-zoom-in overflow-hidden rounded-xl border border-white/10 bg-panel p-0"
-          :aria-label="`Powiększ zdjęcie ${i + 1} z ${photos.length}`"
+          :aria-label="t('sections.gallery.zoom', { n: i + 1, total: photos.length })"
           @click="() => open(i)"
         >
           <img
             :src="p.src"
-            :alt="p.alt"
+            :alt="alt(p)"
             :width="p.width"
             :height="p.height"
             :style="{ backgroundImage: `url(${p.blur})` }"
@@ -101,7 +103,7 @@ function onKey(e: KeyboardEvent) {
     </ul>
 
     <p class="mb-0 mt-6 text-xs text-slate-dim">
-      Wszystkie zdjęcia: Daniel Kasperczyk ·
+      {{ t('sections.gallery.allPhotosBy') }}
       <a
         :href="PHOTOGRAPHER_URL"
         target="_blank"
@@ -113,7 +115,7 @@ function onKey(e: KeyboardEvent) {
     <dialog
       ref="dialog"
       class="m-0 size-full max-h-none max-w-none bg-black/95 p-0 text-white backdrop:bg-black"
-      aria-label="Podgląd zdjęcia"
+      :aria-label="t('sections.gallery.preview')"
       @close="current = null"
     >
       <div
@@ -122,7 +124,7 @@ function onKey(e: KeyboardEvent) {
       >
         <img
           :src="photos[current]!.src"
-          :alt="photos[current]!.alt"
+          :alt="alt(photos[current]!)"
           :width="photos[current]!.width"
           :height="photos[current]!.height"
           class="max-h-full max-w-full rounded-lg object-contain"
@@ -130,7 +132,7 @@ function onKey(e: KeyboardEvent) {
         <button
           type="button"
           class="absolute right-4 top-4 grid size-11 place-items-center rounded-full bg-white/10 hover:bg-white/20"
-          aria-label="Zamknij"
+          :aria-label="t('sections.gallery.close')"
           @click="close"
         >
           <UIcon
@@ -141,7 +143,7 @@ function onKey(e: KeyboardEvent) {
         <button
           type="button"
           class="absolute left-3 top-1/2 grid size-11 -translate-y-1/2 place-items-center rounded-full bg-white/10 hover:bg-white/20"
-          aria-label="Poprzednie zdjęcie"
+          :aria-label="t('sections.gallery.previous')"
           @click="step(-1)"
         >
           <UIcon
@@ -152,7 +154,7 @@ function onKey(e: KeyboardEvent) {
         <button
           type="button"
           class="absolute right-3 top-1/2 grid size-11 -translate-y-1/2 place-items-center rounded-full bg-white/10 hover:bg-white/20"
-          aria-label="Następne zdjęcie"
+          :aria-label="t('sections.gallery.next')"
           @click="step(1)"
         >
           <UIcon
@@ -161,7 +163,7 @@ function onKey(e: KeyboardEvent) {
           />
         </button>
         <p class="absolute inset-x-0 bottom-4 m-0 text-center text-xs text-slate">
-          {{ current + 1 }} / {{ photos.length }} · Zdjęcie: Daniel Kasperczyk
+          {{ t('sections.gallery.caption', { n: current + 1, total: photos.length }) }}
         </p>
       </div>
     </dialog>
