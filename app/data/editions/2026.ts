@@ -1,10 +1,13 @@
 import { CFP_FORM_URL, RESERVE_URL } from '~/utils/links'
+import { galleryPhotos } from '../gallery'
+import { cfpSteps } from './shared'
 import type { Edition } from './types'
 
 export const edition2026: Edition = {
   slug: '2026',
   hero: {
     badge: '23 listopada • Wrocław',
+    description: 'Lokalny meetup dla frontend developerów, architektów aplikacji i osób, które chcą budować lepszy web z Vue.js. Wieczór pełen praktycznych case study, świeżych pomysłów i networkingu.',
     audience: ['Dla developerów Vue i Nuxt', 'Pure Vue — zero AI', 'Case study i networking', 'Po polsku'],
     stats: [
       { num: '4', label: 'Speakerów' },
@@ -78,6 +81,10 @@ export const edition2026: Edition = {
     externalUrl: 'https://www.linkedin.com/events/7287746621629587456/'
   },
   sponsors: {
+    title: 'Główny sponsor',
+    description: 'Dzięki Storyblok wstęp na meetup jest wolny.',
+    mediaTitle: 'Partnerzy medialni',
+    mediaDescription: 'Supabase i GDG Wrocław pomagają nam dotrzeć do społeczności.',
     // Only Storyblok funds free entry; Supabase and GDG are media partners.
     main: [{ name: 'Storyblok', role: 'Główny sponsor', logo: '/sponsors/storyblok.svg' }],
     media: [
@@ -99,13 +106,10 @@ export const edition2026: Edition = {
     mapTitle: 'Mapa okolicy Klubu Wędrówki',
     coords: '51.1042 N • 17.0299 E'
   },
+  gallery: galleryPhotos,
   cfp: {
     formUrl: CFP_FORM_URL,
-    steps: [
-      { title: 'Zgłoś temat', desc: 'Wyślij opis swojej prezentacji, kontekst i wnioski, które mogą pomóc innym deweloperom.' },
-      { title: 'Wybierz format', desc: 'Lightning talk, case study lub głębszy workshop na temat Vue, DX, performance i architektury.' },
-      { title: 'Dołącz do programu', desc: 'Po akceptacji otrzymasz szczegóły techniczne, harmonogram i wsparcie organizacyjne.' }
-    ]
+    steps: cfpSteps
   },
   nav: {
     cta: { label: 'Rezerwuj miejsce', href: RESERVE_URL, external: true }

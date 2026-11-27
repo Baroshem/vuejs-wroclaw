@@ -1,7 +1,13 @@
 <script setup lang="ts">
-import { edition2026 } from '~/data/editions/2026'
+import type { Cta, Stat } from '~/data/editions/types'
 
-const { badge, audience, stats, ctas } = edition2026.hero
+defineProps<{
+  badge: string
+  description: string
+  audience: string[]
+  stats: Stat[]
+  ctas: Cta[]
+}>()
 </script>
 
 <template>
@@ -24,8 +30,7 @@ const { badge, audience, stats, ctas } = edition2026.hero
       </h1>
 
       <p class="mb-6 max-w-130 leading-relaxed text-slate">
-        Lokalny meetup dla frontend developerów, architektów aplikacji i osób, które chcą budować
-        lepszy web z Vue.js. Wieczór pełen praktycznych case study, świeżych pomysłów i networkingu.
+        {{ description }}
       </p>
 
       <div class="mb-6.5 flex flex-wrap gap-2.5">

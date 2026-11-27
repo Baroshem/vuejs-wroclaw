@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { galleryPhotos } from '~/data/gallery'
+import type { GalleryPhoto } from '~/data/gallery'
 import { PHOTOGRAPHER_URL } from '~/utils/links'
 
-const photos = galleryPhotos
+const props = defineProps<{ photos: GalleryPhoto[] }>()
 
 // Two featured tiles (see data/gallery.ts) span 2x2 on desktop; with 16 singles that fills six full rows of four.
 const isWide = (i: number) => i === 0 || i === 9
@@ -22,7 +22,7 @@ function close() {
 }
 function step(d: number) {
   if (current.value === null) return
-  current.value = (current.value + d + photos.length) % photos.length
+  current.value = (current.value + d + props.photos.length) % props.photos.length
 }
 function onKey(e: KeyboardEvent) {
   if (current.value === null) return

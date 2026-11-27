@@ -1,9 +1,14 @@
 <script setup lang="ts">
-import { edition2026 } from '~/data/editions/2026'
+import type { BonusSlot, Person } from '~/data/editions/types'
 
-const host = edition2026.host!
-const speakerSlots = edition2026.speakers
-const bonus = edition2026.speakersBonus!
+const props = defineProps<{
+  host?: Person
+  /** null = slot without a speaker yet; an empty list shows four ? slots */
+  speakers: (Person | null)[]
+  bonus?: BonusSlot
+}>()
+
+const speakerSlots = computed(() => props.speakers.length ? props.speakers : Array.from({ length: 4 }, () => null))
 
 // Reveal flip: SSR ships the grid revealed (works without JS). On mount, if the
 // grid sits below the fold and motion is allowed, hide speaker cards behind the
@@ -43,8 +48,14 @@ onMounted(() => {
       title="Kto poprowadzi"
     />
     <PersonCard
+      v-if="host"
       class="mx-auto mb-16 max-w-160"
       v-bind="host"
+    />
+    <PlaceholderCard
+      v-else
+      class="mx-auto mb-16 max-w-160"
+      label="Prowadzący wkrótce"
     />
     <SectionHeader
       class="mb-11"
@@ -86,6 +97,7 @@ onMounted(() => {
       </template>
     </div>
     <BonusSlotCard
+      v-if="bonus"
       class="mt-0"
       :layered="false"
       :label="bonus.label"

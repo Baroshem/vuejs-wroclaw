@@ -1,7 +1,10 @@
 <script setup lang="ts">
-import { edition2026 } from '~/data/editions/2026'
+import type { Step } from '~/data/editions/types'
 
-const { steps } = edition2026.cfp
+defineProps<{
+  formUrl?: string
+  steps: Step[]
+}>()
 </script>
 
 <template>
@@ -22,7 +25,8 @@ const { steps } = edition2026.cfp
         tworzących aplikacje w Vue.js.
       </p>
       <UiButton
-        :href="edition2026.cfp.formUrl"
+        v-if="formUrl"
+        :href="formUrl"
         external
         class="mb-11"
       >

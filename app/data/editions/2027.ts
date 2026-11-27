@@ -1,4 +1,5 @@
 import { CFP_FORM_URL } from '~/utils/links'
+import { cfpSteps } from './shared'
 import type { Edition } from './types'
 
 // Next edition — mostly unannounced. Empty arrays render ? placeholder cards;
@@ -7,6 +8,7 @@ export const edition2027: Edition = {
   slug: '2027',
   hero: {
     badge: 'Wkrótce • Wrocław',
+    description: 'Lokalny meetup dla frontend developerów, architektów aplikacji i osób, które chcą budować lepszy web z Vue.js. Kolejna edycja już w przygotowaniu — szczegóły wkrótce.',
     audience: ['Dla developerów Vue i Nuxt', 'Case study i networking', 'Po polsku'],
     stats: [
       { num: '2', label: 'Edycje' },
@@ -25,12 +27,16 @@ export const edition2027: Edition = {
     schedule: []
   },
   sponsors: {
+    title: 'Sponsorzy',
+    description: 'Chcesz wesprzeć kolejną edycję? Odezwij się do organizatorów.',
+    mediaTitle: 'Partnerzy medialni',
+    mediaDescription: '',
     main: [],
     media: []
   },
   cfp: {
     formUrl: CFP_FORM_URL,
-    steps: []
+    steps: cfpSteps
   },
   nav: {
     cta: { label: 'Zgłoś prelekcję', href: CFP_FORM_URL, external: true }

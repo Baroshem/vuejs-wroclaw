@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { edition2026 } from '~/data/editions/2026'
+import type { Venue } from '~/data/editions/types'
 
-const venue = edition2026.venue!
+defineProps<{ venue?: Venue }>()
 </script>
 
 <template>
@@ -16,7 +16,15 @@ const venue = edition2026.venue!
       title="Gdzie się spotykamy"
     />
 
-    <div class="grid items-start gap-10 lg:grid-cols-[1.05fr_1fr]">
+    <PlaceholderCard
+      v-if="!venue"
+      label="Lokalizacja wkrótce"
+    />
+
+    <div
+      v-else
+      class="grid items-start gap-10 lg:grid-cols-[1.05fr_1fr]"
+    >
       <div>
         <p class="mb-1.5 text-[22px] font-bold">
           {{ venue.name }}

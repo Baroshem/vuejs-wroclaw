@@ -1,8 +1,14 @@
 <script setup lang="ts">
-import { edition2026 } from '~/data/editions/2026'
+import type { Sponsor } from '~/data/editions/types'
 
-const mainSponsors = edition2026.sponsors.main
-const mediaPartners = edition2026.sponsors.media
+defineProps<{
+  title: string
+  description: string
+  mediaTitle: string
+  mediaDescription: string
+  main: Sponsor[]
+  media: Sponsor[]
+}>()
 </script>
 
 <template>
@@ -14,30 +20,42 @@ const mediaPartners = edition2026.sponsors.media
       class="mb-10"
       icon="i-lucide-handshake"
       badge="Sponsorzy & Partnerzy"
-      title="Główny sponsor"
-      description="Dzięki Storyblok wstęp na meetup jest wolny."
+      :title="title"
+      :description="description"
     />
 
-    <ul class="m-0 grid list-none gap-3 p-0 md:mx-auto md:max-w-[calc(50%-0.875rem)] md:gap-7">
-      <SponsorCard
-        v-for="s in mainSponsors"
-        :key="s.name"
-        v-bind="s"
-      />
-    </ul>
-
-    <SectionHeader
-      class="mb-10 mt-16"
-      title="Partnerzy medialni"
-      description="Supabase i GDG Wrocław pomagają nam dotrzeć do społeczności."
+    <PlaceholderCard
+      v-if="!main.length && !media.length"
+      label="Sponsor wkrótce"
     />
 
-    <ul class="m-0 grid list-none gap-3 p-0 md:grid-cols-2 md:gap-7">
-      <SponsorCard
-        v-for="s in mediaPartners"
-        :key="s.name"
-        v-bind="s"
-      />
-    </ul>
+    <template v-else>
+      <ul
+        v-if="main.length"
+        class="m-0 grid list-none gap-3 p-0 md:mx-auto md:max-w-[calc(50%-0.875rem)] md:gap-7"
+      >
+        <SponsorCard
+          v-for="s in main"
+          :key="s.name"
+          v-bind="s"
+        />
+      </ul>
+
+      <template v-if="media.length">
+        <SectionHeader
+          class="mb-10 mt-16"
+          :title="mediaTitle"
+          :description="mediaDescription"
+        />
+
+        <ul class="m-0 grid list-none gap-3 p-0 md:grid-cols-2 md:gap-7">
+          <SponsorCard
+            v-for="s in media"
+            :key="s.name"
+            v-bind="s"
+          />
+        </ul>
+      </template>
+    </template>
   </SectionBand>
 </template>
