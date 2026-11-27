@@ -3,9 +3,6 @@ import { RESERVE_URL } from '~/utils/links'
 import { SITE_PAGES as pages } from '~/utils/editions'
 import type { CtaLinkData } from './CtaLink.vue'
 
-const NuxtLink = resolveComponent('NuxtLink')
-const route = useRoute()
-
 const props = withDefaults(defineProps<{
   active: string | null
   links?: { id: string, label: string }[]
@@ -21,6 +18,8 @@ const props = withDefaults(defineProps<{
   ],
   cta: () => ({ label: 'Rezerwuj miejsce', href: RESERVE_URL, external: true })
 })
+const NuxtLink = resolveComponent('NuxtLink')
+const route = useRoute()
 
 // Mobile menu: section links + CTA. Closes on navigation, Escape and viewport growth.
 const open = ref(false)

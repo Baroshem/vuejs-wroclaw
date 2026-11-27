@@ -83,7 +83,7 @@ function onKey(e: KeyboardEvent) {
           type="button"
           class="group relative block size-full cursor-zoom-in overflow-hidden rounded-xl border border-white/10 bg-panel p-0"
           :aria-label="`Powiększ zdjęcie ${i + 1} z ${photos.length}`"
-          @click="open(i)"
+          @click="() => open(i)"
         >
           <img
             :src="p.src"

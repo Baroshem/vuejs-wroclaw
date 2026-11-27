@@ -8,7 +8,10 @@
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
     "lint": "eslint .",
-    "typecheck": "nuxt typecheck"
+    "typecheck": "nuxt typecheck",
+    "knip": "knip",
+    "lint:fix": "eslint . --fix && knip --fix",
+    "check": "pnpm lint && pnpm typecheck && pnpm knip"
   },
   "dependencies": {
     "@iconify-json/lucide": "^1.2.123",
@@ -25,6 +28,7 @@
     "axe-core": "^4.13.0",
     "eslint": "^10.8.1",
     "eslint-plugin-vuejs-accessibility": "^2.6.0",
+    "knip": "^6.48.0",
     "typescript": "^6.0.3",
     "vue-tsc": "^3.3.10"
   }
