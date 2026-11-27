@@ -49,7 +49,7 @@ const { badge, audience, stats, ctas } = edition2027.hero
           :variant="c.variant"
           :href="c.href"
           :external="c.external"
-          :download="c.download"
+          :download="c.download ? '' : undefined"
           :disabled="c.disabled"
           class="max-md:flex-1 max-md:text-center"
         >
