@@ -101,7 +101,7 @@ export interface Edition {
     steps: Step[]
   }
   nav: {
-    cta?: { label: string, href: string, external?: boolean }
+    cta?: { label: string, href?: string, external?: boolean, disabled?: boolean }
   }
   footer: {
     tagline: string

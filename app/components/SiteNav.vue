@@ -12,7 +12,7 @@ const pages = [
 withDefaults(defineProps<{
   active: string | null
   links?: { id: string, label: string }[]
-  cta?: { label: string, href: string, external?: boolean } | null
+  cta?: { label: string, href?: string, external?: boolean, disabled?: boolean } | null
 }>(), {
   links: () => [
     { id: 'speakers', label: 'Prelegenci' },
@@ -71,16 +71,17 @@ withDefaults(defineProps<{
         </a>
       </span>
       <component
-        :is="cta.href.startsWith('/') && !cta.external ? NuxtLink : 'a'"
+        :is="cta.disabled ? 'span' : cta.href?.startsWith('/') && !cta.external ? NuxtLink : 'a'"
         v-if="cta"
-        v-bind="cta.href.startsWith('/') && !cta.external ? { to: cta.href } : { href: cta.href }"
-        :target="cta.external ? '_blank' : undefined"
-        :rel="cta.external ? 'noopener' : undefined"
+        v-bind="cta.disabled ? { 'aria-disabled': 'true' } : cta.href?.startsWith('/') && !cta.external ? { to: cta.href } : { href: cta.href }"
+        :target="cta.external && !cta.disabled ? '_blank' : undefined"
+        :rel="cta.external && !cta.disabled ? 'noopener' : undefined"
+        :class="{ 'pointer-events-none opacity-50': cta.disabled }"
         class="hidden whitespace-nowrap rounded-md bg-accent px-5 py-2.5 text-xs font-bold uppercase tracking-widest text-white hover:bg-primary-600 hover:text-white md:inline-block"
       >
         {{ cta.label }}
         <span
-          v-if="cta.external"
+          v-if="cta.external && !cta.disabled"
           class="sr-only"
         >(otwiera się w nowej karcie)</span>
       </component>

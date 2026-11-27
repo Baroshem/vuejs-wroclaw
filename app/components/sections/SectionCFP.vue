@@ -25,12 +25,12 @@ defineProps<{
         tworzących aplikacje w Vue.js.
       </p>
       <UiButton
-        v-if="formUrl"
         :href="formUrl"
-        external
+        :external="!!formUrl"
+        :disabled="!formUrl"
         class="mb-11"
       >
-        Aplikuj przez Google Forms
+        {{ formUrl ? 'Aplikuj przez Google Forms' : 'Aplikuj przez Google Forms · wkrótce' }}
       </UiButton>
 
       <div class="grid md:grid-cols-3">

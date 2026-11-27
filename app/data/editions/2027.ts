@@ -1,4 +1,3 @@
-import { CFP_FORM_URL } from '~/utils/links'
 import { cfpSteps } from './shared'
 import type { Edition } from './types'
 
@@ -16,7 +15,7 @@ export const edition2027: Edition = {
       { num: 'TBA', label: 'Data' }
     ],
     ctas: [
-      { label: 'Zgłoś prelekcję', href: CFP_FORM_URL, external: true },
+      { label: 'Zgłoś prelekcję · wkrótce', disabled: true },
       { label: 'Rezerwuj miejsce · wkrótce', variant: 'ghost', disabled: true },
       { label: 'Dodaj do kalendarza · wkrótce', variant: 'ghost', disabled: true }
     ]
@@ -35,11 +34,10 @@ export const edition2027: Edition = {
     media: []
   },
   cfp: {
-    formUrl: CFP_FORM_URL,
     steps: cfpSteps
   },
   nav: {
-    cta: { label: 'Zgłoś prelekcję', href: CFP_FORM_URL, external: true }
+    cta: { label: 'Zgłoś prelekcję · wkrótce', disabled: true }
   },
   footer: {
     tagline: 'Kolejna edycja',
