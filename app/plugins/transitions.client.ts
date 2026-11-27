@@ -14,10 +14,17 @@ export default defineNuxtPlugin((nuxtApp) => {
   const reduced = window.matchMedia('(prefers-reduced-motion: reduce)')
   const moonVec = { x: 0, y: 1 }
 
+  // Any link that leads to a place a moon (year pill) points to — the pill itself, the hero buttons,
+  // the nav / mobile CTA — launches the transition from that moon.
   document.addEventListener('click', (event) => {
-    const moon = (event.target as Element | null)?.closest('[data-moon]')
+    const link = (event.target as Element | null)?.closest('a[href]')
     const sigil = document.querySelector('[data-sigil]')
-    if (!moon || !sigil) {
+    if (!link || !sigil) {
+      return
+    }
+    const href = link.getAttribute('href')
+    const moon = link.hasAttribute('data-moon') ? link : document.querySelector(`[data-moon][href="${href}"]`)
+    if (!moon) {
       return
     }
     const m = moon.getBoundingClientRect()
