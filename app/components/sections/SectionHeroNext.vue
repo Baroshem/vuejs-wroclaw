@@ -83,29 +83,6 @@ const stats = [
       </div>
     </div>
 
-    <HeroSigil>
-      <template #ring1>
-        <div class="absolute -top-3.5 left-1/2 -translate-x-1/2">
-          <NuxtLink
-            to="/2026"
-            aria-label="Edycja 11-2026 — przejdź do archiwum"
-            class="block animate-[spin_26s_linear_infinite_reverse] rounded-full border border-white/20 bg-bg-deep px-3 py-1 font-display text-xs font-bold whitespace-nowrap text-slate shadow-[0_0_10px_rgba(148,163,184,0.35)] transition-colors hover:border-accent hover:text-white"
-          >
-            11-2026
-          </NuxtLink>
-        </div>
-        <div class="absolute -bottom-3.5 left-1/2 -translate-x-1/2">
-          <span class="block animate-[spin_26s_linear_infinite_reverse] rounded-full border border-accent bg-bg-deep px-3 py-1 font-display text-xs font-bold whitespace-nowrap text-white shadow-[0_0_14px_var(--color-accent)]">
-            2027
-          </span>
-        </div>
-      </template>
-      <template #ring2>
-        <span class="sr-only" />
-      </template>
-      <template #ring3>
-        <span class="sr-only" />
-      </template>
-    </HeroSigil>
+    <HeroSigil />
   </section>
 </template>

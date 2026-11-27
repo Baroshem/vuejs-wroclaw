@@ -20,7 +20,8 @@ export default defineNuxtConfig({
 
   routeRules: {
     '/': { prerender: true },
-    '/2026': { prerender: true }
+    '/2026': { prerender: true },
+    '/2027': { prerender: true }
   },
 
   compatibilityDate: '2026-06-30',
