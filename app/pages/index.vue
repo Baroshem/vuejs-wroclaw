@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import SectionHeroHome from '~/components/sections/SectionHeroHome.vue'
 
-const cta = { label: 'Edycja 2027', href: '/2027' }
+const cta = { label: 'Edycja 2', href: '/2027' }
 </script>
 
 <template>

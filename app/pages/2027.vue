@@ -67,7 +67,7 @@ const { active } = useScrollSpy(links.map(l => l.id))
       />
     </main>
     <SiteFooter
-      tagline="Kolejna edycja 2027"
+      tagline="Kolejna edycja"
       :links="links"
       :linkedin="false"
     />

@@ -2,8 +2,8 @@
 const audience = ['Dla developerów Vue i Nuxt', 'Case study i networking', 'Po polsku']
 const stats = [
   { num: '2', label: 'Edycje' },
-  { num: '2027', label: 'Następna' },
-  { num: '11-2026', label: 'Ostatnia' }
+  { num: '#2', label: 'Następna' },
+  { num: '#1', label: 'Ostatnia' }
 ]
 </script>
 
@@ -50,14 +50,14 @@ const stats = [
           href="/2027"
           class="max-md:flex-1 max-md:text-center"
         >
-          Edycja 2027
+          Edycja 2
         </UiButton>
         <UiButton
           variant="ghost"
           href="/2026"
           class="max-md:flex-1 max-md:text-center"
         >
-          Edycja 11-2026
+          Edycja 1
         </UiButton>
       </div>
 
@@ -84,20 +84,20 @@ const stats = [
           <NuxtLink
             to="/2026"
             data-moon
-            aria-label="Edycja 11-2026 — archiwum"
+            aria-label="Edycja 1 — archiwum"
             class="block animate-[spin_26s_linear_infinite_reverse] rounded-full border border-white/20 bg-bg-deep px-3 py-1 font-display text-xs font-bold whitespace-nowrap text-slate shadow-[0_0_10px_rgba(148,163,184,0.35)] transition-colors hover:border-accent hover:text-white"
           >
-            11-2026
+            Edycja 1
           </NuxtLink>
         </div>
         <div class="absolute -bottom-3.5 left-1/2 -translate-x-1/2">
           <NuxtLink
             to="/2027"
             data-moon
-            aria-label="Edycja 2027 — nadchodząca"
+            aria-label="Edycja 2 — nadchodząca"
             class="block animate-[spin_26s_linear_infinite_reverse] rounded-full border border-[#8b5cf6] bg-bg-deep px-3 py-1 font-display text-xs font-bold whitespace-nowrap text-white shadow-[0_0_14px_#2dd4bf] transition-colors hover:bg-[#8b5cf6]"
           >
-            2027
+            Edycja 2
           </NuxtLink>
         </div>
       </template>

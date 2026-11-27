@@ -61,7 +61,7 @@ const stats = [
           href="/2026"
           class="max-md:flex-1 max-md:text-center"
         >
-          Zobacz edycję 11-2026
+          Zobacz edycję 1
         </UiButton>
       </div>
 
