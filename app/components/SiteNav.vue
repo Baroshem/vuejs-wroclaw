@@ -1,18 +1,15 @@
 <script setup lang="ts">
 import { RESERVE_URL } from '~/utils/links'
+import { SITE_PAGES as pages } from '~/utils/editions'
+import type { CtaLinkData } from './CtaLink.vue'
 
 const NuxtLink = resolveComponent('NuxtLink')
 const route = useRoute()
-const pages = [
-  { label: 'Start', to: '/' },
-  { label: 'Edycja 1', to: '/2026' },
-  { label: 'Edycja 2', to: '/2027' }
-]
 
-withDefaults(defineProps<{
+const props = withDefaults(defineProps<{
   active: string | null
   links?: { id: string, label: string }[]
-  cta?: { label: string, href?: string, external?: boolean, disabled?: boolean } | null
+  cta?: CtaLinkData | null
 }>(), {
   links: () => [
     { id: 'speakers', label: 'Prelegenci' },
@@ -23,6 +20,33 @@ withDefaults(defineProps<{
     { id: 'cfp', label: 'CFP' }
   ],
   cta: () => ({ label: 'Rezerwuj miejsce', href: RESERVE_URL, external: true })
+})
+
+// Mobile menu: section links + CTA. Closes on navigation, Escape and viewport growth.
+const open = ref(false)
+const hasMenu = computed(() => props.links.length > 0 || !!props.cta)
+watch(() => route.fullPath, () => {
+  open.value = false
+})
+let mq: MediaQueryList | null = null
+const onKey = (e: KeyboardEvent) => {
+  if (e.key === 'Escape') {
+    open.value = false
+  }
+}
+const onMq = () => {
+  if (mq?.matches) {
+    open.value = false
+  }
+}
+onMounted(() => {
+  mq = window.matchMedia('(min-width: 768px)')
+  window.addEventListener('keydown', onKey)
+  mq.addEventListener('change', onMq)
+})
+onBeforeUnmount(() => {
+  window.removeEventListener('keydown', onKey)
+  mq?.removeEventListener('change', onMq)
 })
 </script>
 
@@ -70,21 +94,48 @@ withDefaults(defineProps<{
           {{ l.label }}
         </a>
       </span>
-      <component
-        :is="cta.disabled ? 'span' : cta.href?.startsWith('/') && !cta.external ? NuxtLink : 'a'"
+      <CtaLink
         v-if="cta"
-        v-bind="cta.disabled ? { 'aria-disabled': 'true' } : cta.href?.startsWith('/') && !cta.external ? { to: cta.href } : { href: cta.href }"
-        :target="cta.external && !cta.disabled ? '_blank' : undefined"
-        :rel="cta.external && !cta.disabled ? 'noopener' : undefined"
-        :class="{ 'pointer-events-none opacity-50': cta.disabled }"
+        :cta="cta"
         class="hidden whitespace-nowrap rounded-md bg-accent px-5 py-2.5 text-xs font-bold uppercase tracking-widest text-white hover:bg-primary-600 hover:text-white md:inline-block"
+      />
+      <button
+        v-if="hasMenu"
+        type="button"
+        class="-mr-2 grid size-11 cursor-pointer place-items-center rounded-md text-white md:hidden"
+        :aria-expanded="open"
+        aria-controls="mobile-menu"
+        :aria-label="open ? 'Zamknij menu' : 'Otwórz menu'"
+        @click="open = !open"
       >
-        {{ cta.label }}
-        <span
-          v-if="cta.external && !cta.disabled"
-          class="sr-only"
-        >(otwiera się w nowej karcie)</span>
-      </component>
+        <UIcon
+          :name="open ? 'i-lucide-x' : 'i-lucide-menu'"
+          class="size-6"
+        />
+      </button>
     </span>
+    <div
+      v-if="open && hasMenu"
+      id="mobile-menu"
+      class="absolute inset-x-0 top-full flex max-h-[calc(100dvh-4rem)] flex-col gap-1 overflow-y-auto border-b border-white/10 bg-[rgba(6,8,11,0.97)] px-5 py-4 backdrop-blur-lg md:hidden"
+    >
+      <a
+        v-for="l in links"
+        :key="l.id"
+        :href="`#${l.id}`"
+        class="rounded-md px-3 py-3 text-sm uppercase tracking-[0.14em]"
+        :class="active === l.id ? 'bg-white/5 text-accent-light' : 'text-slate'"
+        :aria-current="active === l.id ? 'true' : undefined"
+        @click="open = false"
+      >
+        {{ l.label }}
+      </a>
+      <CtaLink
+        v-if="cta"
+        :cta="cta"
+        class="mt-3 flex min-h-12 items-center justify-center rounded-md bg-accent text-sm font-bold text-white"
+        @click="open = false"
+      />
+    </div>
   </nav>
 </template>

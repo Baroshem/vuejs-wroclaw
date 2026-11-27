@@ -62,6 +62,6 @@ const { active } = useScrollSpy(links.value.map(l => l.id))
       :links="footerLinks"
       :linkedin="edition.footer.linkedin"
     />
-    <MobileCtaBar :cta="edition.nav.cta" />
+    <MobileTabBar />
   </div>
 </template>

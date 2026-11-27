@@ -1,7 +1,5 @@
 <script setup lang="ts">
 import SectionHeroHome from '~/components/sections/SectionHeroHome.vue'
-
-const cta = { label: 'Edycja 2', href: '/2027' }
 </script>
 
 <template>
@@ -19,6 +17,6 @@ const cta = { label: 'Edycja 2', href: '/2027' }
       :links="[]"
       :linkedin="false"
     />
-    <MobileCtaBar :cta="cta" />
+    <MobileTabBar />
   </div>
 </template>
