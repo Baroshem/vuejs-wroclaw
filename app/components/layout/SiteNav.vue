@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import CtaLink from '~/components/layout/CtaLink.vue'
+import LocaleSwitcher from '~/components/layout/LocaleSwitcher.vue'
 import { SITE_PAGES as pages } from '~/utils/editions'
 import type { CtaLinkData } from './CtaLink.vue'
 

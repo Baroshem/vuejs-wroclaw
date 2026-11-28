@@ -1,11 +1,15 @@
 <script setup lang="ts">
-import SectionCFP from '~/components/sections/SectionCFP.vue'
-import SectionEvent from '~/components/sections/SectionEvent.vue'
-import SectionGallery from '~/components/sections/SectionGallery.vue'
-import SectionHero from '~/components/sections/SectionHero.vue'
-import SectionSpeakers from '~/components/sections/SectionSpeakers.vue'
-import SectionSponsors from '~/components/sections/SectionSponsors.vue'
-import SectionVenue from '~/components/sections/SectionVenue.vue'
+import MobileTabBar from '~/components/layout/MobileTabBar.vue'
+import SiteFooter from '~/components/layout/SiteFooter.vue'
+import SiteNav from '~/components/layout/SiteNav.vue'
+import { useScrollSpy } from '~/composables/useScrollSpy'
+import SectionCFP from '~/components/cfp/SectionCFP.vue'
+import SectionEvent from '~/components/agenda/SectionEvent.vue'
+import SectionGallery from '~/components/gallery/SectionGallery.vue'
+import SectionHero from '~/components/hero/SectionHero.vue'
+import SectionSpeakers from '~/components/speakers/SectionSpeakers.vue'
+import SectionSponsors from '~/components/sponsors/SectionSponsors.vue'
+import SectionVenue from '~/components/venue/SectionVenue.vue'
 import type { Edition } from '~/data/editions/types'
 
 // The only component that knows about an edition: it hands slices of the data to

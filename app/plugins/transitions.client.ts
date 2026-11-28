@@ -1,3 +1,5 @@
+import { useSpaceTravel } from '~/composables/useSpaceTravel'
+
 /**
  * Context for the "planet change" page transition (styles: assets/css/transitions.css).
  *  - data-vt-move on <html>   zoom-in | zoom-out (home <-> edition), fly-fwd | fly-back (edition <-> edition)

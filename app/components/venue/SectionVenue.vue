@@ -1,4 +1,8 @@
 <script setup lang="ts">
+import PlaceholderCard from '~/components/PlaceholderCard.vue'
+import SectionBand from '~/components/layout/SectionBand.vue'
+import SectionHeader from '~/components/layout/SectionHeader.vue'
+import UiButton from '~/components/primitives/UiButton.vue'
 import type { Venue } from '~/data/editions/types'
 
 defineProps<{ venue?: Venue }>()

@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { useSpaceTravel } from '~/composables/useSpaceTravel'
 import type { Frame } from 'vgpu'
 
 // One persistent starfield for the whole site (mounted once in app.vue): it keeps running across

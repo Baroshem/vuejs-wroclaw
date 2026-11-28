@@ -1,4 +1,9 @@
 <script setup lang="ts">
+import PlaceholderCard from '~/components/PlaceholderCard.vue'
+import BonusSlotCard from '~/components/agenda/BonusSlotCard.vue'
+import SectionBand from '~/components/layout/SectionBand.vue'
+import SectionHeader from '~/components/layout/SectionHeader.vue'
+import PersonCard from '~/components/speakers/PersonCard.vue'
 import type { BonusSlot, Person } from '~/data/editions/types'
 
 const props = defineProps<{

@@ -25,7 +25,7 @@ export interface Sponsor {
   logo?: string
 }
 
-export interface Fact {
+interface Fact {
   k: string
   v: string
   sub: string

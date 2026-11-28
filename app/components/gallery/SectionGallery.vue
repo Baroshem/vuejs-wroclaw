@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import SectionBand from '~/components/layout/SectionBand.vue'
+import UiBadge from '~/components/primitives/UiBadge.vue'
 import type { GalleryPhoto } from '~/data/gallery'
 import { PHOTOGRAPHER_URL } from '~/utils/links'
 

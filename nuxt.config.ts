@@ -7,6 +7,11 @@ export default defineNuxtConfig({
     '@nuxtjs/i18n'
   ],
 
+  // Our own components, composables and utils are imported explicitly (no auto-import).
+  // Nuxt, Vue and module auto-imports (ref, useI18n, NuxtLink, UButton, ...) stay on.
+  components: { dirs: [] },
+  imports: { scan: false },
+
   devtools: {
     enabled: true
   },

@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import UiBadge from '~/components/primitives/UiBadge.vue'
 // Badge (optional) + h2 + description (optional). No spacing around itself —
 // the caller adds margins through `class`.
 defineProps<{

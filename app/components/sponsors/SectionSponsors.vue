@@ -1,4 +1,8 @@
 <script setup lang="ts">
+import PlaceholderCard from '~/components/PlaceholderCard.vue'
+import SectionBand from '~/components/layout/SectionBand.vue'
+import SectionHeader from '~/components/layout/SectionHeader.vue'
+import SponsorCard from '~/components/sponsors/SponsorCard.vue'
 import type { Sponsor } from '~/data/editions/types'
 
 defineProps<{

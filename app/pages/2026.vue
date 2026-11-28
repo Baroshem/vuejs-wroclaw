@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import EditionPage from '~/components/EditionPage.vue'
 import { createEdition2026 } from '~/data/editions/2026'
 
 const { t, locale } = useI18n()

@@ -1,4 +1,7 @@
 <script setup lang="ts">
+import SpaceBackground from '~/components/hero/SpaceBackground.vue'
+import { useScrollFx } from '~/composables/useScrollFx'
+
 useScrollFx()
 
 const { t } = useI18n()

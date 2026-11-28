@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import QuestionMarkBadge from '~/components/primitives/QuestionMarkBadge.vue'
 // "Not announced yet" card: dashed panel with the ? badge. Sizing / grid placement
 // comes from the caller through `class`.
 defineProps<{ label: string }>()

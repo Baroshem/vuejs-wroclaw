@@ -1,5 +1,7 @@
 <script setup lang="ts">
-import SectionHeroHome from '~/components/sections/SectionHeroHome.vue'
+import MobileTabBar from '~/components/layout/MobileTabBar.vue'
+import SiteNav from '~/components/layout/SiteNav.vue'
+import SectionHeroHome from '~/components/hero/SectionHeroHome.vue'
 </script>
 
 <template>

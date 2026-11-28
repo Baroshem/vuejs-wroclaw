@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import QuestionMarkBadge from '~/components/primitives/QuestionMarkBadge.vue'
 import type { Talk } from '~/data/editions/types'
 
 // One agenda slot with the offset dashed layer behind it. null = topic not announced → ? card.

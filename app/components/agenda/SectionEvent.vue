@@ -1,4 +1,9 @@
 <script setup lang="ts">
+import AgendaCard from '~/components/agenda/AgendaCard.vue'
+import BonusSlotCard from '~/components/agenda/BonusSlotCard.vue'
+import SectionBand from '~/components/layout/SectionBand.vue'
+import SectionHeader from '~/components/layout/SectionHeader.vue'
+import UiButton from '~/components/primitives/UiButton.vue'
 import type { BonusSlot, Talk } from '~/data/editions/types'
 
 const props = defineProps<{

@@ -1,4 +1,8 @@
 <script setup lang="ts">
+import D20Badge from '~/components/cfp/D20Badge.vue'
+import SectionBand from '~/components/layout/SectionBand.vue'
+import UiBadge from '~/components/primitives/UiBadge.vue'
+import UiButton from '~/components/primitives/UiButton.vue'
 import type { Step } from '~/data/editions/types'
 
 defineProps<{

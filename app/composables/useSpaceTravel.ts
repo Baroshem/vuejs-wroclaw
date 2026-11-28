@@ -3,7 +3,7 @@
  * Transitions "move the camera" through it: a travel is a displacement along (dx, dy) over dur ms,
  * eased in/out; when it ends the displacement is kept (base), so the sky never snaps back.
  */
-export interface SpaceTravel {
+interface SpaceTravel {
   t0: number
   dur: number
   dx: number

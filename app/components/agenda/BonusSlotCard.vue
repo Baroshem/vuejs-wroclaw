@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import QuestionMarkBadge from '~/components/primitives/QuestionMarkBadge.vue'
 // Bonus talk placeholder card — "hidden slot" treatment: offset dashed layer
 // behind the panel + BONUS corner ribbon. The only card allowed to use the
 // ribbon, so "bonus" stays unambiguous vs regular slots.

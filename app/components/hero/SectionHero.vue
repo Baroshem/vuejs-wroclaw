@@ -1,4 +1,7 @@
 <script setup lang="ts">
+import HeroSigil from '~/components/hero/HeroSigil.vue'
+import UiBadge from '~/components/primitives/UiBadge.vue'
+import UiButton from '~/components/primitives/UiButton.vue'
 import type { Cta, Stat } from '~/data/editions/types'
 
 defineProps<{
